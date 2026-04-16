@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation — Lumad Lingua</title>
+  <link rel="stylesheet" href="/src/index.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-forest-900 text-white font-sans">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-forest-900/80 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-linear-to-br from-gold-500 to-orange-500 flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-all duration-300">
+            🌿
+          </div>
+          <span class="font-display text-2xl font-semibold text-gold-500 tracking-tight">
+            Lumad Lingua
+          </span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-2">
+          <a href="/" class="px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 text-white/40 hover:text-white hover:bg-white/5">Home</a>
+          <a href="/about.html" class="px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 text-white/40 hover:text-white hover:bg-white/5">About Us</a>
+          <a href="/learn.html" class="px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 text-white/40 hover:text-white hover:bg-white/5">Learning</a>
+          <a href="/docs.html" class="px-5 py-2 rounded-full text-sm font-bold transition-all duration-200 text-white bg-white/10 shadow-sm">Documentation</a>
+          <a href="/learn.html" class="btn-3d-gold ml-6 !py-2.5 !px-6 !text-sm">Start Learning →</a>
+        </div>
+
+        <div class="md:hidden">
+          <button id="menu-btn" class="p-2 text-white/60 hover:text-white">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-forest-800 border-b border-white/10 px-4 py-4 flex flex-col gap-2">
+      <a href="/" class="px-4 py-3 rounded-xl text-base font-bold text-white/60 hover:text-white hover:bg-white/5">Home</a>
+      <a href="/about.html" class="px-4 py-3 rounded-xl text-base font-bold text-white/60 hover:text-white hover:bg-white/5">About Us</a>
+      <a href="/learn.html" class="px-4 py-3 rounded-xl text-base font-bold text-white/60 hover:text-white hover:bg-white/5">Learning</a>
+      <a href="/docs.html" class="px-4 py-3 rounded-xl text-base font-bold text-white bg-white/10">Documentation</a>
+      <a href="/learn.html" class="btn-3d-gold mt-2 text-center">Start Learning →</a>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 px-4 max-w-7xl mx-auto">
+    <div class="mb-20">
+      <span class="micro-label mb-4 block">Documentation Archive</span>
+      <h1 class="font-display text-5xl md:text-6xl font-semibold mb-10">Explore the <span class="text-brand-green">Living</span> Archive</h1>
+      
+      <div class="flex flex-col md:flex-row gap-4">
+        <div class="relative flex-1 group">
+          <i data-lucide="search" class="absolute left-5 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-brand-green transition-colors w-5 h-5"></i>
+          <input 
+            type="text" 
+            placeholder="Search words, recordings, places..." 
+            class="w-full bg-white/5 border border-white/10 rounded-[20px] py-5 pl-14 pr-6 text-white placeholder:text-white/20 focus:outline-none focus:border-brand-green/50 focus:bg-white/10 transition-all shadow-inner"
+          >
+        </div>
+        <button class="btn-3d-secondary !py-5 flex items-center gap-3 px-8">
+          <i data-lucide="filter" class="w-[18px] h-[18px]"></i>
+          Advanced Filters
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-8 space-y-6">
+        <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/5">
+          <h2 class="font-display text-2xl font-semibold">Recent Recordings</h2>
+          <div class="flex items-center gap-2 text-[10px] font-extrabold text-white/20 uppercase tracking-widest">
+            Showing <span class="text-white/60">3</span> of 47
+          </div>
+        </div>
+
+        <!-- Recording 1 -->
+        <div class="group p-8 rounded-[32px] bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-green/20 transition-all cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 h-full bg-brand-green opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="flex flex-col md:flex-row justify-between gap-8">
+            <div class="flex gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shadow-inner group-hover:scale-110 transition-transform duration-300">
+                <i data-lucide="mic" class="w-7 h-7"></i>
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold mb-2 group-hover:text-brand-green transition-colors">Morning Greeting</h3>
+                <div class="flex flex-wrap gap-4">
+                  <span class="px-3 py-1 rounded-lg bg-brand-green/10 text-brand-green text-[10px] font-extrabold uppercase tracking-widest">Mansaka</span>
+                  <span class="text-xs font-bold text-white/40 flex items-center gap-1.5">
+                    <i data-lucide="map-pin" class="text-white/20 w-3.5 h-3.5"></i> Kaligutan
+                  </span>
+                  <span class="text-xs font-bold text-white/40 flex items-center gap-1.5">
+                    <i data-lucide="play" class="text-white/20 w-3.5 h-3.5"></i> 0:45
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between md:flex-col md:items-end gap-3">
+              <span class="text-[10px] font-extrabold text-white/20 uppercase tracking-widest">Mar 2026</span>
+              <div class="flex items-center gap-3">
+                <div class="text-right">
+                  <div class="text-xs font-bold text-white/60">Elder Lumayao</div>
+                  <div class="text-[9px] font-extrabold text-white/20 uppercase tracking-widest">Speaker</div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-lg">👴🏽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recording 2 -->
+        <div class="group p-8 rounded-[32px] bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-green/20 transition-all cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 h-full bg-brand-green opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="flex flex-col md:flex-row justify-between gap-8">
+            <div class="flex gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shadow-inner group-hover:scale-110 transition-transform duration-300">
+                <i data-lucide="mic" class="w-7 h-7"></i>
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold mb-2 group-hover:text-brand-green transition-colors">The Spirit of the Forest</h3>
+                <div class="flex flex-wrap gap-4">
+                  <span class="px-3 py-1 rounded-lg bg-brand-green/10 text-brand-green text-[10px] font-extrabold uppercase tracking-widest">Mandaya</span>
+                  <span class="text-xs font-bold text-white/40 flex items-center gap-1.5">
+                    <i data-lucide="map-pin" class="text-white/20 w-3.5 h-3.5"></i> New Bataan
+                  </span>
+                  <span class="text-xs font-bold text-white/40 flex items-center gap-1.5">
+                    <i data-lucide="play" class="text-white/20 w-3.5 h-3.5"></i> 2:12
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between md:flex-col md:items-end gap-3">
+              <span class="text-[10px] font-extrabold text-white/20 uppercase tracking-widest">Feb 2026</span>
+              <div class="flex items-center gap-3">
+                <div class="text-right">
+                  <div class="text-xs font-bold text-white/60">Bae Mandaya</div>
+                  <div class="text-[9px] font-extrabold text-white/20 uppercase tracking-widest">Speaker</div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-lg">👵🏽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recording 3 -->
+        <div class="group p-8 rounded-[32px] bg-white/5 border border-white/5 hover:bg-white/10 hover:border-brand-green/20 transition-all cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 h-full bg-brand-green opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="flex flex-col md:flex-row justify-between gap-8">
+            <div class="flex gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green shadow-inner group-hover:scale-110 transition-transform duration-300">
+                <i data-lucide="mic" class="w-7 h-7"></i>
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold mb-2 group-hover:text-brand-green transition-colors">Counting to Ten</h3>
+                <div class="flex flex-wrap gap-4">
+                  <span class="px-3 py-1 rounded-lg bg-brand-green/10 text-brand-green text-[10px] font-extrabold uppercase tracking-widest">Mansaka</span>
+                  <span class="text-xs font-bold text-white/40 flex items-center gap-1.5">
+                    <i data-lucide="map-pin" class="text-white/20 w-3.5 h-3.5"></i> Maco
+                  </span>
+                  <span class="text-xs font-bold text-white/40 flex items-center gap-1.5">
+                    <i data-lucide="play" class="text-white/20 w-3.5 h-3.5"></i> 1:05
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between md:flex-col md:items-end gap-3">
+              <span class="text-[10px] font-extrabold text-white/20 uppercase tracking-widest">Jan 2026</span>
+              <div class="flex items-center gap-3">
+                <div class="text-right">
+                  <div class="text-xs font-bold text-white/60">Datu Bago</div>
+                  <div class="text-[9px] font-extrabold text-white/20 uppercase tracking-widest">Speaker</div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-lg">👴🏽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button class="w-full py-5 rounded-[24px] border border-dashed border-white/10 text-xs font-extrabold uppercase tracking-[0.2em] text-white/20 hover:border-white/30 hover:text-white/40 transition-all">
+          Load More Recordings
+        </button>
+      </div>
+
+      <div class="lg:col-span-4 space-y-8">
+        <div class="card-glass p-8 overflow-hidden relative group">
+          <div class="absolute top-[-20%] right-[-20%] p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+            <i data-lucide="map" class="w-[200px] h-[200px]"></i>
+          </div>
+          <h3 class="font-display text-2xl font-semibold mb-4">Geo-Tag Map</h3>
+          <p class="text-white/40 text-sm font-medium mb-8 leading-relaxed">
+            Visualize the distribution of recordings across Mindanao with our interactive heatmap.
+          </p>
+          <button class="btn-3d-gold !bg-brand-green !shadow-[0_5px_0_#226636] w-full py-4">
+            Open Map View
+          </button>
+        </div>
+
+        <div class="card-glass p-8 relative overflow-hidden">
+           <div class="absolute top-[-20%] right-[-20%] w-40 h-40 bg-brand-blue/5 rounded-full blur-3xl"></div>
+          <h3 class="font-display text-2xl font-semibold mb-4">Dictionary</h3>
+          <p class="text-white/40 text-sm font-medium mb-8 leading-relaxed">
+            Search over 200+ validated dictionary entries with phonetic transcriptions.
+          </p>
+          <button class="btn-3d-secondary w-full flex items-center justify-center gap-3 py-4">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+            Open Dictionary
+          </button>
+        </div>
+        
+        <div class="p-8 rounded-[32px] bg-linear-to-br from-brand-green/10 to-transparent border border-brand-green/20">
+          <h3 class="font-display text-xl font-semibold mb-4 text-brand-green">Contribute</h3>
+          <p class="text-white/40 text-sm font-medium mb-6 leading-relaxed">
+            Are you a community member? Help us preserve your language.
+          </p>
+          <button class="text-xs font-extrabold text-white uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
+            Learn how to contribute <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-forest-900 border-t border-white/10 py-12 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="col-span-1 md:col-span-2">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-linear-to-br from-gold-500 to-orange-500 flex items-center justify-center text-base">🌿</div>
+          <span class="font-display text-lg font-semibold text-gold-500">Lumad Lingua</span>
+        </a>
+        <p class="text-white/40 text-sm max-w-md leading-relaxed">
+          Preserving and revitalizing endangered Lumad languages through technology. 
+          Built with and for the indigenous communities of Mindanao.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-display text-white font-semibold mb-4">Platform</h4>
+        <ul class="space-y-2 text-sm text-white/40">
+          <li><a href="/learn.html" class="hover:text-gold-500 transition-colors">Learning Module</a></li>
+          <li><a href="/docs.html" class="hover:text-gold-500 transition-colors">Documentation Archive</a></li>
+          <li><a href="/about.html" class="hover:text-gold-500 transition-colors">About the Project</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-display text-white font-semibold mb-4">Community</h4>
+        <ul class="space-y-2 text-sm text-white/40">
+          <li><a href="#" class="hover:text-gold-500 transition-colors">Mansaka People</a></li>
+          <li><a href="#" class="hover:text-gold-500 transition-colors">Mandaya People</a></li>
+          <li><a href="#" class="hover:text-gold-500 transition-colors">NCIP Partners</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/20 font-bold uppercase tracking-widest">
+      <p>© 2026 LUMAD LINGUA — BSIT CAPSTONE, DNSC</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fredoka", sans-serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-forest-900: #030a04;
+  --color-forest-800: #061209;
+  --color-forest-700: #0d1e0d;
+  --color-forest-600: #14241a;
+  --color-forest-500: #1e3a22;
+  --color-forest-400: #2a5230;
+  --color-forest-300: #3d7045;
+  --color-forest-200: #65a870;
+  --color-forest-100: #a8d4ae;
+  --color-forest-50: #e8f4ea;
+
+  --color-gold-900: #4a2e00;
+  --color-gold-800: #7a4f00;
+  --color-gold-700: #b88500;
+  --color-gold-600: #d4a000;
+  --color-gold-500: #ffc200;
+  --color-gold-400: #ffd03a;
+  --color-gold-300: #ffe080;
+  --color-gold-200: #fff0b3;
+  --color-gold-100: #fff8de;
+  --color-gold-50: #fffdf5;
+
+  --color-cream-bg: #fef8ed;
+  --color-cream-brd: #e0cfa8;
+  --color-cream-shd: #b8a070;
+  --color-cream-text: #1a0e05;
+  --color-cream-text2: #7a5c3a;
+  --color-cream-text3: #a8906e;
+
+  --color-brand-red: #f04848;
+  --color-brand-green: #3daf5c;
+  --color-brand-blue: #3b91e0;
+}
+
+@layer base {
+  body {
+    @apply bg-forest-700 text-white font-sans;
+  }
+}
+
+@layer components {
+  .btn-3d-gold {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-[15px] border-none bg-gold-500 text-cream-text font-extrabold cursor-pointer shadow-[0_5px_0_theme(colors.gold.700),0_8px_24px_rgba(255,194,0,0.22)] transition-all active:translate-y-[5px] active:shadow-none hover:shadow-[0_5px_0_theme(colors.gold.700),0_12px_28px_rgba(255,194,0,0.3)] hover:-translate-y-[1px];
+  }
+
+  .btn-3d-secondary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-[15px] border-[2.5px] border-white/15 bg-white/5 text-white font-extrabold cursor-pointer transition-all hover:border-gold-500/40 hover:bg-gold-500/10 hover:text-gold-500 active:translate-y-[2px];
+  }
+
+  .card-cream {
+    @apply bg-cream-bg border-[2.5px] border-cream-brd rounded-[24px] p-8 shadow-[0_6px_0_theme(colors.cream.shd),0_12px_32px_rgba(0,0,0,0.15)] transition-all hover:translate-y-[-4px] hover:shadow-[0_10px_0_theme(colors.gold.700),0_20px_40px_rgba(0,0,0,0.2)];
+  }
+
+  .card-glass {
+    @apply bg-white/5 border border-white/10 rounded-[24px] p-8 backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/20;
+  }
+
+  .micro-label {
+    @apply text-[10px] font-extrabold uppercase tracking-[0.25em] text-gold-500;
+  }
+
+  .section-divider {
+    @apply w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent my-16;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
