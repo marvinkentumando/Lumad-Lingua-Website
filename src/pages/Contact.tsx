@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <div className="bg-cream-bg min-h-screen font-sans selection:bg-gold-200">
       {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 max-w-7xl mx-auto">
+      <section className="pt-40 pb-20 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -21,7 +21,7 @@ export default function Contact() {
         </motion.div>
       </section>
 
-      <section className="pb-32 px-4 max-w-7xl mx-auto">
+      <section className="pb-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           {/* Contact Form */}
           <motion.div

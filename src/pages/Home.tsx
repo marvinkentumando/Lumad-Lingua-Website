@@ -6,24 +6,28 @@ export default function Home() {
   return (
     <div className="bg-cream-bg text-cream-text font-sans overflow-x-hidden selection:bg-gold-200 transition-colors duration-300">
       {/* Hero Section - Clean Editorial Layout */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden">
         {/* Soft Glow Decoration */}
         <div className="absolute top-0 right-0 w-[60%] h-full bg-radial-[circle_at_70%_40%] from-gold-500/10 to-transparent pointer-events-none blur-3xl" />
         
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10 max-w-2xl"
+            className="relative z-10 max-w-2xl text-center lg:text-left order-2 lg:order-1"
           >
-            <h1 className="font-display text-6xl md:text-8xl font-black mb-8 leading-tight tracking-tight text-hero-heading">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 mb-8 mx-auto lg:mx-0">
+              <Mountain size={14} className="text-gold-700" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gold-700">Level 1: The Foothills</span>
+            </div>
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-none tracking-tight text-hero-heading">
               The Ancestral Ascent
             </h1>
-            <p className="text-lg md:text-xl text-hero-body font-medium leading-relaxed mb-12 max-w-xl">
+            <p className="text-lg md:text-xl text-hero-body font-medium leading-relaxed mb-12 max-w-xl mx-auto lg:mx-0">
               Learning a language is not just acquiring words; it is an ascent up a mist-shrouded mountain of heritage. Every step reveals a story, every breath a connection to those who walked before us.
             </p>
-            <div className="flex flex-col sm:flex-row gap-5">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
               <Link 
                 to="/learn" 
                 className="px-10 py-5 rounded-full bg-forest-700 text-white font-bold text-lg hover:bg-black transition-all shadow-lg shadow-forest-900/10 text-center"
@@ -43,7 +47,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:justify-end order-1 lg:order-2"
           >
             {/* Character Icon Placeholder - Matching the provided image style */}
             <div className="relative w-full max-w-md aspect-square">
@@ -58,12 +62,97 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
+          <span className="text-[9px] font-black uppercase tracking-[0.3em] text-hero-body/40">Scroll to Ascent</span>
+          <motion.div 
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="w-px h-12 bg-linear-to-b from-gold-500 to-transparent"
+          />
+        </motion.div>
+      </section>
+
+      {/* Community Progress Section */}
+      <section className="py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900/30 transition-colors duration-500">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div>
+              <span className="micro-label mb-4 block">Live Community Impact</span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-hero-heading">The Collective Ascent</h2>
+              <p className="text-lg text-hero-body font-medium mb-10 leading-relaxed">
+                We are currently at <span className="text-gold-700 font-black">68%</span> of our goal to document the 18 major Lumad dialects. Every recording you contribute brings us closer to the summit.
+              </p>
+              
+              <div className="space-y-8">
+                <div>
+                  <div className="flex justify-between mb-3">
+                    <span className="text-xs font-extrabold tracking-widest uppercase text-hero-body">Dialect Documentation</span>
+                    <span className="text-xs font-black text-gold-700">68%</span>
+                  </div>
+                  <div className="ascent-progress-track">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "68%" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, ease: "easeOut" }}
+                      className="ascent-progress-bar"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between mb-3">
+                    <span className="text-xs font-extrabold tracking-widest uppercase text-hero-body">Sacred Stories Preserved</span>
+                    <span className="text-xs font-black text-gold-700">42%</span>
+                  </div>
+                  <div className="ascent-progress-track">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "42%" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                      className="ascent-progress-bar !bg-forest-300"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { label: "Words Recorded", value: "12.4k+", color: "text-gold-700" },
+                { label: "Active Stewards", value: "840", color: "text-forest-500" },
+                { label: "Dialects Saved", value: "12", color: "text-brand-blue" },
+                { label: "Audio Hours", value: "3.2k", color: "text-brand-red" }
+              ].map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="card-cream !p-8 text-center"
+                >
+                  <div className={`text-3xl md:text-4xl font-black mb-2 ${stat.color}`}>{stat.value}</div>
+                  <div className="micro-label">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Platform Story - Woven Grid */}
-      <section className="py-40 px-4 relative overflow-hidden">
+      <section className="pt-40 pb-10 px-4 sm:px-8 lg:px-12 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
               <span className="micro-label mb-6 block">Our Philosophy</span>
               <h2 className="font-display text-5xl md:text-6xl font-bold mb-8 text-forest-700 dark:text-white leading-tight">
@@ -121,13 +210,13 @@ export default function Home() {
       </section>
 
       {/* Partners Section - Enhanced */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto bg-forest-900 rounded-[60px] p-12 md:p-24 text-center relative overflow-hidden">
+      <section className="pt-0 pb-20 px-4">
+        <div className="max-w-7xl mx-auto bg-white dark:bg-forest-900/40 border border-cream-brd/30 dark:border-white/10 rounded-[60px] p-12 md:p-24 text-center relative overflow-hidden transition-colors duration-500">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-radial-[circle_at_100%_0%] from-gold-500/10 to-transparent pointer-events-none" />
           
-          <span className="micro-label text-gold-500/60 mb-6 block">Collaborators</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-white">Our Partners in Preservation</h2>
-          <p className="text-white/40 text-lg font-bold mb-20 uppercase tracking-widest max-w-2xl mx-auto">
+          <span className="micro-label mb-6 block">Collaborators</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-[#b88500]">Our Partners in Preservation</h2>
+          <p className="text-hero-body/60 text-lg font-bold mb-20 uppercase tracking-widest max-w-2xl mx-auto">
             Working directly with the guardians of ancestral voices.
           </p>
           
@@ -143,28 +232,28 @@ export default function Home() {
                 whileHover={{ y: -5 }}
                 className="flex flex-col items-center gap-6"
               >
-                <div className="w-24 h-24 rounded-[32px] bg-white/5 border border-white/10 flex items-center justify-center text-gold-500 shadow-xl backdrop-blur-sm">
+                <div className="w-24 h-24 rounded-[32px] bg-cream-bg dark:bg-white/5 border border-cream-brd/50 dark:border-white/10 flex items-center justify-center text-gold-500 shadow-xl backdrop-blur-sm">
                   {partner.icon}
                 </div>
-                <span className="text-[10px] font-extrabold tracking-[0.2em] text-white/40 uppercase">{partner.label}</span>
+                <span className="text-[10px] font-extrabold tracking-[0.2em] text-hero-body/40 uppercase">{partner.label}</span>
               </motion.div>
             ))}
           </div>
 
-          <Link to="/about" className="btn-secondary-dark">
+          <Link to="/about" className="btn-primary inline-flex items-center gap-2">
             Meet the Guardians <ArrowRight size={18} />
           </Link>
         </div>
       </section>
 
       {/* Core Pillars - Card Overhaul */}
-      <section className="py-40 px-4 max-w-7xl mx-auto relative">
+      <section className="py-40 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto relative">
         <div className="text-center mb-24">
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-forest-700 dark:text-white mb-6">The Three Core Pillars</h2>
+          <h2 className="font-display text-5xl md:text-6xl font-bold text-[#b88500] mb-6">The Three Core Pillars</h2>
           <p className="micro-label">Foundational Truths</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {[
             {
               title: "Rootedness",
@@ -204,7 +293,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA - Join the Ascent */}
-      <section className="py-40 px-6 relative bg-cream-bg overflow-hidden">
+      <section className="py-40 px-4 sm:px-8 lg:px-12 relative bg-cream-bg overflow-hidden">
         {/* Large Faint Tree Outlines */}
         <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 text-forest-900/5 pointer-events-none">
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -229,7 +318,7 @@ export default function Home() {
             </div>
           </div>
           
-          <h2 className="font-display text-5xl md:text-7xl font-black mb-8 text-hero-heading">
+          <h2 className="font-display text-5xl md:text-7xl font-black mb-8 text-[#b88500]">
             Join the Ascent
           </h2>
           <p className="text-lg md:text-xl text-hero-heading font-medium mb-16 max-w-2xl mx-auto leading-relaxed">

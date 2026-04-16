@@ -35,7 +35,7 @@ export default function About() {
   return (
     <div className="bg-cream-bg min-h-screen font-sans selection:bg-gold-200">
       {/* Hero Section */}
-      <section className="pt-40 pb-32 px-4 max-w-7xl mx-auto">
+      <section className="pt-40 pb-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function About() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-32 px-4 bg-white/40 border-y border-cream-brd/30">
+      <section className="py-32 px-4 sm:px-8 lg:px-12 bg-white/40 border-y border-cream-brd/30">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="space-y-10">
             <h2 className="font-display text-4xl md:text-5xl font-bold text-cream-text leading-tight">
@@ -81,7 +81,7 @@ export default function About() {
       </section>
 
       {/* Values Grid */}
-      <section className="py-32 px-4 max-w-7xl mx-auto">
+      <section className="py-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl font-bold text-cream-text mb-4">Our Core Values</h2>
           <p className="micro-label">The foundation of our work</p>
@@ -107,34 +107,34 @@ export default function About() {
       </section>
 
       {/* Partners Integrated Section */}
-      <section className="py-32 px-4 bg-forest-900 text-white rounded-[60px] mx-4 mb-32 relative overflow-hidden">
+      <section className="py-32 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900/40 border border-cream-brd/30 dark:border-white/10 rounded-[60px] mx-4 mb-32 relative overflow-hidden transition-colors duration-500">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-radial-[circle_at_100%_0%] from-gold-500/10 to-transparent pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <span className="micro-label text-gold-500/60 mb-6 block">Collaborators</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold mb-8">Built by the <span className="text-gold-500">Community</span></h2>
-              <p className="text-white/60 text-lg font-medium mb-12 leading-relaxed">
+              <span className="micro-label mb-6 block">Collaborators</span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 text-hero-heading">Built by the <span className="text-gold-500">Community</span></h2>
+              <p className="text-hero-body/60 text-lg font-medium mb-12 leading-relaxed">
                 Content co-created with NCIP-recognized tribal leaders and validated by 
                 community elders of the Mansaka and Mandaya peoples.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {partners.map((p) => (
-                  <div key={p.name} className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
+                  <div key={p.name} className="flex items-center gap-4 p-4 rounded-2xl bg-cream-bg dark:bg-white/5 border border-cream-brd/50 dark:border-white/10">
                     <div className="w-10 h-10 rounded-xl bg-gold-500/20 flex items-center justify-center text-gold-500">
                       {p.icon}
                     </div>
                     <div>
-                      <div className="text-sm font-bold">{p.name}</div>
-                      <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">{p.role}</div>
+                      <div className="text-sm font-bold text-hero-heading">{p.name}</div>
+                      <div className="text-[10px] text-hero-body/40 uppercase tracking-widest font-bold">{p.role}</div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
             
-            <div className="bg-white/5 border border-white/10 rounded-[40px] p-12">
-              <h3 className="font-display text-2xl font-bold mb-10 text-center">The Research Team</h3>
+            <div className="bg-cream-bg dark:bg-white/5 border border-cream-brd/50 dark:border-white/10 rounded-[40px] p-12">
+              <h3 className="font-display text-2xl font-bold mb-10 text-center text-hero-heading">The Research Team</h3>
               <div className="grid grid-cols-2 gap-12">
                 {[
                   { label: "Developer", name: "Giverola" },
@@ -144,13 +144,13 @@ export default function About() {
                 ].map((member) => (
                   <div key={member.name} className="text-center">
                     <div className="text-[10px] font-extrabold text-gold-500/60 uppercase tracking-[0.2em] mb-2">{member.label}</div>
-                    <div className="text-lg font-bold text-white tracking-tight">{member.name}</div>
+                    <div className="text-lg font-bold text-hero-heading tracking-tight">{member.name}</div>
                   </div>
                 ))}
               </div>
-              <div className="mt-12 pt-12 border-t border-white/10 text-center">
-                <div className="text-[10px] font-extrabold text-white/30 uppercase tracking-[0.3em] mb-4">Institution</div>
-                <div className="text-sm font-bold text-white/80">Davao del Norte State College</div>
+              <div className="mt-12 pt-12 border-t border-cream-brd/30 dark:border-white/10 text-center">
+                <div className="text-[10px] font-extrabold text-hero-body/30 uppercase tracking-[0.3em] mb-4">Institution</div>
+                <div className="text-sm font-bold text-hero-body/80">Davao del Norte State College</div>
               </div>
             </div>
           </div>

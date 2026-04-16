@@ -58,7 +58,7 @@ export default function Learn() {
   return (
     <div className="bg-cream-bg min-h-screen font-sans">
       {/* Hero Section */}
-      <section className="bg-gold-500 pt-32 pb-24 px-4 relative overflow-hidden">
+      <section className="bg-gold-500 pt-32 pb-24 px-4 sm:px-8 lg:px-12 relative overflow-hidden">
         {/* Fern Decoration */}
         <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block">
           <svg width="400" height="400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round">
@@ -113,7 +113,7 @@ export default function Learn() {
       </section>
 
       {/* Categories Grid */}
-      <section className="max-w-7xl mx-auto px-4 py-20 mb-32">
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-20 mb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((cat, i) => (
             <motion.div
@@ -121,12 +121,12 @@ export default function Learn() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="card-cream !p-10 flex flex-col"
+              className="card-cream !p-10 flex flex-col group"
             >
-              <div className={`w-14 h-14 ${cat.iconBg} rounded-xl flex items-center justify-center mb-8`}>
+              <div className={`w-14 h-14 ${cat.iconBg} rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
                 {cat.icon}
               </div>
-              <h3 className="font-display text-2xl font-bold mb-6 text-cream-text">{cat.title}</h3>
+              <h3 className="font-display text-2xl font-bold mb-6 text-cream-text group-hover:text-gold-700 transition-colors">{cat.title}</h3>
               <ul className="space-y-4 mb-10 flex-grow">
                 {cat.links.map(link => (
                   <li key={link}>
@@ -165,7 +165,7 @@ export default function Learn() {
       </section>
 
       {/* FAQ Section */}
-      <section className="max-w-4xl mx-auto px-4 mb-32">
+      <section className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12 mb-32">
         <h2 className="font-display text-4xl font-bold text-center mb-16 text-cream-text">Frequently Asked Questions</h2>
         <div className="space-y-6">
           {faqs.map((faq, i) => (
@@ -191,7 +191,7 @@ export default function Learn() {
       </section>
 
       {/* Contact Section */}
-      <section className="max-w-7xl mx-auto px-4 mb-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 mb-20">
         <div className="bg-brand-green/10 rounded-[40px] p-16 md:p-24 text-center relative overflow-hidden">
           {/* Fern Decoration */}
           <div className="absolute left-[-5%] bottom-[-10%] opacity-10 pointer-events-none">

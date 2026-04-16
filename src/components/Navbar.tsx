@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
+import { motion } from "motion/react";
 import { useTheme } from "../context/ThemeContext";
 
 export default function Navbar() {
@@ -45,10 +46,16 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-cream-bg border border-cream-brd/50 text-cream-text2 hover:text-gold-600 hover:border-gold-500 transition-all dark:bg-white/5 dark:border-white/10 dark:text-white/60 dark:hover:text-gold-500"
+              className="p-2.5 rounded-xl bg-cream-bg border border-cream-brd/50 text-cream-text2 hover:text-gold-600 hover:border-gold-500 transition-all dark:bg-white/5 dark:border-white/10 dark:text-white/60 dark:hover:text-gold-500 overflow-hidden relative group"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+              <motion.div
+                initial={false}
+                animate={{ rotate: theme === 'light' ? 0 : 180, scale: theme === 'light' ? 1 : 0.8 }}
+                transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              >
+                {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+              </motion.div>
             </button>
             <Link to="/learn" className="btn-sm">
               Get Started
