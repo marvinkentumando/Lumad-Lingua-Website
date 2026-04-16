@@ -1,239 +1,193 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Book, Map, Users, Globe, Sparkles, Play, Mic, Shield } from "lucide-react";
+import { Landmark, Users, Shield, Flower2, Mountain } from "lucide-react";
 
 export default function Home() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
-  };
-
   return (
-    <div className="flex flex-col min-h-screen bg-forest-900">
+    <div className="bg-[#FDFBF4] text-[#1A1A1A] font-sans overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[95vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden pt-20">
-        {/* Atmospheric Background */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[150%] h-[80%] bg-radial-[ellipse_60%_50%_at_50%_0%] from-gold-500/15 via-gold-500/5 to-transparent opacity-80 blur-3xl" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-radial-[circle_at_center] from-brand-green/10 to-transparent opacity-40 blur-3xl" />
-          <div className="absolute top-[30%] right-[-10%] w-[50%] h-[50%] bg-radial-[circle_at_center] from-brand-blue/5 to-transparent opacity-30 blur-3xl" />
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.01)_0,rgba(255,255,255,0.01)_1px,transparent_0,transparent_50%)] bg-[length:12px_12px]" />
-        </div>
-
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="relative z-10 max-w-5xl mx-auto"
-        >
-          <motion.div
-            variants={itemVariants}
-            className="micro-label mb-8 px-5 py-2 rounded-full bg-gold-500/5 border border-gold-500/20 inline-block"
-          >
-            🌿 Preserving Lumad Heritage Through Technology
-          </motion.div>
-
-          <motion.h1
-            variants={itemVariants}
-            className="font-display text-6xl md:text-8xl lg:text-9xl font-semibold leading-[0.95] mb-8 tracking-tight text-balance"
-          >
-            Speak the <span className="text-gold-500 italic">Ancestors'</span> <span className="text-brand-green">Words</span>
-          </motion.h1>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-white/60 text-lg md:text-2xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed text-balance"
-          >
-            A geo-tagged documentation platform and gamified learning app 
-            for the endangered Lumad languages of Mindanao.
-          </motion.p>
-
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-5 mb-20">
-            <Link to="/learn" className="btn-3d-gold px-10 py-4 text-lg">
-              🎮 Start Learning
-            </Link>
-            <Link to="/docs" className="btn-3d-secondary px-10 py-4 text-lg">
-              🗺️ Explore Archive
-            </Link>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {[
-              { label: "Dictionary entries", value: "214", icon: <Book size={14} /> },
-              { label: "Audio recordings", value: "47", icon: <Mic size={14} /> },
-              { label: "Communities", value: "3", icon: <Users size={14} /> },
-              { label: "Lesson modules", value: "5", icon: <Play size={14} /> },
-            ].map((stat) => (
-              <div key={stat.label} className="p-4 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center gap-1 group hover:bg-white/10 transition-colors">
-                <div className="text-gold-500/40 group-hover:text-gold-500 transition-colors mb-1">{stat.icon}</div>
-                <span className="text-2xl font-display font-semibold text-white">{stat.value}</span>
-                <span className="text-[10px] font-extrabold text-white/30 uppercase tracking-widest">{stat.label}</span>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white/20"
-        >
-          <span>Explore Journey</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="text-xl"
-          >
-            ↓
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Modules Section */}
-      <section className="py-32 px-4 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-20">
-          <div className="lg:col-span-7">
-            <span className="micro-label mb-4 block">Two platforms, one mission</span>
-            <h2 className="font-display text-5xl md:text-6xl font-semibold mb-6 leading-tight">Everything you need to <span className="text-gold-500">learn</span> and <span className="text-brand-green">preserve</span></h2>
-          </div>
-          <div className="lg:col-span-5">
-            <p className="text-white/50 text-lg font-medium leading-relaxed border-l-2 border-gold-500/30 pl-8">
-              Whether you're a student discovering your heritage or a researcher documenting languages, 
-              Lumad Lingua provides the bridge between generations.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Learn Card */}
-          <motion.div
-            whileHover={{ y: -8 }}
-            className="card-cream group relative overflow-hidden flex flex-col"
-          >
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl group-hover:bg-gold-500/20 transition-all duration-500" />
-            <div className="w-20 h-20 rounded-3xl bg-gold-500/10 flex items-center justify-center text-4xl mb-8 shadow-inner">🎮</div>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-gold-500/15 text-gold-700 text-[10px] font-extrabold uppercase tracking-widest mb-6 w-fit">Learning Module</span>
-            <h3 className="font-display text-3xl md:text-4xl font-semibold text-cream-text mb-6">Gamified Learning</h3>
-            <p className="text-cream-text2 text-lg font-medium mb-10 leading-relaxed">
-              Master Mansaka and Mandaya vocabulary through interactive quizzes, listening exercises, 
-              and word challenges — all designed like a game.
-            </p>
-            <div className="space-y-4 mb-12 flex-grow">
-              {[
-                { text: "Multiple-choice translation drills", icon: "💬" },
-                { text: "Listening comprehension exercises", icon: "🎧" },
-                { text: "Word arrangement challenges", icon: "📝" },
-                { text: "XP, streaks & heart system", icon: "⭐" },
-              ].map((feat) => (
-                <div key={feat.text} className="flex items-center gap-4 text-sm font-bold text-cream-text2">
-                  <div className="w-6 h-6 rounded-lg bg-gold-500/10 flex items-center justify-center text-xs">{feat.icon}</div>
-                  {feat.text}
-                </div>
-              ))}
-            </div>
-            <Link to="/learn" className="btn-3d-gold w-full justify-center py-5 text-lg">
-              Start Learning →
-            </Link>
-          </motion.div>
-
-          {/* Docs Card */}
-          <motion.div
-            whileHover={{ y: -8 }}
-            className="card-cream group relative overflow-hidden flex flex-col"
-          >
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-green/10 rounded-full blur-3xl group-hover:bg-brand-green/20 transition-all duration-500" />
-            <div className="w-20 h-20 rounded-3xl bg-brand-green/10 flex items-center justify-center text-4xl mb-8 shadow-inner">🗺️</div>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-green/15 text-brand-green text-[10px] font-extrabold uppercase tracking-widest mb-6 w-fit">Documentation Module</span>
-            <h3 className="font-display text-3xl md:text-4xl font-semibold text-cream-text mb-6">Language Archive</h3>
-            <p className="text-cream-text2 text-lg font-medium mb-10 leading-relaxed">
-              Explore geo-tagged audio recordings, a searchable digital dictionary, 
-              and interactive maps showing where each language lives.
-            </p>
-            <div className="space-y-4 mb-12 flex-grow">
-              {[
-                { text: "Interactive heatmap of recordings", icon: "🗺️" },
-                { text: "Audio archive with waveform player", icon: "🎵" },
-                { text: "Searchable digital dictionary", icon: "📖" },
-                { text: "Community validator workflow", icon: "✅" },
-              ].map((feat) => (
-                <div key={feat.text} className="flex items-center gap-4 text-sm font-bold text-cream-text2">
-                  <div className="w-6 h-6 rounded-lg bg-brand-green/10 flex items-center justify-center text-xs">{feat.icon}</div>
-                  {feat.text}
-                </div>
-              ))}
-            </div>
-            <Link to="/docs" className="btn-3d-gold !bg-brand-green !shadow-[0_6px_0_#226636] w-full justify-center py-5 text-lg">
-              Explore Archive →
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Mission Section */}
-      <section className="bg-linear-to-b from-forest-800 to-forest-900 border-y border-white/10 py-32 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-radial-[circle_at_50%_50%] from-gold-500/5 to-transparent pointer-events-none" />
-        <div className="max-w-4xl mx-auto relative z-10">
+      <section className="relative pt-32 pb-20 px-4 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 min-h-[80vh]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold-500/10 rounded-full blur-[120px] pointer-events-none" />
+        
+        <div className="lg:w-1/2 relative z-10 flex justify-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="text-7xl mb-12 drop-shadow-2xl"
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative w-full max-w-md aspect-[3/4] bg-linear-to-b from-transparent to-black/5 rounded-[60px] flex items-end justify-center overflow-hidden"
           >
-            🌏
+            <img 
+              src="https://picsum.photos/seed/lumad/800/1200" 
+              alt="Lumad Character" 
+              className="w-full h-full object-cover mix-blend-multiply opacity-80"
+              referrerPolicy="no-referrer"
+            />
+            {/* Soft Glow behind character */}
+            <div className="absolute inset-0 bg-radial-[circle_at_50%_40%] from-gold-500/20 to-transparent" />
           </motion.div>
-          <span className="micro-label mb-6 block">Our foundation</span>
-          <h2 className="font-display text-4xl md:text-6xl font-semibold mb-8 leading-tight text-balance">Every language lost is a <span className="text-gold-500">library burned</span></h2>
-          <p className="text-white/60 text-lg md:text-xl font-medium leading-relaxed mb-12 max-w-2xl mx-auto">
-            UNESCO estimates 2,500 languages worldwide are currently endangered. 
-            Mansaka and Mandaya are among them. Each language encodes unique frameworks 
-            for understanding nature, kinship, and community.
-          </p>
-          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 text-base font-extrabold text-brand-blue shadow-lg">
-            <Shield size={20} />
-            🎓 Aligned with UN SDG 4 — Quality Education
+        </div>
+
+        <div className="lg:w-1/2 relative z-10 text-center lg:text-left">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-display text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[0.9] tracking-tight"
+          >
+            The Ancestral <br /> Ascent
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-lg md:text-xl text-black/70 font-medium leading-relaxed mb-12 max-w-xl"
+          >
+            Learning a language is not just acquiring words; it is an ascent up a mist-shrouded mountain of heritage. Every step reveals a story, every breath a connection to those who walked before us.
+          </motion.p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <Link to="/learn" className="bg-[#0D1A11] text-white px-10 py-4 rounded-full text-sm font-extrabold tracking-widest hover:bg-black transition-all active:scale-95 shadow-xl">
+              Start Learning Now
+            </Link>
+            <Link to="/about" className="border-2 border-black text-black px-10 py-4 rounded-full text-sm font-extrabold tracking-widest hover:bg-black/5 transition-all active:scale-95">
+              Learn More
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Community Section */}
-      <section className="py-32 px-4 max-w-7xl mx-auto w-full">
-        <div className="text-center mb-20">
-          <span className="micro-label mb-4 block">Who it's for</span>
-          <h2 className="font-display text-5xl font-semibold mb-6">Built for the <span className="text-gold-500">Community</span></h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Our Platform Story */}
+      <section className="py-32 px-4 max-w-5xl mx-auto text-center">
+        <h2 className="font-display text-4xl md:text-5xl font-bold mb-8">Our Platform Story</h2>
+        <p className="text-black/60 text-lg font-medium leading-relaxed mb-20 max-w-3xl mx-auto">
+          Lumad Lingua was born from a digital earthwork philosophy—rejecting the sterile, boxy constraints of modern tech to create a space that feels woven rather than coded.
+        </p>
+
+        <div className="space-y-8">
           {[
-            { icon: "👴🏽", title: "Elders & Leaders", desc: "Validate recordings and ensure cultural accuracy of the documentation." },
-            { icon: "🧒🏽", title: "Youth & Students", desc: "Learn through games and rediscover ancestral languages in a modern format." },
-            { icon: "🎓", title: "Educators", desc: "Access dictionary resources and lesson content aligned with MTB-MLE." },
-            { icon: "🔬", title: "Researchers", desc: "Analyze geo-tagged recordings and identify documentation gaps." },
-            { icon: "📢", title: "Contributors", desc: "Upload recordings and add dictionary entries to build the archive." },
-            { icon: "🏛️", title: "NCIP & DepEd", desc: "Identify communities needing priority intervention and resources." },
-          ].map((item, i) => (
+            {
+              title: "Digital Earthwork",
+              desc: "We treat language learning as a cultural ceremony. Our interface incorporates floral micro-illustrations and geometric Pakudos textures to provide a high-end editorial feel that respects the oral traditions we preserve."
+            },
+            {
+              title: "The Oral Tradition",
+              desc: "By using warm typography and International Phonetic Alphabet (IPA) technical notations, we bridge the gap between playful accessibility and scholarly precision, acting as a living field note for indigenous wisdom."
+            },
+            {
+              title: "Community Co-Creation",
+              desc: "Every lesson, audio clip, and cultural note is validated by tribal elders and community leaders, ensuring that Lumad Lingua is not just an app, but a vessel for community sovereignty."
+            }
+          ].map((story, i) => (
             <motion.div
-              key={item.title}
+              key={story.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="card-glass text-center group"
+              transition={{ delay: i * 0.1 }}
+              className="bg-[#F7F3E8] p-10 md:p-14 rounded-[40px] text-left border border-black/5"
             >
-              <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
-              <h3 className="font-display text-xl font-semibold mb-3">{item.title}</h3>
-              <p className="text-white/40 text-sm font-medium leading-relaxed">{item.desc}</p>
+              <h3 className="font-display text-2xl font-bold mb-4">{story.title}</h3>
+              <p className="text-black/50 text-base font-medium leading-relaxed">{story.desc}</p>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto bg-[#EBE8DF] rounded-[60px] p-12 md:p-24 text-center">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">Our Partners in Preservation</h2>
+          <p className="text-black/40 text-lg font-medium mb-20">
+            We are honored to work directly with the guardians of these ancestral voices.
+          </p>
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: <Landmark size={32} />, label: "NCIP" },
+              { icon: <Users size={32} />, label: "MANSAKA TRIBAL COUNCIL" },
+              { icon: <Shield size={32} />, label: "MANDAYA ELDERS" },
+              { icon: <Flower2 size={32} />, label: "CULTURAL CENTER" }
+            ].map((partner) => (
+              <div key={partner.label} className="flex flex-col items-center gap-6">
+                <div className="w-20 h-20 rounded-full bg-white/50 flex items-center justify-center text-black/60 shadow-inner">
+                  {partner.icon}
+                </div>
+                <span className="text-[10px] font-extrabold tracking-[0.2em] text-black/40 uppercase">{partner.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Pillars */}
+      <section className="py-32 px-4 max-w-7xl mx-auto relative overflow-hidden">
+        {/* Subtle Watermarks */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 opacity-[0.03] pointer-events-none">
+          <Mountain size={400} />
+        </div>
+        <div className="absolute bottom-0 right-0 opacity-[0.03] pointer-events-none">
+          <Flower2 size={300} />
+        </div>
+
+        <div className="text-center mb-24">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-gold-500 mb-6">The Three Core Pillars</h2>
+          <p className="text-black/40 text-lg font-medium max-w-2xl mx-auto">
+            Our mission is anchored in these foundational truths that guide every decision we make.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 relative z-10">
+          {[
+            {
+              title: "Rootedness",
+              desc: "We believe that identity is inseparable from language. By anchoring our learners in ancestral vocabulary, we provide a sense of place in a globalized world.",
+              icon: "🌱",
+              color: "bg-green-500/10"
+            },
+            {
+              title: "Joy",
+              desc: "Preservation shouldn't feel like a chore. We infuse every interaction with the vibrant colors and celebrations inherent to Lumad life and culture.",
+              icon: "✨",
+              color: "bg-gold-500/10"
+            },
+            {
+              title: "Community",
+              desc: "A language only lives if it is shared. We build bridges between generations and cultures, fostering a collective ascent toward understanding.",
+              icon: "🤝",
+              color: "bg-blue-500/10"
+            }
+          ].map((pillar) => (
+            <div key={pillar.title} className="flex flex-col items-center text-center group">
+              <div className={`w-16 h-16 rounded-2xl ${pillar.color} flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform`}>
+                {pillar.icon}
+              </div>
+              <h3 className="font-display text-2xl font-bold mb-4">{pillar.title}</h3>
+              <p className="text-black/50 text-base font-medium leading-relaxed">{pillar.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Join the Ascent */}
+      <section className="py-40 px-4 text-center relative overflow-hidden">
+        <div className="absolute bottom-[-10%] left-[-10%] opacity-[0.05] pointer-events-none">
+          <Mountain size={600} />
+        </div>
+        
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="flex justify-center mb-8">
+            <Mountain size={48} className="text-gold-500" />
+          </div>
+          <h2 className="font-display text-5xl md:text-6xl font-bold mb-8">Join the Ascent</h2>
+          <p className="text-black/50 text-lg md:text-xl font-medium leading-relaxed mb-16">
+            Whether you are a descendant seeking your roots or a global citizen honoring cultural diversity, your journey starts here.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/learn" className="bg-[#0D1A11] text-white px-12 py-5 rounded-full text-sm font-extrabold tracking-widest hover:bg-black transition-all active:scale-95 shadow-xl">
+              Start Learning Now
+            </Link>
+            <Link to="/docs" className="border-2 border-black text-black px-12 py-5 rounded-full text-sm font-extrabold tracking-widest hover:bg-black/5 transition-all active:scale-95">
+              Contribute Story
+            </Link>
+          </div>
         </div>
       </section>
     </div>

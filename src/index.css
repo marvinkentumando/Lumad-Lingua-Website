@@ -42,7 +42,7 @@
 
 @layer base {
   body {
-    @apply bg-forest-700 text-white font-sans;
+    @apply bg-[#FDFBF4] text-[#1A1A1A] font-sans;
   }
 }
 
