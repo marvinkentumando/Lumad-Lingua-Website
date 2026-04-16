@@ -3,22 +3,23 @@ import { Globe, Users } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-forest-900 text-white py-12 px-4 border-t border-white/5 mx-4 mb-4 rounded-[40px]">
+    <footer className="bg-forest-900 text-white py-12 px-4 border-t border-white/5 mx-4 mb-4 rounded-[18px]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex flex-col items-center md:items-start gap-2">
           <div className="font-display text-lg font-bold text-gold-500">
             Lumad Lingua
           </div>
-          <p className="text-[10px] font-bold text-white/40 tracking-widest">
-            © 2024 Lumad Lingua. Preserving Ancestral Voices.
+          <p className="text-[10px] font-bold text-white/30 tracking-widest uppercase">
+            © 2026 Lumad Lingua · Brand Guide v1.0
           </p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-8 text-[10px] font-extrabold text-white/40 tracking-widest uppercase">
-          <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-          <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
-          <Link to="#" className="hover:text-white transition-colors">Community Guidelines</Link>
-          <Link to="#" className="hover:text-white transition-colors">Cultural Protocols</Link>
+          <Link to="/about" className="hover:text-gold-500 transition-colors">About Us</Link>
+          <Link to="#" className="hover:text-gold-500 transition-colors">Privacy Policy</Link>
+          <Link to="#" className="hover:text-gold-500 transition-colors">Terms of Service</Link>
+          <Link to="#" className="hover:text-gold-500 transition-colors">Community Guidelines</Link>
+          <Link to="#" className="hover:text-gold-500 transition-colors">Cultural Protocols</Link>
         </div>
 
         <div className="flex items-center gap-4">

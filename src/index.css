@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
@@ -28,47 +30,101 @@
   --color-gold-100: #fff8de;
   --color-gold-50: #fffdf5;
 
-  --color-cream-bg: #fef8ed;
-  --color-cream-brd: #e0cfa8;
-  --color-cream-shd: #b8a070;
-  --color-cream-text: #1a0e05;
-  --color-cream-text2: #7a5c3a;
-  --color-cream-text3: #a8906e;
+  --color-cream-bg: var(--bg-primary);
+  --color-cream-brd: var(--border-primary);
+  --color-cream-shd: var(--shadow-primary);
+  --color-cream-text: var(--text-primary);
+  --color-cream-text2: var(--text-secondary);
+  --color-cream-text3: var(--text-tertiary);
 
   --color-brand-red: #f04848;
   --color-brand-green: #3daf5c;
   --color-brand-blue: #3b91e0;
+
+  --color-hero-heading: var(--hero-heading);
+  --color-hero-body: var(--hero-body);
+}
+
+:root {
+  --bg-primary: #fffdf5;
+  --border-primary: #e0cfa8;
+  --shadow-primary: #b8a070;
+  --text-primary: #1a0e05;
+  --text-secondary: #7a5c3a;
+  --text-tertiary: #a8906e;
+  --hero-heading: #0d1e0d;
+  --hero-body: #1a0e05;
+}
+
+.dark {
+  --bg-primary: #030a04;
+  --border-primary: #14241a;
+  --shadow-primary: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #a8d4ae;
+  --text-tertiary: #65a870;
+  --hero-heading: #ffffff;
+  --hero-body: #a8d4ae;
 }
 
 @layer base {
   body {
-    @apply bg-[#FDFBF4] text-[#1A1A1A] font-sans;
+    @apply bg-cream-bg text-cream-text font-sans transition-colors duration-300;
   }
 }
 
 @layer components {
-  .btn-3d-gold {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-[15px] border-none bg-gold-500 text-cream-text font-extrabold cursor-pointer shadow-[0_5px_0_theme(colors.gold.700),0_8px_24px_rgba(255,194,0,0.22)] transition-all active:translate-y-[5px] active:shadow-none hover:shadow-[0_5px_0_theme(colors.gold.700),0_12px_28px_rgba(255,194,0,0.3)] hover:-translate-y-[1px];
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-none bg-gold-500 text-cream-text font-sans font-extrabold cursor-pointer shadow-[0_5px_0_theme(colors.gold.700),0_8px_24px_rgba(255,194,0,0.22)] transition-all active:translate-y-[5px] active:shadow-none hover:shadow-[0_5px_0_theme(colors.gold.700),0_12px_28px_rgba(255,194,0,0.3)] hover:-translate-y-[1px];
+    @apply dark:shadow-[0_5px_0_theme(colors.gold.700),0_8px_24px_rgba(0,0,0,0.4)];
   }
 
-  .btn-3d-secondary {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-[15px] border-[2.5px] border-white/15 bg-white/5 text-white font-extrabold cursor-pointer transition-all hover:border-gold-500/40 hover:bg-gold-500/10 hover:text-gold-500 active:translate-y-[2px];
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-[2.5px] border-black/10 bg-black/5 text-black font-sans font-extrabold cursor-pointer transition-all hover:border-gold-500/40 hover:bg-gold-500/10 hover:text-gold-700 active:translate-y-[2px];
+    @apply dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:hover:text-gold-500;
+  }
+
+  .btn-secondary-dark {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-[2.5px] border-white/15 bg-white/5 text-white font-sans font-extrabold cursor-pointer transition-all hover:border-gold-500/40 hover:bg-gold-500/10 hover:text-gold-500 active:translate-y-[2px];
+  }
+
+  .btn-sm {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 rounded-full border-none bg-gold-500 text-cream-text font-sans font-extrabold cursor-pointer shadow-[0_3px_0_theme(colors.gold.700)] transition-all active:translate-y-[3px] active:shadow-none;
+  }
+
+  .btn-ghost-light {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 rounded-full border-[1.5px] border-cream-brd bg-transparent text-cream-text2 font-sans font-extrabold cursor-pointer transition-all hover:border-gold-500 hover:text-gold-700;
+    @apply dark:border-white/20 dark:text-white/60 dark:hover:text-white;
   }
 
   .card-cream {
-    @apply bg-cream-bg border-[2.5px] border-cream-brd rounded-[24px] p-8 shadow-[0_6px_0_theme(colors.cream.shd),0_12px_32px_rgba(0,0,0,0.15)] transition-all hover:translate-y-[-4px] hover:shadow-[0_10px_0_theme(colors.gold.700),0_20px_40px_rgba(0,0,0,0.2)];
+    @apply bg-cream-bg border-[2.5px] border-cream-brd rounded-[20px] p-8 shadow-[0_4px_0_theme(colors.cream.shd),0_8px_22px_rgba(0,0,0,0.1)] transition-all hover:translate-y-[-2px] hover:shadow-[0_6px_0_theme(colors.cream.shd),0_12px_28px_rgba(0,0,0,0.15)];
+    @apply dark:bg-white/5 dark:border-white/10 dark:shadow-none dark:hover:bg-white/10;
   }
 
   .card-glass {
-    @apply bg-white/5 border border-white/10 rounded-[24px] p-8 backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/20;
+    @apply bg-white/5 border border-white/10 rounded-[20px] p-8 backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/20;
+    @apply dark:bg-black/20 dark:border-white/5 dark:hover:bg-black/30;
   }
 
   .micro-label {
-    @apply text-[10px] font-extrabold uppercase tracking-[0.25em] text-gold-500;
+    @apply text-[10px] font-extrabold uppercase tracking-[0.25em] text-cream-text3;
+  }
+
+  .bdg {
+    @apply px-3 py-1 rounded-full text-[10.5px] font-extrabold uppercase tracking-wider;
+  }
+  .bdg-gold { @apply bg-gold-500/20 text-gold-800; }
+  .bdg-green { @apply bg-brand-green/20 text-forest-500; }
+  .bdg-blue { @apply bg-brand-blue/20 text-brand-blue; }
+  .bdg-red { @apply bg-brand-red/20 text-brand-red; }
+
+  .stat-pill {
+    @apply flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 font-extrabold text-sm text-white;
   }
 
   .section-divider {
-    @apply w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent my-16;
+    @apply w-full h-px bg-linear-to-r from-transparent via-cream-brd to-transparent my-16;
   }
 
   .text-balance {
