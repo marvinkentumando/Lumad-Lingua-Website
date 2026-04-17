@@ -42,7 +42,7 @@ export default function About() {
           className="max-w-5xl"
         >
           <span className="micro-label mb-6 block">Our Story</span>
-          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-10 leading-[0.85] tracking-tight text-cream-text">
+          <h1 className="font-display text-[96px] font-bold mb-10 leading-[0.85] tracking-tight text-cream-text">
             Preserving the <br />
             <span className="text-gold-600 italic">Soul</span> of Mindanao
           </h1>
@@ -58,7 +58,7 @@ export default function About() {
       <section className="py-32 px-4 sm:px-8 lg:px-12 bg-white/40 border-y border-cream-brd/30">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="space-y-10">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-cream-text leading-tight">
+            <h2 className="font-display text-[60px] font-bold text-cream-text leading-tight">
               The <span className="text-brand-green">Mission</span>
             </h2>
             <p className="text-cream-text2 text-lg font-medium leading-relaxed border-l-4 border-brand-green/30 pl-8">
@@ -83,7 +83,7 @@ export default function About() {
       {/* Values Grid */}
       <section className="py-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="font-display text-4xl font-bold text-cream-text mb-4">Our Core Values</h2>
+          <h2 className="font-display text-[60px] font-bold text-cream-text mb-4">Our Core Values</h2>
           <p className="micro-label">The foundation of our work</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -113,7 +113,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <span className="micro-label mb-6 block">Collaborators</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 text-hero-heading">Built by the <span className="text-gold-500">Community</span></h2>
+              <h2 className="font-display text-[60px] font-bold mb-8 text-hero-heading">Built by the <span className="text-gold-500">Community</span></h2>
               <p className="text-hero-body/60 text-lg font-medium mb-12 leading-relaxed">
                 Content co-created with NCIP-recognized tribal leaders and validated by 
                 community elders of the Mansaka and Mandaya peoples.

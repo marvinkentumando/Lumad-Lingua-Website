@@ -10,11 +10,17 @@ export default function Docs() {
 
   return (
     <div className="bg-cream-bg min-h-screen pt-32 pb-24 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-20">
+      <div className="max-w-7xl mx-auto space-y-20">
+        <section>
           <span className="micro-label mb-4 block">Documentation Archive</span>
-          <h1 className="font-display text-5xl md:text-6xl font-semibold mb-10 text-cream-text">Explore the <span className="text-brand-green">Living</span> Archive</h1>
+          <div>
+            <h1 className="font-display text-[96px] font-semibold mb-10 text-cream-text leading-[81.6px]">
+              Explore the <span className="text-brand-green">Living</span> Archive
+            </h1>
+          </div>
+        </section>
           
+        <section>
           <div className="flex flex-col md:flex-row gap-4">
             <div className="relative flex-1 group">
               <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-cream-text3 group-focus-within:text-brand-green transition-colors" size={20} />
@@ -29,12 +35,12 @@ export default function Docs() {
               Advanced Filters
             </button>
           </div>
-        </div>
+        </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-8 space-y-6">
+          <section className="lg:col-span-8 space-y-6">
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-cream-brd/20 dark:border-white/5">
-              <h2 className="font-display text-2xl font-semibold text-cream-text">Recent Recordings</h2>
+              <h2 className="font-display text-[60px] font-semibold text-cream-text">Recent Recordings</h2>
               <div className="flex items-center gap-2 text-[10px] font-extrabold text-cream-text3 uppercase tracking-widest">
                 Showing <span className="text-cream-text">3</span> of 47
               </div>
@@ -86,14 +92,14 @@ export default function Docs() {
             <button className="w-full py-5 rounded-[24px] border border-dashed border-cream-brd dark:border-white/10 text-xs font-extrabold uppercase tracking-[0.2em] text-cream-text3 hover:border-gold-500 hover:text-gold-700 transition-all">
               Load More Recordings
             </button>
-          </div>
+          </section>
 
-          <div className="lg:col-span-4 space-y-8">
+          <section className="lg:col-span-4 space-y-8">
             <div className="card-cream p-8 overflow-hidden relative group">
               <div className="absolute top-[-20%] right-[-20%] p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500 text-cream-text">
                 <Map size={200} />
               </div>
-              <h3 className="font-display text-2xl font-bold mb-4 text-cream-text">Geo-Tag Map</h3>
+              <h2 className="font-display text-2xl font-bold mb-4 text-cream-text">Geo-Tag Map</h2>
               <p className="text-cream-text2 text-sm font-semibold mb-8 leading-relaxed">
                 Visualize the distribution of recordings across Mindanao with our interactive heatmap.
               </p>
@@ -104,7 +110,7 @@ export default function Docs() {
 
             <div className="card-cream p-8 relative overflow-hidden">
                <div className="absolute top-[-20%] right-[-20%] w-40 h-40 bg-brand-blue/5 rounded-full blur-3xl" />
-              <h3 className="font-display text-2xl font-bold mb-4 text-cream-text">Dictionary</h3>
+              <h2 className="font-display text-2xl font-bold mb-4 text-cream-text">Dictionary</h2>
               <p className="text-cream-text2 text-sm font-semibold mb-8 leading-relaxed">
                 Search over 200+ validated dictionary entries with phonetic transcriptions.
               </p>
@@ -115,7 +121,7 @@ export default function Docs() {
             </div>
             
             <div className="p-8 rounded-[32px] bg-brand-green/5 dark:bg-brand-green/10 border border-brand-green/20">
-              <h3 className="font-display text-xl font-bold mb-4 text-brand-green">Contribute</h3>
+              <h2 className="font-display text-xl font-bold mb-4 text-brand-green leading-[81.6px]">Contribute</h2>
               <p className="text-cream-text2 text-sm font-semibold mb-6 leading-relaxed">
                 Are you a community member? Help us preserve your language.
               </p>
@@ -123,7 +129,7 @@ export default function Docs() {
                 Learn how to contribute <ArrowRight size={14} />
               </button>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </div>

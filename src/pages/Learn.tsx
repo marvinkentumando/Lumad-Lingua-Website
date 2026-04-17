@@ -77,7 +77,7 @@ export default function Learn() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-display text-5xl md:text-6xl font-bold text-cream-text mb-10"
+            className="font-display text-[96px] font-bold text-cream-text mb-10"
           >
             How can we help you today?
           </motion.h1>
@@ -166,7 +166,7 @@ export default function Learn() {
 
       {/* FAQ Section */}
       <section className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12 mb-32">
-        <h2 className="font-display text-4xl font-bold text-center mb-16 text-cream-text">Frequently Asked Questions</h2>
+        <h2 className="font-display text-[60px] font-bold text-center mb-16 text-cream-text">Frequently Asked Questions</h2>
         <div className="space-y-6">
           {faqs.map((faq, i) => (
             <motion.div
@@ -209,7 +209,7 @@ export default function Learn() {
           </div>
 
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-cream-text">Can't find what you're looking for?</h2>
+            <h2 className="font-display text-[60px] font-bold mb-6 text-cream-text">Can't find what you're looking for?</h2>
             <p className="text-cream-text2 text-lg font-semibold mb-12">
               Our cultural stewards and technical team are available to help you on your ascent.
             </p>

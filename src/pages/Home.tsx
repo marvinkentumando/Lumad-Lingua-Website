@@ -6,37 +6,37 @@ export default function Home() {
   return (
     <div className="bg-cream-bg text-cream-text font-sans overflow-x-hidden selection:bg-gold-200 transition-colors duration-300">
       {/* Hero Section - Clean Editorial Layout */}
-      <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-0 sm:px-8 lg:px-12 overflow-hidden">
         {/* Soft Glow Decoration */}
         <div className="absolute top-0 right-0 w-[60%] h-full bg-radial-[circle_at_70%_40%] from-gold-500/10 to-transparent pointer-events-none blur-3xl" />
         
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-24">
+        <div className="max-w-[1800px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-8">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10 max-w-2xl text-center lg:text-left order-2 lg:order-1"
+            className="relative z-10 max-w-2xl text-center lg:text-left order-1 lg:order-1 lg:col-span-4 px-6 sm:px-0"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 mb-8 mx-auto lg:mx-0">
               <Mountain size={14} className="text-gold-700" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gold-700">Level 1: The Foothills</span>
             </div>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-none tracking-tight text-hero-heading">
+            <h1 className="font-display text-5xl sm:text-7xl lg:text-[96px] font-black mb-6 lg:mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading">
               The Ancestral Ascent
             </h1>
-            <p className="text-lg md:text-xl text-hero-body font-medium leading-relaxed mb-12 max-w-xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg md:text-xl text-hero-body font-medium leading-relaxed mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0">
               Learning a language is not just acquiring words; it is an ascent up a mist-shrouded mountain of heritage. Every step reveals a story, every breath a connection to those who walked before us.
             </p>
-            <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link 
                 to="/learn" 
-                className="px-10 py-5 rounded-full bg-forest-700 text-white font-bold text-lg hover:bg-black transition-all shadow-lg shadow-forest-900/10 text-center"
+                className="px-8 lg:px-10 py-4 lg:py-5 rounded-full bg-forest-700 text-white font-bold text-base lg:text-lg hover:bg-black transition-all shadow-lg shadow-forest-900/10 text-center"
               >
                 Start Learning Now
               </Link>
               <Link 
                 to="/about" 
-                className="px-10 py-5 rounded-full bg-cream-bg border-2 border-hero-heading text-hero-heading font-bold text-lg hover:bg-forest-700 hover:text-white transition-all text-center dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-forest-900"
+                className="px-8 lg:px-10 py-4 lg:py-5 rounded-full bg-cream-bg border-2 border-hero-heading text-hero-heading font-bold text-base lg:text-lg hover:bg-forest-700 hover:text-white transition-all text-center dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-forest-900"
               >
                 Learn More
               </Link>
@@ -47,37 +47,23 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative flex justify-center lg:justify-end order-1 lg:order-2"
+            className="relative flex justify-center lg:justify-end order-2 lg:order-2 w-full lg:col-span-8 px-0 sm:px-4 lg:px-0"
           >
-            {/* Character Icon Placeholder - Matching the provided image style */}
-            <div className="relative w-full max-w-md aspect-square">
-              <img 
-                src="https://picsum.photos/seed/lumad-character/800/800" 
-                alt="Lumad Character" 
-                className="w-full h-full object-contain drop-shadow-2xl"
-                referrerPolicy="no-referrer"
-              />
-              {/* Decorative Ring */}
-              <div className="absolute inset-0 border-[20px] border-gold-500/10 rounded-full -z-10 animate-pulse" />
+            {/* Hero Video Embed - Larger on Mobile */}
+            <div className="relative w-full aspect-video overflow-hidden mt-4 sm:mt-8 lg:mt-0 xl:-mr-12 shadow-xl sm:shadow-none">
+              <iframe 
+                id="js_video_iframe" 
+                src="https://jumpshare.com/embed/HKHW0PIJ9dakVFjFnOVz" 
+                frameBorder="0" 
+                allowFullScreen
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                title="Ancestral Ascent Showcase"
+              ></iframe>
             </div>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-[9px] font-black uppercase tracking-[0.3em] text-hero-body/40">Scroll to Ascent</span>
-          <motion.div 
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="w-px h-12 bg-linear-to-b from-gold-500 to-transparent"
-          />
-        </motion.div>
       </section>
+      
 
       {/* Community Progress Section */}
       <section className="py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900/30 transition-colors duration-500">
@@ -85,7 +71,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
               <span className="micro-label mb-4 block">Live Community Impact</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-hero-heading">The Collective Ascent</h2>
+              <h2 className="font-display text-[60px] font-bold mb-6 text-hero-heading">The Collective Ascent</h2>
               <p className="text-lg text-hero-body font-medium mb-10 leading-relaxed">
                 We are currently at <span className="text-gold-700 font-black">68%</span> of our goal to document the 18 major Lumad dialects. Every recording you contribute brings us closer to the summit.
               </p>
@@ -155,9 +141,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
               <span className="micro-label mb-6 block">Our Philosophy</span>
-              <h2 className="font-display text-5xl md:text-6xl font-bold mb-8 text-forest-700 dark:text-white leading-tight">
+              <h2 className="font-display text-[60px] font-bold mb-8 text-forest-700 dark:text-white leading-[50px]">
                 A Space That Feels <br />
-                <span className="text-gold-500 underline decoration-gold-300 underline-offset-8">Woven</span> Rather Than Coded
+                <span className="text-[#0d1e0d]">Woven</span> Rather Than Coded
               </h2>
               <p className="text-cream-text2 text-xl font-semibold leading-relaxed mb-10">
                 Lumad Lingua was born from a digital earthwork philosophy—rejecting the sterile, boxy constraints of modern tech.
@@ -215,7 +201,7 @@ export default function Home() {
           <div className="absolute top-0 right-0 w-1/2 h-full bg-radial-[circle_at_100%_0%] from-gold-500/10 to-transparent pointer-events-none" />
           
           <span className="micro-label mb-6 block">Collaborators</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-[#b88500]">Our Partners in Preservation</h2>
+          <h2 className="font-display text-[60px] font-bold mb-6 text-[#0d1e0d]">Our Partners in Preservation</h2>
           <p className="text-hero-body/60 text-lg font-bold mb-20 uppercase tracking-widest max-w-2xl mx-auto">
             Working directly with the guardians of ancestral voices.
           </p>
@@ -249,7 +235,7 @@ export default function Home() {
       {/* Core Pillars - Card Overhaul */}
       <section className="py-40 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto relative">
         <div className="text-center mb-24">
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-[#b88500] mb-6">The Three Core Pillars</h2>
+          <h2 className="font-display text-[60px] font-bold text-[#0d1e0d] mb-6">The Three Core Pillars</h2>
           <p className="micro-label">Foundational Truths</p>
         </div>
 
@@ -318,7 +304,7 @@ export default function Home() {
             </div>
           </div>
           
-          <h2 className="font-display text-5xl md:text-7xl font-black mb-8 text-[#b88500]">
+          <h2 className="font-display text-[60px] font-black mb-8 text-[#0d1e0d]">
             Join the Ascent
           </h2>
           <p className="text-lg md:text-xl text-hero-heading font-medium mb-16 max-w-2xl mx-auto leading-relaxed">
