@@ -113,7 +113,7 @@ export default function Learn() {
             <div className="relative w-full aspect-square overflow-hidden mt-4 sm:mt-8 lg:mt-0">
               <iframe 
                 id="js_video_iframe" 
-                src="https://jumpshare.com/embed/HKHW0PIJ9dakVFjFnOVz" 
+                src="https://jumpshare.com/embed/595wOvVRFzNEpShu6NTr" 
                 frameBorder="0" 
                 allowFullScreen
                 style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "transparent" }}

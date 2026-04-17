@@ -63,10 +63,16 @@ export default function About() {
             transition={{ duration: 1, delay: 0.2 }}
             className="relative flex justify-center lg:justify-end order-1 lg:order-2 w-full px-0 sm:px-4 lg:px-0"
           >
-            {/* Thematic Visual - Square & Balanced */}
-            <div className="relative w-full aspect-square overflow-hidden mt-4 sm:mt-8 lg:mt-0 bg-white/20 border border-cream-brd/50 rounded-[40px] flex items-center justify-center shadow-lg backdrop-blur-sm">
-              <Mountain size={160} className="text-gold-500/40" />
-              <div className="absolute inset-x-0 bottom-12 text-center text-xs font-black uppercase tracking-[0.4em] text-gold-700/30">Heritage Pride</div>
+            {/* Thematic Visual - Square & Balanced Video */}
+            <div className="relative w-full aspect-square overflow-hidden mt-4 sm:mt-8 lg:mt-0">
+              <iframe 
+                id="js_video_iframe" 
+                src="https://jumpshare.com/embed/595wOvVRFzNEpShu6NTr" 
+                frameBorder="0" 
+                allowFullScreen
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "transparent" }}
+                title="About Us Showcase"
+              ></iframe>
             </div>
           </motion.div>
         </div>
