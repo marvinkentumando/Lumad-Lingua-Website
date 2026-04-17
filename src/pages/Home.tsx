@@ -53,10 +53,10 @@ export default function Home() {
             <div className="relative w-full aspect-square overflow-hidden mt-4 sm:mt-8 lg:mt-0">
               <iframe 
                 id="js_video_iframe" 
-                src="https://jumpshare.com/embed/595wOvVRFzNEpShu6NTr" 
+                src="https://jumpshare.com/embed/Z1BFmctjRwB1ZuI9jIqV" 
                 frameBorder="0" 
                 allowFullScreen
-                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "transparent" }}
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
                 title="Ancestral Ascent Showcase"
               ></iframe>
             </div>
