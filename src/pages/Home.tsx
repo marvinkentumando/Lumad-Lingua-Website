@@ -66,13 +66,13 @@ export default function Home() {
       
 
       {/* Community Progress Section */}
-      <section className="py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900/30 transition-colors duration-500">
+      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900/30 transition-colors duration-500">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div>
               <span className="micro-label mb-4 block">Live Community Impact</span>
-              <h2 className="font-display text-[60px] font-bold mb-6 text-hero-heading">The Collective Ascent</h2>
-              <p className="text-lg text-hero-body font-medium mb-10 leading-relaxed">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold mb-6 text-hero-heading leading-tight">The Collective Ascent</h2>
+              <p className="text-base md:text-lg text-hero-body font-medium mb-10 leading-relaxed">
                 We are currently at <span className="text-gold-700 font-black">68%</span> of our goal to document the 18 major Lumad dialects. Every recording you contribute brings us closer to the summit.
               </p>
               
@@ -136,16 +136,16 @@ export default function Home() {
       </section>
 
       {/* Platform Story - Woven Grid */}
-      <section className="pt-40 pb-10 px-4 sm:px-8 lg:px-12 relative overflow-hidden">
+      <section className="py-16 lg:py-28 px-4 sm:px-8 lg:px-12 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div>
               <span className="micro-label mb-6 block">Our Philosophy</span>
-              <h2 className="font-display text-[60px] font-bold mb-8 text-forest-700 dark:text-white leading-[50px]">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold mb-8 text-forest-700 dark:text-white leading-tight">
                 A Space That Feels <br />
                 <span className="text-[#0d1e0d]">Woven</span> Rather Than Coded
               </h2>
-              <p className="text-cream-text2 text-xl font-semibold leading-relaxed mb-10">
+              <p className="text-cream-text2 text-lg md:text-xl font-semibold leading-relaxed mb-10">
                 Lumad Lingua was born from a digital earthwork philosophy—rejecting the sterile, boxy constraints of modern tech.
               </p>
               <div className="flex items-center gap-6 text-cream-text3">
@@ -196,13 +196,13 @@ export default function Home() {
       </section>
 
       {/* Partners Section - Enhanced */}
-      <section className="pt-0 pb-20 px-4">
-        <div className="max-w-7xl mx-auto bg-white dark:bg-forest-900/40 border border-cream-brd/30 dark:border-white/10 rounded-[60px] p-12 md:p-24 text-center relative overflow-hidden transition-colors duration-500">
+      <section className="pb-16 lg:pb-24 px-4">
+        <div className="max-w-7xl mx-auto bg-white dark:bg-forest-900/40 border border-cream-brd/30 dark:border-white/10 rounded-[40px] lg:rounded-[60px] p-8 md:p-16 lg:p-24 text-center relative overflow-hidden transition-colors duration-500">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-radial-[circle_at_100%_0%] from-gold-500/10 to-transparent pointer-events-none" />
           
           <span className="micro-label mb-6 block">Collaborators</span>
-          <h2 className="font-display text-[60px] font-bold mb-6 text-[#0d1e0d]">Our Partners in Preservation</h2>
-          <p className="text-hero-body/60 text-lg font-bold mb-20 uppercase tracking-widest max-w-2xl mx-auto">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold mb-6 text-[#0d1e0d] leading-tight">Our Partners in Preservation</h2>
+          <p className="text-hero-body/60 text-base md:text-lg font-bold mb-12 lg:mb-20 uppercase tracking-widest max-w-2xl mx-auto">
             Working directly with the guardians of ancestral voices.
           </p>
           
@@ -233,9 +233,9 @@ export default function Home() {
       </section>
 
       {/* Core Pillars - Card Overhaul */}
-      <section className="py-40 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto relative">
-        <div className="text-center mb-24">
-          <h2 className="font-display text-[60px] font-bold text-[#0d1e0d] mb-6">The Three Core Pillars</h2>
+      <section className="py-16 lg:py-28 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto relative">
+        <div className="text-center mb-16 lg:mb-24">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-[#0d1e0d] mb-4 lg:mb-6 leading-tight">The Three Core Pillars</h2>
           <p className="micro-label">Foundational Truths</p>
         </div>
 
@@ -279,22 +279,22 @@ export default function Home() {
       </section>
 
       {/* Final CTA - Join the Ascent */}
-      <section className="py-40 px-4 sm:px-8 lg:px-12 relative bg-cream-bg overflow-hidden">
+      <section className="py-20 lg:py-32 px-4 sm:px-8 lg:px-12 relative bg-cream-bg overflow-hidden">
         {/* Large Faint Tree Outlines */}
-        <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 text-forest-900/5 pointer-events-none">
+        <div className="absolute bottom-[-10%] left-[-5%] w-64 md:w-96 h-64 md:h-96 text-forest-900/5 pointer-events-none">
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
             <path d="M12 2L1 21h22L12 2zm0 3.83L18.5 19H5.5L12 5.83z" />
           </svg>
         </div>
-        <div className="absolute top-[-10%] right-[-5%] w-96 h-96 text-forest-900/5 pointer-events-none rotate-180">
+        <div className="absolute top-[-10%] right-[-5%] w-64 md:w-96 h-64 md:h-96 text-forest-900/5 pointer-events-none rotate-180">
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
             <path d="M12 2L1 21h22L12 2zm0 3.83L18.5 19H5.5L12 5.83z" />
           </svg>
         </div>
-
+        
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="flex justify-center mb-10">
-            <div className="text-gold-800 flex gap-1">
+          <div className="flex justify-center mb-8 lg:mb-10">
+            <div className="text-gold-800 flex gap-1 scale-75 md:scale-100">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2L4 18h16L12 2zm0 4.5L16.5 16h-9L12 6.5zM11 18h2v4h-2v-4z" />
               </svg>
@@ -304,10 +304,10 @@ export default function Home() {
             </div>
           </div>
           
-          <h2 className="font-display text-[60px] font-black mb-8 text-[#0d1e0d]">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-black mb-6 lg:mb-8 text-[#0d1e0d] leading-tight">
             Join the Ascent
           </h2>
-          <p className="text-lg md:text-xl text-hero-heading font-medium mb-16 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-hero-heading font-medium mb-10 lg:mb-16 max-w-2xl mx-auto leading-relaxed">
             Whether you are a descendant seeking your roots or a global citizen honoring cultural diversity, your journey starts here.
           </p>
           

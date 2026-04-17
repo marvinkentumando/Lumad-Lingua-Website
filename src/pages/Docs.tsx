@@ -9,16 +9,44 @@ export default function Docs() {
   ];
 
   return (
-    <div className="bg-cream-bg min-h-screen pt-32 pb-24 px-4">
-      <div className="max-w-7xl mx-auto space-y-20">
-        <section>
-          <span className="micro-label mb-4 block">Documentation Archive</span>
-          <div>
-            <h1 className="font-display text-[96px] font-semibold mb-10 text-cream-text leading-[81.6px]">
-              Explore the <span className="text-brand-green">Living</span> Archive
+    <div className="bg-cream-bg min-h-screen font-sans selection:bg-gold-200 transition-colors duration-300">
+      {/* Hero Section - Synchronized Editorial Style */}
+      <section className="relative min-h-[80vh] flex items-center justify-center pt-24 pb-12 px-0 sm:px-8 lg:px-12 overflow-hidden">
+        {/* Soft Glow Decoration */}
+        <div className="absolute top-0 right-0 w-[60%] h-full bg-radial-[circle_at_70%_40%] from-gold-500/10 to-transparent pointer-events-none blur-3xl" />
+        
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-24">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative z-10 max-w-2xl text-center lg:text-left order-2 lg:order-1 px-6 sm:px-0"
+          >
+            <span className="micro-label mb-6 block">Documentation Archive</span>
+            <h1 className="font-display text-5xl sm:text-7xl lg:text-[80px] font-black mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading">
+              Explore the <span className="text-gold-600 italic">Living</span> Archive
             </h1>
-          </div>
-        </section>
+            <p className="text-base sm:text-lg md:text-xl text-hero-body font-medium leading-relaxed mb-12 max-w-xl mx-auto lg:mx-0">
+              Access geo-tagged field recordings and validated linguistic artifacts from the 18 Lumad communities of Mindanao.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, x: 30 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative flex justify-center lg:justify-end order-1 lg:order-2 w-full px-0 sm:px-4 lg:px-0"
+          >
+            {/* Thematic Visual - Square & Balanced */}
+            <div className="relative w-full aspect-square overflow-hidden mt-4 sm:mt-8 lg:mt-0 bg-white/20 border border-cream-brd/50 rounded-[40px] flex items-center justify-center shadow-lg backdrop-blur-sm group hover:bg-forest-900 transition-all duration-500">
+              <Mic size={160} className="text-gold-500/40 group-hover:text-gold-500 transition-colors" />
+              <div className="absolute inset-x-0 bottom-12 text-center text-xs font-black uppercase tracking-[0.4em] text-gold-700/30 group-hover:text-white/30">Linguistic Vault</div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-4 pb-24 space-y-20">
           
         <section>
           <div className="flex flex-col md:flex-row gap-4">
@@ -38,10 +66,10 @@ export default function Docs() {
         </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <section className="lg:col-span-8 space-y-6">
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-cream-brd/20 dark:border-white/5">
-              <h2 className="font-display text-[60px] font-semibold text-cream-text">Recent Recordings</h2>
-              <div className="flex items-center gap-2 text-[10px] font-extrabold text-cream-text3 uppercase tracking-widest">
+          <section className="lg:col-span-8 space-y-4 lg:space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 pb-4 border-b border-cream-brd/20 dark:border-white/5 gap-4">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-semibold text-cream-text leading-tight text-left">Recent Recordings</h2>
+              <div className="flex items-center gap-2 text-[10px] font-extrabold text-cream-text3 uppercase tracking-widest whitespace-nowrap">
                 Showing <span className="text-cream-text">3</span> of 47
               </div>
             </div>
@@ -121,7 +149,7 @@ export default function Docs() {
             </div>
             
             <div className="p-8 rounded-[32px] bg-brand-green/5 dark:bg-brand-green/10 border border-brand-green/20">
-              <h2 className="font-display text-xl font-bold mb-4 text-brand-green leading-[81.6px]">Contribute</h2>
+              <h2 className="font-display text-2xl font-bold mb-4 text-brand-green leading-tight">Contribute</h2>
               <p className="text-cream-text2 text-sm font-semibold mb-6 leading-relaxed">
                 Are you a community member? Help us preserve your language.
               </p>

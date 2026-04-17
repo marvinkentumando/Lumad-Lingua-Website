@@ -3,34 +3,53 @@ import { Mail, MapPin, Phone, Send, Globe, MessageSquare, Heart } from "lucide-r
 
 export default function Contact() {
   return (
-    <div className="bg-cream-bg min-h-screen font-sans selection:bg-gold-200">
-      {/* Hero Section */}
-      <section className="pt-40 pb-20 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl"
-        >
-          <span className="micro-label mb-6 block">Get in Touch</span>
-          <h1 className="font-display text-6xl md:text-8xl font-bold mb-10 leading-[0.85] tracking-tight text-cream-text">
-            Let's <span className="text-gold-600 italic">Connect</span>
-          </h1>
-          <p className="text-cream-text2 text-xl md:text-2xl font-semibold leading-relaxed max-w-2xl">
-            Whether you have a question about our research, want to contribute a story, or simply wish to support the ascent, we're here to listen.
-          </p>
-        </motion.div>
+    <div className="bg-cream-bg min-h-screen font-sans selection:bg-gold-200 transition-colors duration-300">
+      {/* Hero Section - Synchronized Editorial Style */}
+      <section className="relative min-h-[80vh] flex items-center justify-center pt-24 pb-12 px-0 sm:px-8 lg:px-12 overflow-hidden">
+        {/* Soft Glow Decoration */}
+        <div className="absolute top-0 right-0 w-[60%] h-full bg-radial-[circle_at_70%_40%] from-gold-500/10 to-transparent pointer-events-none blur-3xl" />
+        
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-24">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative z-10 max-w-2xl text-center lg:text-left order-2 lg:order-1 px-6 sm:px-0"
+          >
+            <span className="micro-label mb-6 block">Get in Touch</span>
+            <h1 className="font-display text-5xl sm:text-7xl lg:text-[80px] font-black mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading">
+              Let's <span className="text-gold-600 italic">Connect</span> with Heritage
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl text-hero-body font-medium leading-relaxed mb-12 max-w-xl mx-auto lg:mx-0">
+              Whether you have a question about our research, want to contribute a story, or simply wish to support the ascent, we're here to listen.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, x: 30 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative flex justify-center lg:justify-end order-1 lg:order-2 w-full px-0 sm:px-4 lg:px-0"
+          >
+            {/* Thematic Visual - Square & Balanced */}
+            <div className="relative w-full aspect-square overflow-hidden mt-4 sm:mt-8 lg:mt-0 bg-white/20 border border-cream-brd/50 rounded-[40px] flex items-center justify-center shadow-lg backdrop-blur-sm group hover:bg-gold-500 transition-all duration-500">
+              <Mail size={160} className="text-gold-500/40 group-hover:text-white transition-colors" />
+              <div className="absolute inset-x-0 bottom-12 text-center text-xs font-black uppercase tracking-[0.4em] text-gold-700/30 group-hover:text-white/30">Open Channel</div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
-      <section className="pb-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <section className="pb-16 lg:pb-24 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="card-cream p-8 md:p-12 shadow-xl"
+            className="card-cream p-6 sm:p-8 md:p-12 shadow-xl"
           >
-            <h2 className="font-display text-3xl font-bold mb-8 text-cream-text">Send a Message</h2>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-cream-text leading-tight">Send a Message</h2>
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -80,10 +99,10 @@ export default function Contact() {
             transition={{ delay: 0.3 }}
             className="flex flex-col justify-between py-8"
           >
-            <div className="space-y-12">
+            <div className="space-y-8 lg:space-y-12">
               <div>
-                <h2 className="font-display text-3xl font-bold mb-8 text-cream-text">Contact Information</h2>
-                <div className="space-y-8">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-cream-text leading-tight">Contact Information</h2>
+                <div className="space-y-6 lg:space-y-8">
                   <div className="flex items-start gap-6 group">
                     <div className="w-14 h-14 rounded-2xl bg-white shadow-sm border border-cream-brd/50 flex items-center justify-center text-gold-600 shrink-0 group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
                       <Mail size={24} />
