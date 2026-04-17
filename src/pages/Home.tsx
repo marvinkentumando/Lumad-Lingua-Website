@@ -10,12 +10,12 @@ export default function Home() {
         {/* Soft Glow Decoration */}
         <div className="absolute top-0 right-0 w-[60%] h-full bg-radial-[circle_at_70%_40%] from-gold-500/10 to-transparent pointer-events-none blur-3xl" />
         
-        <div className="max-w-[1800px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-8">
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10 max-w-2xl text-center lg:text-left order-1 lg:order-1 lg:col-span-4 px-6 sm:px-0"
+            className="relative z-10 max-w-2xl text-center lg:text-left order-2 lg:order-1 px-6 sm:px-0"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 mb-8 mx-auto lg:mx-0">
               <Mountain size={14} className="text-gold-700" />
@@ -47,10 +47,10 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative flex justify-center lg:justify-end order-2 lg:order-2 w-full lg:col-span-8 px-0 sm:px-4 lg:px-0"
+            className="relative flex justify-center lg:justify-end order-1 lg:order-2 w-full px-0 sm:px-4 lg:px-0"
           >
-            {/* Hero Video Embed - Larger on Mobile */}
-            <div className="relative w-full aspect-video overflow-hidden mt-4 sm:mt-8 lg:mt-0 xl:-mr-12 shadow-xl sm:shadow-none">
+            {/* Hero Video Embed - Square & Balanced */}
+            <div className="relative w-full aspect-square overflow-hidden mt-4 sm:mt-8 lg:mt-0">
               <iframe 
                 id="js_video_iframe" 
                 src="https://jumpshare.com/embed/HKHW0PIJ9dakVFjFnOVz" 
