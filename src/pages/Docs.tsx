@@ -9,24 +9,24 @@ export default function Docs() {
   ];
 
   return (
-    <div className="bg-cream-bg min-h-screen font-sans selection:bg-gold-200 transition-colors duration-300">
+    <div className="bg-cream-bg dark:bg-forest-950 text-cream-text dark:text-white/90 min-h-screen font-sans selection:bg-gold-200 transition-colors duration-300">
       {/* Hero Section - Synchronized Editorial Style */}
-      <section className="relative min-h-[80vh] flex items-center justify-center pt-24 pb-12 px-0 sm:px-8 lg:px-12 overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center pt-24 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden bg-white dark:bg-forest-900 transition-colors duration-500">
         {/* Soft Glow Decoration */}
-        <div className="absolute top-0 right-0 w-[60%] h-full bg-radial-[circle_at_70%_40%] from-gold-500/10 to-transparent pointer-events-none blur-3xl" />
+        <div className="absolute top-0 right-0 w-[60%] h-full bg-radial-[circle_at_70%_40%] from-gold-500/10 to-transparent pointer-events-none blur-3xl opacity-60 dark:opacity-20" />
         
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10 max-w-2xl text-center lg:text-left order-2 lg:order-1 px-6 sm:px-0"
+            className="relative z-10 max-w-2xl text-center lg:text-left order-2 lg:order-1"
           >
-            <span className="micro-label mb-6 block">Documentation Archive</span>
-            <h1 className="font-display text-5xl sm:text-7xl lg:text-[80px] font-black mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading">
+            <span className="micro-label mb-6 block text-forest-700 dark:text-gold-500">Documentation Archive</span>
+            <h1 className="font-display text-5xl sm:text-7xl lg:text-[80px] font-black mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading dark:text-white">
               Explore the <span className="text-gold-600 italic">Living</span> Archive
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-hero-body font-medium leading-relaxed mb-12 max-w-xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg md:text-xl text-hero-body dark:text-white/60 font-medium leading-relaxed mb-12 max-w-xl mx-auto lg:mx-0">
               Access geo-tagged field recordings and validated linguistic artifacts from the 18 Lumad communities of Mindanao.
             </p>
           </motion.div>
@@ -79,9 +79,9 @@ export default function Docs() {
             transition={{ duration: 0.8 }}
             className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 pb-4 border-b border-cream-brd/20 dark:border-white/5 gap-4"
           >
-            <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-semibold text-cream-text leading-tight text-left">Recent Recordings</h2>
-            <div className="flex items-center gap-2 text-[10px] font-extrabold text-cream-text3 uppercase tracking-widest whitespace-nowrap">
-              Showing <span className="text-cream-text">3</span> of 47
+            <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-semibold text-cream-text dark:text-white leading-tight text-left">Recent Recordings</h2>
+            <div className="flex items-center gap-2 text-[10px] font-extrabold text-cream-text3 dark:text-white/40 uppercase tracking-widest whitespace-nowrap">
+              Showing <span className="text-cream-text dark:text-white">3</span> of 47
             </div>
           </motion.div>
 
@@ -145,11 +145,11 @@ export default function Docs() {
               <div className="absolute top-[-20%] right-[-20%] p-4 opacity-5 group-hover:opacity-100 transition-opacity duration-500 text-cream-text transform rotate-12">
                 <Map size={200} />
               </div>
-              <h2 className="font-display text-2xl font-bold mb-4 text-cream-text">Geo-Tag Map</h2>
-              <p className="text-cream-text2 text-sm font-semibold mb-8 leading-relaxed">
+              <h2 className="font-display text-2xl font-bold mb-4 text-cream-text dark:text-white">Geo-Tag Map</h2>
+              <p className="text-cream-text2 dark:text-white/60 text-sm font-semibold mb-8 leading-relaxed">
                 Visualize the distribution of recordings across Mindanao with our interactive heatmap.
               </p>
-              <button className="btn-primary w-full py-4 !bg-brand-green !shadow-[0_5px_0_#226636]">
+              <button className="btn-primary w-full py-4 !bg-brand-green dark:!bg-gold-500 !text-white dark:!text-forest-900 !shadow-[0_5px_0_#226636] dark:!shadow-[0_5px_0_#9a7d0a]">
                 Open Map View
               </button>
             </motion.div>

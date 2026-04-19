@@ -56,21 +56,21 @@ export default function HelpCenter() {
   ];
 
   return (
-    <div className="bg-cream-bg min-h-screen font-sans selection:bg-gold-200 transition-colors duration-300">
+    <div className="bg-cream-bg dark:bg-forest-950 text-cream-text dark:text-white/90 min-h-screen font-sans selection:bg-gold-200 transition-colors duration-300">
       {/* Hero Section - Synchronized Editorial Style */}
-      <section className="relative min-h-[80vh] flex items-center justify-center pt-24 pb-12 px-0 sm:px-8 lg:px-12 overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center pt-24 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden bg-white dark:bg-forest-900 transition-colors duration-500">
         {/* Soft Glow Decoration */}
-        <div className="absolute top-0 right-0 w-[60%] h-full bg-radial-[circle_at_70%_40%] from-gold-500/10 to-transparent pointer-events-none blur-3xl" />
+        <div className="absolute top-0 right-0 w-[60%] h-full bg-radial-[circle_at_70%_40%] from-gold-500/10 to-transparent pointer-events-none blur-3xl opacity-60 dark:opacity-20" />
         
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10 max-w-2xl text-center lg:text-left order-2 lg:order-1 px-6 sm:px-0"
+            className="relative z-10 max-w-2xl text-center lg:text-left order-2 lg:order-1"
           >
-            <span className="micro-label mb-6 block">Support Center</span>
-            <h1 className="font-display text-5xl sm:text-7xl lg:text-[80px] font-black mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading">
+            <span className="micro-label mb-6 block text-forest-700 dark:text-gold-500">Support Center</span>
+            <h1 className="font-display text-5xl sm:text-7xl lg:text-[80px] font-black mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading dark:text-white">
               How can we <br /> <span className="text-gold-600 italic">help</span> you today?
             </h1>
             
@@ -80,11 +80,11 @@ export default function HelpCenter() {
               transition={{ delay: 0.1 }}
               className="relative max-w-md mx-auto lg:mx-0 mb-8"
             >
-              <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-cream-text3" size={20} />
+              <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-cream-text3 dark:text-white/40" size={20} />
               <input 
                 type="text" 
                 placeholder="Search for guides, protocols..."
-                className="w-full pl-14 pr-8 py-5 rounded-3xl bg-white border border-cream-brd/50 shadow-xl text-cream-text placeholder:text-cream-text3 focus:ring-2 focus:ring-gold-700 outline-none"
+                className="w-full pl-14 pr-8 py-5 rounded-3xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 shadow-xl text-cream-text dark:text-white placeholder:text-cream-text3 dark:placeholder:text-white/20 focus:ring-2 focus:ring-gold-700 outline-none"
               />
             </motion.div>
 
@@ -94,9 +94,9 @@ export default function HelpCenter() {
               transition={{ delay: 0.2 }}
               className="flex flex-wrap justify-center lg:justify-start items-center gap-3"
             >
-              <span className="text-[10px] font-extrabold text-cream-text/40 uppercase tracking-widest mr-2 underline decoration-gold-500/30">Popular:</span>
+              <span className="text-[10px] font-extrabold text-cream-text/40 dark:text-white/20 uppercase tracking-widest mr-2 underline decoration-gold-500/30">Popular:</span>
               {["Recording Guide", "Validator Access"].map(tag => (
-                <button key={tag} className="px-4 py-1.5 rounded-full bg-forest-900/5 text-[11px] font-bold text-forest-900 border border-forest-900/10 hover:bg-forest-900 hover:text-white transition-all">
+                <button key={tag} className="px-4 py-1.5 rounded-full bg-forest-900/5 dark:bg-white/5 text-[11px] font-bold text-forest-900 dark:text-white/60 border border-forest-900/10 dark:border-white/10 hover:bg-forest-900 dark:hover:bg-white hover:text-white dark:hover:text-forest-900 transition-all">
                   {tag}
                 </button>
               ))}
@@ -140,22 +140,22 @@ export default function HelpCenter() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="card-cream !p-10 flex flex-col group"
+              className="card-cream dark:bg-forest-900 dark:border-white/10 !p-10 flex flex-col group transition-colors duration-500"
             >
-              <div className={`w-14 h-14 ${cat.iconBg} rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
+              <div className={`w-14 h-14 ${cat.iconBg} dark:bg-white/10 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
                 {cat.icon}
               </div>
-              <h3 className="font-display text-2xl font-bold mb-6 text-cream-text group-hover:text-gold-700 transition-colors">{cat.title}</h3>
-              <ul className="space-y-4 mb-10 flex-grow">
+              <h3 className="font-display text-2xl font-bold mb-6 text-cream-text dark:text-white group-hover:text-gold-700 dark:group-hover:text-gold-500 transition-colors">{cat.title}</h3>
+              <ul className="space-y-4 mb-10 flex-grow text-left">
                 {cat.links.map(link => (
                   <li key={link}>
-                    <button className="text-cream-text2 hover:text-gold-700 font-semibold text-sm transition-colors text-left">
+                    <button className="text-cream-text2 dark:text-white/60 hover:text-gold-700 dark:hover:text-gold-500 font-semibold text-sm transition-colors text-left">
                       {link}
                     </button>
                   </li>
                 ))}
               </ul>
-              <button className="text-gold-700 font-extrabold text-[11px] uppercase tracking-[0.2em] hover:text-gold-800 transition-colors text-left">
+              <button className="text-gold-700 dark:text-gold-500 font-extrabold text-[11px] uppercase tracking-[0.2em] hover:text-gold-800 dark:hover:text-white transition-colors text-left">
                 View All {cat.count} Articles
               </button>
             </motion.div>
@@ -167,14 +167,14 @@ export default function HelpCenter() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="bg-forest-900 rounded-[20px] p-10 flex flex-col text-white relative overflow-hidden group"
+            className="bg-forest-900 dark:bg-forest-800 rounded-[20px] p-10 flex flex-col text-white relative overflow-hidden group transition-colors duration-500"
           >
             <div className="absolute top-[-20%] right-[-20%] w-40 h-40 bg-gold-500/10 rounded-full blur-3xl group-hover:bg-gold-500/20 transition-all" />
             <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-8">
               <BookOpen size={24} className="text-gold-500" />
             </div>
             <h3 className="font-display text-2xl font-bold mb-6">Cultural Protocols</h3>
-            <p className="text-white/50 text-sm font-medium leading-relaxed mb-10 flex-grow">
+            <p className="text-white/50 dark:text-white/40 text-sm font-medium leading-relaxed mb-10 flex-grow text-left">
               Learn about the sacred nature of the languages we preserve and the respectful ways to engage with the material.
             </p>
             <button className="btn-primary !bg-gold-500 !text-cream-text !py-3 !text-xs w-fit">
@@ -191,7 +191,7 @@ export default function HelpCenter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-center mb-12 lg:mb-16 text-cream-text leading-tight"
+          className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-center mb-12 lg:mb-16 text-cream-text dark:text-white leading-tight"
         >
           Frequently Asked Questions
         </motion.h2>
@@ -202,15 +202,15 @@ export default function HelpCenter() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-[20px] shadow-sm border border-cream-brd/20"
+              className="bg-white dark:bg-forest-900 p-8 rounded-[20px] shadow-sm border border-cream-brd/20 dark:border-white/10 transition-colors duration-500"
             >
-              <div className="flex gap-4 mb-4">
+              <div className="flex text-left gap-4 mb-4">
                 <div className="w-6 h-6 rounded-full bg-gold-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                  <HelpCircle size={14} className="text-gold-700" />
+                  <HelpCircle size={14} className="text-gold-700 dark:text-gold-500" />
                 </div>
-                <h4 className="font-display text-xl font-bold text-cream-text">{faq.q}</h4>
+                <h4 className="font-display text-xl font-bold text-cream-text dark:text-white">{faq.q}</h4>
               </div>
-              <p className="text-cream-text2 text-base font-medium leading-relaxed pl-10">
+              <p className="text-cream-text2 dark:text-white/60 text-base font-medium leading-relaxed pl-10 text-left">
                 {faq.a}
               </p>
             </motion.div>
@@ -225,7 +225,7 @@ export default function HelpCenter() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-brand-green/10 rounded-[30px] lg:rounded-[40px] p-12 md:p-16 lg:p-24 text-center relative overflow-hidden"
+          className="bg-brand-green/10 dark:bg-white/5 rounded-[30px] lg:rounded-[40px] p-12 md:p-16 lg:p-24 text-center relative overflow-hidden"
         >
           {/* Fern Decoration */}
           <motion.div 
@@ -255,11 +255,11 @@ export default function HelpCenter() {
           </motion.div>
  
           <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold mb-6 text-cream-text leading-tight">Can't find what you're looking for?</h2>
-            <p className="text-base md:text-lg lg:text-xl text-cream-text2 font-semibold mb-10 lg:mb-12">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold mb-6 text-cream-text dark:text-white leading-tight">Can't find what you're looking for?</h2>
+            <p className="text-base md:text-lg lg:text-xl text-cream-text2 dark:text-white/60 font-semibold mb-10 lg:mb-12">
               Our cultural stewards and technical team are available to help you on your ascent.
             </p>
-            <button className="btn-primary !bg-forest-900 !text-white !px-10 !py-5 shadow-2xl">
+            <button className="btn-primary !bg-forest-900 dark:!bg-gold-500 !text-white dark:!text-forest-900 !px-10 !py-5 shadow-2xl">
               <Mail size={20} className="mr-2" /> Contact Support Team
             </button>
           </div>
