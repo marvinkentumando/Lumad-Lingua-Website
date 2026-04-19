@@ -9,10 +9,14 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   const links = [
-    { name: "MISSION", path: "/" },
+    { name: "HOME", path: "/" },
     { name: "ABOUT US", path: "/about" },
-    { name: "HELP CENTER", path: "/learn" },
+    { name: "HELP CENTER", path: "/helpcenter" },
     { name: "CONTACT", path: "/contact" },
   ];
 
@@ -20,7 +24,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cream-bg/80 dark:bg-forest-900/80 backdrop-blur-md border-b border-cream-brd/30 dark:border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" onClick={scrollToTop} className="flex items-center gap-2 group">
             <span className="font-display text-2xl font-bold text-cream-text dark:text-white tracking-tight">
               Lumad Lingua
             </span>
@@ -32,6 +36,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
+                onClick={scrollToTop}
                 className={`text-[11px] font-extrabold tracking-[0.15em] transition-colors relative ${
                   location.pathname === link.path
                     ? "text-gold-700 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-gold-500"
@@ -57,7 +62,7 @@ export default function Navbar() {
                 {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
               </motion.div>
             </button>
-            <Link to="/learn" className="btn-sm">
+            <Link to="/helpcenter" onClick={scrollToTop} className="btn-sm">
               Get Started
             </Link>
           </div>
@@ -90,15 +95,15 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.path}
-              onClick={() => setIsOpen(false)}
+              onClick={() => { setIsOpen(false); scrollToTop(); }}
               className="text-xs font-extrabold tracking-widest text-cream-text3 dark:text-white/40 hover:text-cream-text dark:hover:text-white transition-colors"
             >
               {link.name}
             </Link>
           ))}
           <Link
-            to="/learn"
-            onClick={() => setIsOpen(false)}
+            to="/helpcenter"
+            onClick={() => { setIsOpen(false); scrollToTop(); }}
             className="bg-gold-500 text-black px-6 py-3 rounded-full text-xs font-extrabold text-center"
           >
             Get Started

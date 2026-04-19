@@ -29,7 +29,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link 
-                to="/learn" 
+                to="/helpcenter" 
                 className="px-8 lg:px-10 py-4 lg:py-5 rounded-full bg-forest-700 text-white font-bold text-base lg:text-lg hover:bg-black transition-all shadow-lg shadow-forest-900/10 text-center"
               >
                 Start Learning Now
@@ -66,8 +66,14 @@ export default function Home() {
       
 
       {/* Community Progress Section */}
-      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900/30 transition-colors duration-500">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900/30 transition-colors duration-500 overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div>
               <span className="micro-label mb-4 block">Live Community Impact</span>
@@ -132,12 +138,18 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Platform Story - Woven Grid */}
       <section className="py-16 lg:py-28 px-4 sm:px-8 lg:px-12 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="max-w-7xl mx-auto"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div>
               <span className="micro-label mb-6 block">Our Philosophy</span>
@@ -192,12 +204,18 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Partners Section - Enhanced */}
       <section className="pb-16 lg:pb-24 px-4">
-        <div className="max-w-7xl mx-auto bg-white dark:bg-forest-900/40 border border-cream-brd/30 dark:border-white/10 rounded-[40px] lg:rounded-[60px] p-8 md:p-16 lg:p-24 text-center relative overflow-hidden transition-colors duration-500">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto bg-white dark:bg-forest-900/40 border border-cream-brd/30 dark:border-white/10 rounded-[40px] lg:rounded-[60px] p-8 md:p-16 lg:p-24 text-center relative overflow-hidden transition-colors duration-500"
+        >
           <div className="absolute top-0 right-0 w-1/2 h-full bg-radial-[circle_at_100%_0%] from-gold-500/10 to-transparent pointer-events-none" />
           
           <span className="micro-label mb-6 block">Collaborators</span>
@@ -212,9 +230,13 @@ export default function Home() {
               { icon: <Users size={32} />, label: "MANSAKA COUNCIL" },
               { icon: <Shield size={32} />, label: "MANDAYA ELDERS" },
               { icon: <Flower2 size={32} />, label: "CULTURAL CENTER" }
-            ].map((partner) => (
+            ].map((partner, i) => (
               <motion.div 
                 key={partner.label} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -5 }}
                 className="flex flex-col items-center gap-6"
               >
@@ -229,15 +251,21 @@ export default function Home() {
           <Link to="/about" className="btn-primary inline-flex items-center gap-2">
             Meet the Guardians <ArrowRight size={18} />
           </Link>
-        </div>
+        </motion.div>
       </section>
 
       {/* Core Pillars - Card Overhaul */}
-      <section className="py-16 lg:py-28 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto relative">
-        <div className="text-center mb-16 lg:mb-24">
+      <section className="py-16 lg:py-28 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto relative overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 lg:mb-24"
+        >
           <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-[#0d1e0d] mb-4 lg:mb-6 leading-tight">The Three Core Pillars</h2>
           <p className="micro-label">Foundational Truths</p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {[
@@ -281,18 +309,36 @@ export default function Home() {
       {/* Final CTA - Join the Ascent */}
       <section className="py-20 lg:py-32 px-4 sm:px-8 lg:px-12 relative bg-cream-bg overflow-hidden">
         {/* Large Faint Tree Outlines */}
-        <div className="absolute bottom-[-10%] left-[-5%] w-64 md:w-96 h-64 md:h-96 text-forest-900/5 pointer-events-none">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 0.05, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5 }}
+          className="absolute bottom-[-10%] left-[-5%] w-64 md:w-96 h-64 md:h-96 text-forest-900 pointer-events-none"
+        >
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
             <path d="M12 2L1 21h22L12 2zm0 3.83L18.5 19H5.5L12 5.83z" />
           </svg>
-        </div>
-        <div className="absolute top-[-10%] right-[-5%] w-64 md:w-96 h-64 md:h-96 text-forest-900/5 pointer-events-none rotate-180">
+        </motion.div>
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 0.05, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5 }}
+          className="absolute top-[-10%] right-[-5%] w-64 md:w-96 h-64 md:h-96 text-forest-900 pointer-events-none rotate-180"
+        >
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
             <path d="M12 2L1 21h22L12 2zm0 3.83L18.5 19H5.5L12 5.83z" />
           </svg>
-        </div>
+        </motion.div>
         
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center relative z-10"
+        >
           <div className="flex justify-center mb-8 lg:mb-10">
             <div className="text-gold-800 flex gap-1 scale-75 md:scale-100">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
@@ -313,7 +359,7 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link 
-              to="/learn" 
+              to="/helpcenter" 
               className="px-12 py-6 rounded-full bg-forest-900 text-white font-bold text-lg hover:bg-black transition-all shadow-xl shadow-forest-900/20"
             >
               Start Learning Now
@@ -325,7 +371,7 @@ export default function Home() {
               Contribute Story
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

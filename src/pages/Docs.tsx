@@ -48,7 +48,12 @@ export default function Docs() {
 
       <div className="max-w-7xl mx-auto px-4 pb-24 space-y-20">
           
-        <section>
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="flex flex-col md:flex-row gap-4">
             <div className="relative flex-1 group">
               <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-cream-text3 group-focus-within:text-brand-green transition-colors" size={20} />
@@ -63,22 +68,29 @@ export default function Docs() {
               Advanced Filters
             </button>
           </div>
-        </section>
+        </motion.section>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <section className="lg:col-span-8 space-y-4 lg:space-y-6">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 pb-4 border-b border-cream-brd/20 dark:border-white/5 gap-4">
-              <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-semibold text-cream-text leading-tight text-left">Recent Recordings</h2>
-              <div className="flex items-center gap-2 text-[10px] font-extrabold text-cream-text3 uppercase tracking-widest whitespace-nowrap">
-                Showing <span className="text-cream-text">3</span> of 47
-              </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 pb-4 border-b border-cream-brd/20 dark:border-white/5 gap-4"
+          >
+            <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-semibold text-cream-text leading-tight text-left">Recent Recordings</h2>
+            <div className="flex items-center gap-2 text-[10px] font-extrabold text-cream-text3 uppercase tracking-widest whitespace-nowrap">
+              Showing <span className="text-cream-text">3</span> of 47
             </div>
+          </motion.div>
 
             {recordings.map((rec, i) => (
               <motion.div
                 key={rec.title}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="group p-8 rounded-[32px] bg-white dark:bg-white/5 border border-cream-brd/20 dark:border-white/5 hover:bg-gold-50 dark:hover:bg-white/10 hover:border-brand-green/20 transition-all cursor-pointer relative overflow-hidden shadow-sm"
               >
@@ -123,8 +135,14 @@ export default function Docs() {
           </section>
 
           <section className="lg:col-span-4 space-y-8">
-            <div className="card-cream p-8 overflow-hidden relative group">
-              <div className="absolute top-[-20%] right-[-20%] p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500 text-cream-text">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="card-cream p-8 overflow-hidden relative group"
+            >
+              <div className="absolute top-[-20%] right-[-20%] p-4 opacity-5 group-hover:opacity-100 transition-opacity duration-500 text-cream-text transform rotate-12">
                 <Map size={200} />
               </div>
               <h2 className="font-display text-2xl font-bold mb-4 text-cream-text">Geo-Tag Map</h2>
@@ -134,9 +152,15 @@ export default function Docs() {
               <button className="btn-primary w-full py-4 !bg-brand-green !shadow-[0_5px_0_#226636]">
                 Open Map View
               </button>
-            </div>
+            </motion.div>
 
-            <div className="card-cream p-8 relative overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="card-cream p-8 relative overflow-hidden"
+            >
                <div className="absolute top-[-20%] right-[-20%] w-40 h-40 bg-brand-blue/5 rounded-full blur-3xl" />
               <h2 className="font-display text-2xl font-bold mb-4 text-cream-text">Dictionary</h2>
               <p className="text-cream-text2 text-sm font-semibold mb-8 leading-relaxed">
@@ -146,9 +170,15 @@ export default function Docs() {
                 <BookOpen size={20} />
                 Open Dictionary
               </button>
-            </div>
+            </motion.div>
             
-            <div className="p-8 rounded-[32px] bg-brand-green/5 dark:bg-brand-green/10 border border-brand-green/20">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="p-8 rounded-[32px] bg-brand-green/5 dark:bg-brand-green/10 border border-brand-green/20"
+            >
               <h2 className="font-display text-2xl font-bold mb-4 text-brand-green leading-tight">Contribute</h2>
               <p className="text-cream-text2 text-sm font-semibold mb-6 leading-relaxed">
                 Are you a community member? Help us preserve your language.
@@ -156,7 +186,7 @@ export default function Docs() {
               <button className="text-xs font-extrabold text-cream-text hover:text-brand-green uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
                 Learn how to contribute <ArrowRight size={14} />
               </button>
-            </div>
+            </motion.div>
           </section>
         </div>
       </div>

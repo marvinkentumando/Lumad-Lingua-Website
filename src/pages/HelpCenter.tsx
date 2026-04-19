@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Search, Rocket, GraduationCap, HeartHandshake, ShieldCheck, Wrench, BookOpen, HelpCircle, Mail, ExternalLink } from "lucide-react";
 
-export default function Learn() {
+export default function HelpCenter() {
   const categories = [
     {
       title: "Getting Started",
@@ -125,13 +125,20 @@ export default function Learn() {
       </section>
 
       {/* Categories Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-24 mb-16 lg:mb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-24 mb-16 lg:mb-24 overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {categories.map((cat, i) => (
             <motion.div
               key={cat.title}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="card-cream !p-10 flex flex-col group"
             >
@@ -157,7 +164,8 @@ export default function Learn() {
           {/* Cultural Protocols Special Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.5 }}
             className="bg-forest-900 rounded-[20px] p-10 flex flex-col text-white relative overflow-hidden group"
           >
@@ -173,12 +181,20 @@ export default function Learn() {
               Read Handbook <ExternalLink size={14} className="ml-1" />
             </button>
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* FAQ Section */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12 mb-16 lg:mb-24">
-        <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-center mb-12 lg:mb-16 text-cream-text leading-tight">Frequently Asked Questions</h2>
+      <section className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12 mb-16 lg:mb-24 overflow-hidden">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-center mb-12 lg:mb-16 text-cream-text leading-tight"
+        >
+          Frequently Asked Questions
+        </motion.h2>
         <div className="space-y-6">
           {faqs.map((faq, i) => (
             <motion.div
@@ -203,22 +219,40 @@ export default function Learn() {
       </section>
 
       {/* Contact Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 mb-16 lg:mb-20">
-        <div className="bg-brand-green/10 rounded-[30px] lg:rounded-[40px] p-12 md:p-16 lg:p-24 text-center relative overflow-hidden">
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 mb-16 lg:mb-20 overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="bg-brand-green/10 rounded-[30px] lg:rounded-[40px] p-12 md:p-16 lg:p-24 text-center relative overflow-hidden"
+        >
           {/* Fern Decoration */}
-          <div className="absolute left-[-5%] bottom-[-10%] opacity-10 pointer-events-none scale-75 lg:scale-100">
+          <motion.div 
+            initial={{ opacity: 0, x: -20, rotate: -10 }}
+            whileInView={{ opacity: 0.1, x: 0, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5 }}
+            className="absolute left-[-5%] bottom-[-10%] pointer-events-none scale-75 lg:scale-100 text-brand-green"
+          >
             <svg width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M11 20c0-4.418 3.582-8 8-8" />
               <path d="M11 20c0-7.18 5.82-13 13-13" />
               <path d="M11 20c0-2.209 1.791-4 4-4" />
             </svg>
-          </div>
-          <div className="absolute right-[-5%] top-[-10%] opacity-10 pointer-events-none scale-75 lg:scale-100">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 20, rotate: 10 }}
+            whileInView={{ opacity: 0.1, x: 0, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5 }}
+            className="absolute right-[-5%] top-[-10%] pointer-events-none scale-75 lg:scale-100 text-brand-green"
+          >
             <svg width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M11 20c-4.418 0-8-3.582-8-8" />
               <path d="M11 20c-7.18 0-13-5.82-13-13" />
             </svg>
-          </div>
+          </motion.div>
  
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold mb-6 text-cream-text leading-tight">Can't find what you're looking for?</h2>
@@ -229,7 +263,7 @@ export default function Learn() {
               <Mail size={20} className="mr-2" /> Contact Support Team
             </button>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

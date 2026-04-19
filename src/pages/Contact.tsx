@@ -46,13 +46,14 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="pb-16 lg:pb-24 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+      <section className="pb-16 lg:pb-24 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="card-cream p-6 sm:p-8 md:p-12 shadow-xl"
           >
             <h2 className="font-display text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-cream-text leading-tight">Send a Message</h2>
@@ -100,9 +101,10 @@ export default function Contact() {
 
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="flex flex-col justify-between py-8"
           >
             <div className="space-y-8 lg:space-y-12">

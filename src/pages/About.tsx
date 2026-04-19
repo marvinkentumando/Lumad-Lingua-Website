@@ -79,8 +79,14 @@ export default function About() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white/40 border-y border-cream-brd/30">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white/40 border-y border-cream-brd/30 overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center"
+        >
           <div className="space-y-6 lg:space-y-10">
             <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-cream-text leading-tight">
               The <span className="text-brand-green">Mission</span>
@@ -101,15 +107,21 @@ export default function About() {
               🌿
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* Values Grid */}
+      {/* Core Values Section Heading */}
       <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-        <div className="text-center mb-12 lg:mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12 lg:mb-20"
+        >
           <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-cream-text mb-4 leading-tight">Our Core Values</h2>
           <p className="micro-label">The foundation of our work</p>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, i) => (
             <motion.div
@@ -133,7 +145,13 @@ export default function About() {
       {/* Partners Integrated Section */}
       <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900/40 border-y border-cream-brd/30 dark:border-white/10 relative overflow-hidden transition-colors duration-500">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-radial-[circle_at_100%_0%] from-gold-500/10 to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto relative z-10"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <span className="micro-label mb-6 block">Collaborators</span>
@@ -143,8 +161,15 @@ export default function About() {
                 community elders of the Mansaka and Mandaya peoples.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {partners.map((p) => (
-                  <div key={p.name} className="flex items-center gap-4 p-4 rounded-2xl bg-cream-bg dark:bg-white/5 border border-cream-brd/50 dark:border-white/10">
+                {partners.map((p, i) => (
+                  <motion.div 
+                    key={p.name} 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-center gap-4 p-4 rounded-2xl bg-cream-bg dark:bg-white/5 border border-cream-brd/50 dark:border-white/10"
+                  >
                     <div className="w-10 h-10 rounded-xl bg-gold-500/20 flex items-center justify-center text-gold-500">
                       {p.icon}
                     </div>
@@ -152,12 +177,18 @@ export default function About() {
                       <div className="text-sm font-bold text-hero-heading">{p.name}</div>
                       <div className="text-[10px] text-hero-body/40 uppercase tracking-widest font-bold">{p.role}</div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
             
-            <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-[40px] border border-cream-brd/30 shadow-2xl">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative aspect-video lg:aspect-square overflow-hidden rounded-[40px] border border-cream-brd/30 shadow-2xl"
+            >
               <img 
                 src="https://picsum.photos/seed/community-weaving/800/800" 
                 alt="Community Weaving" 
@@ -167,9 +198,9 @@ export default function About() {
               <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-bottom p-8">
                 <span className="text-white text-xs font-black uppercase tracking-widest">Cultural Validation Session</span>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Research Team Section */}
@@ -184,7 +215,13 @@ export default function About() {
           </div>
 
           <div className="relative z-10">
-            <div className="text-center mb-12 lg:mb-20">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-12 lg:mb-20"
+            >
               <span className="micro-label mb-4 block">The Architects</span>
               <h3 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-hero-heading flex items-center justify-center gap-4 lg:gap-8 leading-tight">
                 The Research <span className="text-gold-600 italic">Team</span>
@@ -192,7 +229,7 @@ export default function About() {
               <p className="text-hero-body/60 text-sm md:text-base font-medium max-w-xl mx-auto mt-4">
                 A interdisciplinary group of students and scholars dedicated to the digital preservation of ancestral voices.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {[
