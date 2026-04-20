@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-8 text-[10px] font-extrabold text-white/40 tracking-widest uppercase">
-          <Link to="/about" onClick={scrollToTop} className="hover:text-gold-500 transition-colors">About Us</Link>
+          <Link to="/about" onClick={scrollToTop} className="hover:text-gold-500 transition-colors">About</Link>
           <Link to="#" onClick={scrollToTop} className="hover:text-gold-500 transition-colors">Privacy Policy</Link>
           <Link to="#" onClick={scrollToTop} className="hover:text-gold-500 transition-colors">Terms of Service</Link>
           <Link to="#" onClick={scrollToTop} className="hover:text-gold-500 transition-colors">Community Guidelines</Link>

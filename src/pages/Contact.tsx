@@ -1,12 +1,64 @@
 import { motion } from "motion/react";
-import { Mail, MapPin, Phone, Send, Globe, MessageSquare, Heart } from "lucide-react";
+import { Search, Rocket, GraduationCap, HeartHandshake, ShieldCheck, Wrench, BookOpen, HelpCircle, Mail, ExternalLink, Phone } from "lucide-react";
 
 export default function Contact() {
+  const categories = [
+    {
+      title: "Getting Started",
+      icon: <Rocket size={24} className="text-gold-700" />,
+      iconBg: "bg-gold-100",
+      links: ["How do I record a word?", "Setting up your cultural profile", "Understanding the Ascent levels"],
+      count: 12
+    },
+    {
+      title: "For Learners",
+      icon: <GraduationCap size={24} className="text-forest-500" />,
+      iconBg: "bg-forest-50",
+      links: ["How to use the IPA field notes", "Practicing offline mode", "Earning community badges"],
+      count: 8
+    },
+    {
+      title: "For Contributors",
+      icon: <HeartHandshake size={24} className="text-brand-red" />,
+      iconBg: "bg-brand-red/10",
+      links: ["Who validates my submissions?", "Recording environmental guidelines", "Language preservation ethics"],
+      count: 15
+    },
+    {
+      title: "Validation Protocol",
+      icon: <ShieldCheck size={24} className="text-brand-blue" />,
+      iconBg: "bg-brand-blue/10",
+      links: ["The 3-tier verification process", "Elder council oversight", "Reporting inaccuracy"],
+      count: 6
+    },
+    {
+      title: "Technical Support",
+      icon: <Wrench size={24} className="text-gold-700" />,
+      iconBg: "bg-gold-100",
+      links: ["Mic permissions troubleshoot", "Exporting your learning data", "Account recovery steps"],
+      count: 21
+    }
+  ];
+
+  const faqs = [
+    {
+      q: "Can I download audio for offline use?",
+      a: "Yes! You can download entire dialect modules to your device via the \"Resource Library\" section in your settings. This is ideal for field work in remote areas."
+    },
+    {
+      q: "How are the rewards calculated?",
+      a: "Rewards (Ascent Points) are granted based on the accuracy of your recording, validation by a tier-2 contributor, and community engagement with your submitted artifacts."
+    },
+    {
+      q: "What happens to my data if I delete my account?",
+      a: "Personal identifiers are removed instantly. However, contributions made to the open linguistic database remain (anonymously) to ensure the continuity of language preservation effort."
+    }
+  ];
+
   return (
     <div className="bg-cream-bg dark:bg-forest-950 text-cream-text dark:text-white/90 min-h-screen font-sans selection:bg-gold-200 transition-colors duration-300">
       {/* Hero Section - Synchronized Editorial Style */}
-      <section className="relative min-h-[80vh] flex items-center justify-center pt-24 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden bg-white dark:bg-forest-900 transition-colors duration-500">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
+      <section className="relative min-h-[70vh] flex items-center justify-center pt-24 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden bg-white dark:bg-forest-900 transition-colors duration-500">
         {/* Soft Glow Decoration */}
         <div className="absolute top-0 right-0 w-[60%] h-full bg-radial-[circle_at_70%_40%] from-gold-500/10 to-transparent pointer-events-none blur-3xl opacity-60 dark:opacity-20" />
         
@@ -21,6 +73,7 @@ export default function Contact() {
             <h1 className="font-display text-5xl sm:text-7xl lg:text-[80px] font-black mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading dark:text-white">
               Let's <span className="text-gold-600 italic">Connect</span> with Heritage
             </h1>
+            
             <p className="text-base sm:text-lg md:text-xl text-hero-body dark:text-white/60 font-medium leading-relaxed mb-12 max-w-xl mx-auto lg:mx-0">
               Whether you have a question about our research, want to contribute a story, or simply wish to support the ascent, we're here to listen.
             </p>
@@ -47,127 +100,172 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="pb-16 lg:pb-24 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto overflow-hidden">
+      {/* Categories Grid */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-20 mb-12 lg:mb-16 overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {categories.map((cat, i) => (
+            <motion.div
+              key={cat.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="card-cream dark:bg-forest-900 dark:border-white/10 !p-10 flex flex-col group transition-colors duration-500"
+            >
+              <div className={`w-14 h-14 ${cat.iconBg} dark:bg-white/10 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
+                {cat.icon}
+              </div>
+              <h3 className="font-display text-2xl font-bold mb-6 text-cream-text dark:text-white group-hover:text-gold-700 dark:group-hover:text-gold-500 transition-colors">{cat.title}</h3>
+              <ul className="space-y-4 mb-10 flex-grow text-left">
+                {cat.links.map(link => (
+                  <li key={link}>
+                    <button className="text-cream-text2 dark:text-white/60 hover:text-gold-700 dark:hover:text-gold-500 font-semibold text-sm transition-colors text-left">
+                      {link}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <button className="text-gold-700 dark:text-gold-500 font-extrabold text-[11px] uppercase tracking-[0.2em] hover:text-gold-800 dark:hover:text-white transition-colors text-left">
+                View All {cat.count} Articles
+              </button>
+            </motion.div>
+          ))}
+
+          {/* Cultural Protocols Special Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="bg-forest-900 dark:bg-forest-800 rounded-[20px] p-10 flex flex-col text-white relative overflow-hidden group transition-colors duration-500"
+          >
+            <div className="absolute top-[-20%] right-[-20%] w-40 h-40 bg-gold-500/10 rounded-full blur-3xl group-hover:bg-gold-500/20 transition-all" />
+            <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-8">
+              <BookOpen size={24} className="text-gold-500" />
+            </div>
+            <h3 className="font-display text-2xl font-bold mb-6">Cultural Protocols</h3>
+            <p className="text-white/50 dark:text-white/40 text-sm font-medium leading-relaxed mb-10 flex-grow text-left">
+              Learn about the sacred nature of the languages we preserve and the respectful ways to engage with the material.
+            </p>
+            <button className="btn-primary !bg-gold-500 !text-cream-text !py-3 !text-xs w-fit">
+              Read Handbook <ExternalLink size={14} className="ml-1" />
+            </button>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12 mb-16 lg:mb-24 overflow-hidden">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-center mb-12 lg:mb-16 text-cream-text dark:text-white leading-tight"
+        >
+          Frequently Asked Questions
+        </motion.h2>
+        <div className="space-y-6">
+          {faqs.map((faq, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-forest-900 p-8 rounded-[20px] shadow-sm border border-cream-brd/20 dark:border-white/10 transition-colors duration-500"
+            >
+              <div className="flex text-left gap-4 mb-4">
+                <div className="w-6 h-6 rounded-full bg-gold-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                  <HelpCircle size={14} className="text-gold-700 dark:text-gold-500" />
+                </div>
+                <h4 className="font-display text-xl font-bold text-cream-text dark:text-white">{faq.q}</h4>
+              </div>
+              <p className="text-cream-text2 dark:text-white/60 text-base font-medium leading-relaxed pl-10 text-left">
+                {faq.a}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Form Section - Merged from Contact Page */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pb-16 lg:pb-24 overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <span className="micro-label mb-4 block text-forest-700 dark:text-gold-500">Need more help?</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-forest-900 dark:text-white leading-tight">Send Us a <span className="text-gold-600 italic">Message</span></h2>
+        </motion.div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="card-cream dark:bg-forest-900 dark:border-white/10 p-6 sm:p-8 md:p-12 shadow-xl transition-colors duration-500"
+            className="card-cream dark:bg-forest-900 dark:border-white/10 p-8 md:p-12 shadow-xl"
           >
-            <h2 className="font-display text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-cream-text dark:text-white leading-tight">Send a Message</h2>
             <form className="space-y-6 text-left" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Full Name</label>
-                  <input 
-                    type="text" 
-                    placeholder="Juan Dela Cruz"
-                    className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-gold-500/20 focus:border-gold-500 transition-all font-semibold text-cream-text dark:text-white placeholder:text-cream-text3/40 dark:placeholder:text-white/20"
-                  />
+                  <input type="text" placeholder="Juan Dela Cruz" className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Email Address</label>
-                  <input 
-                    type="email" 
-                    placeholder="juan@example.com"
-                    className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-gold-500/20 focus:border-gold-500 transition-all font-semibold text-cream-text dark:text-white placeholder:text-cream-text3/40 dark:placeholder:text-white/20"
-                  />
+                  <input type="email" placeholder="juan@example.com" className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white" />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Subject</label>
-                <select className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-gold-500/20 focus:border-gold-500 transition-all font-semibold appearance-none text-cream-text dark:text-white">
-                  <option>General Inquiry</option>
-                  <option>Contribute a Story</option>
-                  <option>Partnership Proposal</option>
-                  <option>Technical Support</option>
-                </select>
-              </div>
-              <div className="space-y-2">
                 <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Message</label>
-                <textarea 
-                  rows={5}
-                  placeholder="How can we help you?"
-                  className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-gold-500/20 focus:border-gold-500 transition-all font-semibold resize-none text-cream-text dark:text-white placeholder:text-cream-text3/40 dark:placeholder:text-white/20"
-                ></textarea>
+                <textarea rows={4} placeholder="How can we help you?" className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white resize-none"></textarea>
               </div>
-              <button className="btn-primary w-full py-5 flex items-center justify-center gap-3 group !bg-forest-900 dark:!bg-gold-500 !text-white dark:!text-forest-900">
-                Send Message <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <button className="btn-primary w-full py-5 flex items-center justify-center gap-3 !bg-forest-900 dark:!bg-gold-500 !text-white dark:!text-forest-900 font-bold">
+                Send Message <Mail size={18} />
               </button>
             </form>
           </motion.div>
 
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-between py-8 text-left"
+            className="flex flex-col justify-center text-left space-y-10"
           >
-            <div className="space-y-8 lg:space-y-12">
-              <div>
-                <h2 className="font-display text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-cream-text dark:text-white leading-tight">Contact Information</h2>
-                <div className="space-y-6 lg:space-y-8">
-                  <div className="flex items-start gap-6 group">
-                    <div className="w-14 h-14 rounded-2xl bg-white dark:bg-forest-800 shadow-sm border border-cream-brd/50 dark:border-white/10 flex items-center justify-center text-gold-600 dark:text-gold-500 shrink-0 group-hover:bg-gold-500 dark:group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
-                      <Mail size={24} />
-                    </div>
-                    <div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 dark:text-white/40 mb-1">Email Us</div>
-                      <div className="text-xl font-bold text-cream-text dark:text-white">hello@lumadlingua.ph</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-6 group">
-                    <div className="w-14 h-14 rounded-2xl bg-white dark:bg-forest-800 shadow-sm border border-cream-brd/50 dark:border-white/10 flex items-center justify-center text-gold-600 dark:text-gold-500 shrink-0 group-hover:bg-gold-500 dark:group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
-                      <MapPin size={24} />
-                    </div>
-                    <div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 dark:text-white/40 mb-1">Visit Us</div>
-                      <div className="text-xl font-bold text-cream-text dark:text-white leading-tight">
-                        Davao del Norte State College<br />
-                        Panabo City, Davao del Norte
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-6 group">
-                    <div className="w-14 h-14 rounded-2xl bg-white dark:bg-forest-800 shadow-sm border border-cream-brd/50 dark:border-white/10 flex items-center justify-center text-gold-600 dark:text-gold-500 shrink-0 group-hover:bg-gold-500 dark:group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
-                      <Phone size={24} />
-                    </div>
-                    <div>
-                      <div className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 dark:text-white/40 mb-1">Call Us</div>
-                      <div className="text-xl font-bold text-cream-text dark:text-white">+63 (084) 628 4301</div>
-                    </div>
-                  </div>
+            <div>
+              <h3 className="font-display text-3xl font-bold mb-4 text-forest-900 dark:text-white">Direct Contact</h3>
+              <p className="text-cream-text2 dark:text-white/60 text-lg font-medium leading-relaxed mb-8">
+                Our support team is available Monday through Friday, 8:00 AM to 5:00 PM (PST).
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-600"><Mail size={18} /></div>
+                  <span className="font-bold text-forest-900 dark:text-white">hello@lumadlingua.ph</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-600"><Phone size={18} /></div>
+                  <span className="font-bold text-forest-900 dark:text-white">+63 (084) 628 4301</span>
                 </div>
               </div>
-
-              <div className="p-10 rounded-[40px] bg-forest-900 dark:bg-forest-800 text-white relative overflow-hidden transition-colors duration-500">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/10 rounded-full blur-3xl" />
-                <h3 className="font-display text-2xl font-bold mb-4 relative z-10">Community Support</h3>
-                <p className="text-white/60 dark:text-white/40 font-medium mb-8 relative z-10">
-                  Are you a tribal leader or educator? We have dedicated channels for cultural validation and curriculum integration.
-                </p>
-                <button className="flex items-center gap-2 text-gold-500 font-bold hover:text-gold-400 dark:hover:text-white transition-colors relative z-10">
-                  <MessageSquare size={18} /> Access Portal
-                </button>
-              </div>
             </div>
-
-            <div className="flex items-center gap-6 mt-12">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 dark:text-white/40">Follow the Ascent</span>
-              <div className="flex gap-4">
-                {[Globe, MessageSquare, Heart].map((Icon, i) => (
-                  <button key={i} className="w-10 h-10 rounded-full bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 flex items-center justify-center text-cream-text3 dark:text-white/40 hover:text-gold-600 dark:hover:text-gold-500 hover:border-gold-500 transition-all">
-                    <Icon size={18} />
-                  </button>
-                ))}
-              </div>
+            
+            <div className="p-8 rounded-[30px] bg-cream-bg dark:bg-white/5 border border-cream-brd/50 dark:border-white/10">
+              <h4 className="font-bold text-forest-900 dark:text-white mb-2">Institution</h4>
+              <p className="text-sm text-cream-text2 dark:text-white/40 font-medium">
+                Davao del Norte State College<br />
+                Panabo City, Davao del Norte
+              </p>
             </div>
           </motion.div>
         </div>

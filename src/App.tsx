@@ -10,9 +10,9 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import HelpCenter from "./pages/HelpCenter";
-import Docs from "./pages/Docs";
 import Contact from "./pages/Contact";
+import Docs from "./pages/Docs";
+import Pricing from "./pages/Pricing";
 
 export default function App() {
   return (
@@ -25,9 +25,9 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/helpcenter" element={<HelpCenter />} />
-              <Route path="/docs" element={<Docs />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/docs" element={<Docs />} />
+              <Route path="/pricing" element={<Pricing />} />
             </Routes>
           </main>
           <Footer />

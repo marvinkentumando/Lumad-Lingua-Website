@@ -48,7 +48,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link 
-                to="/helpcenter" 
+                to="/contact" 
                 className="px-8 lg:px-10 py-4 lg:py-5 rounded-full bg-forest-700 dark:bg-gold-600 text-white dark:text-forest-900 font-bold text-base lg:text-lg hover:bg-black dark:hover:bg-white transition-all shadow-lg shadow-forest-900/10 text-center"
               >
                 Start Learning Now
@@ -85,7 +85,7 @@ export default function Home() {
       
 
       {/* Community Progress Section - Bento Polish */}
-      <section className="py-20 lg:py-32 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900 transition-colors duration-500 relative overflow-hidden">
+      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900 transition-colors duration-500 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -172,7 +172,7 @@ export default function Home() {
       </section>
 
       {/* How Our System Works Section */}
-      <section className="py-16 lg:py-32 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900 transition-colors duration-500 relative overflow-hidden">
+      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900 transition-colors duration-500 relative overflow-hidden">
         <div className="absolute inset-0 bg-radial-[circle_at_30%_20%] from-gold-500/5 to-transparent pointer-events-none" />
         <motion.div 
           initial={{ opacity: 0 }}
@@ -252,7 +252,7 @@ export default function Home() {
       </section>
 
       {/* Features Showcase Section */}
-      <section className="py-16 lg:py-28 px-4 sm:px-8 lg:px-12 bg-cream-bg/50 dark:bg-forest-950 transition-colors duration-500 relative overflow-hidden text-center lg:text-left">
+      <section className="py-16 lg:py-20 px-4 sm:px-8 lg:px-12 bg-cream-bg/50 dark:bg-forest-950 transition-colors duration-500 relative overflow-hidden text-center lg:text-left">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cream-brd/50 dark:via-white/10 to-transparent" />
         
         <motion.div 
@@ -262,7 +262,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="max-w-7xl mx-auto"
         >
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-24">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 lg:mb-16">
             <div className="max-w-2xl mx-auto lg:mx-0">
               <span className="micro-label mb-6 block text-forest-700 dark:text-gold-500">Capabilities</span>
               <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-forest-900 dark:text-white leading-tight">
@@ -328,7 +328,7 @@ export default function Home() {
       </section>
 
       {/* Partners Section - Editorial Integration */}
-      <section className="py-24 lg:py-32 px-4 sm:px-8 lg:px-12 relative overflow-hidden bg-white dark:bg-forest-900 transition-colors duration-500">
+      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 relative overflow-hidden bg-white dark:bg-forest-900 transition-colors duration-500">
         <div className="absolute inset-0 bg-radial-[circle_at_100%_100%] from-gold-500/5 to-transparent pointer-events-none" />
         <motion.div 
           initial={{ opacity: 0 }}
@@ -376,7 +376,7 @@ export default function Home() {
 
 
       {/* Final CTA - Join the Ascent - Overhauled UI/UX (White / Dark Mode Friendly) */}
-      <section className="py-24 lg:py-40 px-4 sm:px-8 lg:px-12 relative overflow-hidden bg-white dark:bg-forest-900 transition-colors duration-500">
+      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 relative overflow-hidden bg-white dark:bg-forest-900 transition-colors duration-500">
         {/* Background Textures & Atmosphere */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
         <div className="absolute top-0 left-0 w-full h-full bg-radial-[circle_at_50%_50%] from-gold-500/5 dark:from-gold-500/10 to-transparent pointer-events-none" />
@@ -387,7 +387,7 @@ export default function Home() {
           whileInView={{ opacity: 0.05, rotate: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 2, ease: "easeOut" }}
-          className="absolute -right-20 -bottom-20 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] text-forest-900 dark:text-white pointer-events-none"
+          className="absolute -right-10 sm:-right-20 -bottom-10 sm:-bottom-20 w-[300px] sm:w-[450px] lg:w-[600px] h-[300px] sm:h-[450px] lg:h-[600px] text-forest-900 dark:text-white pointer-events-none"
         >
           <Mountain className="w-full h-full" />
         </motion.div>
@@ -410,7 +410,7 @@ export default function Home() {
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gold-500">Join 800+ Stewardship Members</span>
           </div>
           
-          <h2 className="font-display text-[60px] font-bold mb-10 text-forest-900 dark:text-white leading-[60px] tracking-tighter">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold mb-10 text-forest-900 dark:text-white leading-tight lg:leading-[60px] tracking-tighter">
             Your Ancestry <span className="text-gold-600 italic">Awaits</span>
           </h2>
           
@@ -420,7 +420,7 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link 
-              to="/helpcenter" 
+              to="/contact" 
               className="group relative px-10 sm:px-12 py-5 sm:py-7 rounded-full bg-forest-900 dark:bg-gold-500 text-white dark:text-forest-900 font-bold text-base sm:text-lg overflow-hidden transition-all shadow-2xl shadow-forest-900/20 active:scale-95"
             >
               <div className="absolute inset-0 bg-gold-600 dark:bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />

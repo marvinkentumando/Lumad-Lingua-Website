@@ -46,7 +46,7 @@ export default function Docs() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 pb-24 space-y-20">
+      <div className="max-w-7xl mx-auto px-4 pb-16 space-y-16">
           
         <motion.section
           initial={{ opacity: 0, y: 30 }}
