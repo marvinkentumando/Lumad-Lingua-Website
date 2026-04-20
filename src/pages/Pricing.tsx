@@ -99,8 +99,8 @@ export default function Pricing() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-24 lg:py-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-16 lg:py-32 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-md md:max-w-4xl lg:max-w-none mx-auto">
           {tiers.map((tier, i) => (
             <motion.div
               key={tier.name}
@@ -110,7 +110,7 @@ export default function Pricing() {
               transition={{ duration: 0.8, delay: i * 0.1 }}
               className={`p-8 lg:p-12 rounded-[40px] border transition-all duration-500 flex flex-col relative overflow-hidden ${
                 tier.highlight 
-                  ? "bg-forest-900 dark:bg-gold-500 border-forest-900 dark:border-gold-500 text-white dark:text-forest-900 shadow-2xl scale-105 z-10" 
+                  ? "bg-forest-900 dark:bg-gold-500 border-forest-900 dark:border-gold-500 text-white dark:text-forest-900 shadow-2xl lg:scale-105 z-10" 
                   : "bg-white dark:bg-forest-900 border-cream-brd/30 dark:border-white/10 text-forest-900 dark:text-white"
               }`}
             >
@@ -156,19 +156,19 @@ export default function Pricing() {
       </section>
 
       {/* Comparison Table Section - Refined */}
-      <section className="py-24 bg-white/50 dark:bg-forest-900/50 backdrop-blur-sm border-y border-cream-brd/30 dark:border-white/5 selection:bg-gold-200">
+      <section className="py-16 lg:py-24 bg-white/50 dark:bg-forest-900/50 backdrop-blur-sm border-y border-cream-brd/30 dark:border-white/5 selection:bg-gold-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12 text-center">
            <span className="micro-label mb-4 block text-forest-700 dark:text-gold-500">The Fine Print</span>
            <h2 className="font-display text-4xl lg:text-5xl font-bold mb-16 text-forest-900 dark:text-white">Feature <span className="text-gold-600 italic">Comparison</span></h2>
            
-           <div className="w-full overflow-x-auto pb-4">
-             <div className="min-w-[600px] space-y-4 text-left">
+           <div className="w-full pb-4">
+             <div className="space-y-4 text-left">
                 {/* Headers */}
                 <motion.div 
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="grid grid-cols-4 pb-4 border-b-2 border-forest-900 dark:border-gold-500 items-end"
+                  className="hidden md:grid grid-cols-4 pb-4 border-b-2 border-forest-900 dark:border-gold-500 items-end"
                 >
                   <span className="font-bold text-forest-900 dark:text-white text-lg">Features</span>
                   <span className="font-bold text-forest-900 dark:text-white text-center">Seed</span>
@@ -188,12 +188,21 @@ export default function Pricing() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className="grid grid-cols-4 py-6 border-b border-cream-brd/20 dark:border-white/5 items-center gap-4 hover:bg-forest-50/50 dark:hover:bg-white/[0.02] rounded-xl px-2 transition-colors"
+                    className="flex flex-col md:grid md:grid-cols-4 py-4 md:py-6 border-b border-cream-brd/20 dark:border-white/5 items-start md:items-center gap-3 md:gap-4 hover:bg-forest-50/50 dark:hover:bg-white/[0.02] rounded-xl px-2 transition-colors"
                   >
-                    <span className="font-bold text-forest-900 dark:text-white/80">{item.label}</span>
-                    <div className="text-center flex justify-center">{typeof item.seed === 'boolean' ? (item.seed ? <Check size={18} className="text-brand-green" /> : "-") : <span className="text-xs font-bold opacity-50">{item.seed}</span>}</div>
-                    <div className="text-center flex justify-center">{typeof item.root === 'boolean' ? (item.root ? <Check size={18} className="text-brand-green" /> : "-") : <span className="text-xs font-bold opacity-50">{item.root}</span>}</div>
-                    <div className="text-center flex justify-center">{typeof item.tree === 'boolean' ? (item.tree ? <Check size={18} className="text-brand-green" /> : "-") : <span className="text-xs font-bold opacity-50">{item.tree}</span>}</div>
+                    <span className="font-bold text-forest-900 dark:text-white/80 w-full md:w-auto text-lg md:text-base border-b border-cream-brd/10 md:border-none pb-2 md:pb-0">{item.label}</span>
+                    <div className="flex justify-between md:justify-center items-center w-full md:w-auto">
+                        <span className="md:hidden font-semibold opacity-60 text-sm">Seed</span>
+                        {typeof item.seed === 'boolean' ? (item.seed ? <Check size={18} className="text-brand-green" /> : <span className="opacity-30">-</span>) : <span className="text-sm font-bold">{item.seed}</span>}
+                    </div>
+                    <div className="flex justify-between md:justify-center items-center w-full md:w-auto">
+                        <span className="md:hidden font-semibold opacity-60 text-sm">Root</span>
+                        {typeof item.root === 'boolean' ? (item.root ? <Check size={18} className="text-brand-green" /> : <span className="opacity-30">-</span>) : <span className="text-sm font-bold">{item.root}</span>}
+                    </div>
+                    <div className="flex justify-between md:justify-center items-center w-full md:w-auto">
+                        <span className="md:hidden font-semibold opacity-60 text-sm">Tree</span>
+                        {typeof item.tree === 'boolean' ? (item.tree ? <Check size={18} className="text-brand-green" /> : <span className="opacity-30">-</span>) : <span className="text-sm font-bold">{item.tree}</span>}
+                    </div>
                   </motion.div>
                 ))}
              </div>
