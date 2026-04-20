@@ -85,9 +85,9 @@ export default function Pricing() {
           >
              {/* Thematic Visual - Pricing Hero */}
              <div className="relative w-full aspect-square overflow-hidden mt-4 sm:mt-8 lg:mt-0">
-               <iframe 
+              <iframe 
                 id="js_video_iframe" 
-                src="https://jumpshare.com/embed/595wOvVRFzNEpShu6NTr" 
+                src="https://jumpshare.com/embed/HKHW0PIJ9dakVFjFnOVz" 
                 frameBorder="0" 
                 allowFullScreen
                 style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "transparent" }}
@@ -164,25 +164,37 @@ export default function Pricing() {
            <div className="w-full overflow-x-auto pb-4">
              <div className="min-w-[600px] space-y-4 text-left">
                 {/* Headers */}
-                <div className="grid grid-cols-4 pb-4 border-b-2 border-forest-900 dark:border-gold-500 items-end">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-4 pb-4 border-b-2 border-forest-900 dark:border-gold-500 items-end"
+                >
                   <span className="font-bold text-forest-900 dark:text-white text-lg">Features</span>
                   <span className="font-bold text-forest-900 dark:text-white text-center">Seed</span>
                   <span className="font-bold text-forest-900 dark:text-white text-center">Root</span>
                   <span className="font-bold text-forest-900 dark:text-white text-center">Tree</span>
-                </div>
+                </motion.div>
                 {[
                   { label: "Community Support", seed: true, root: true, tree: true },
                   { label: "Offline Modules", seed: false, root: true, tree: true },
                   { label: "Institutional Export", seed: false, root: false, tree: true },
                   { label: "Phone/Email Support", seed: false, root: true, tree: true },
                   { label: "Cultural Validation Access", seed: "Read-only", root: "Voter", tree: "Partner" },
-                ].map(item => (
-                  <div key={item.label} className="grid grid-cols-4 py-6 border-b border-cream-brd/20 dark:border-white/5 items-center gap-4">
+                ].map((item, index) => (
+                  <motion.div 
+                    key={item.label} 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    className="grid grid-cols-4 py-6 border-b border-cream-brd/20 dark:border-white/5 items-center gap-4 hover:bg-forest-50/50 dark:hover:bg-white/[0.02] rounded-xl px-2 transition-colors"
+                  >
                     <span className="font-bold text-forest-900 dark:text-white/80">{item.label}</span>
                     <div className="text-center flex justify-center">{typeof item.seed === 'boolean' ? (item.seed ? <Check size={18} className="text-brand-green" /> : "-") : <span className="text-xs font-bold opacity-50">{item.seed}</span>}</div>
                     <div className="text-center flex justify-center">{typeof item.root === 'boolean' ? (item.root ? <Check size={18} className="text-brand-green" /> : "-") : <span className="text-xs font-bold opacity-50">{item.root}</span>}</div>
                     <div className="text-center flex justify-center">{typeof item.tree === 'boolean' ? (item.tree ? <Check size={18} className="text-brand-green" /> : "-") : <span className="text-xs font-bold opacity-50">{item.tree}</span>}</div>
-                  </div>
+                  </motion.div>
                 ))}
              </div>
            </div>

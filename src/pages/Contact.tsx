@@ -230,8 +230,9 @@ export default function Contact() {
                 <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Message</label>
                 <textarea rows={4} placeholder="How can we help you?" className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white resize-none"></textarea>
               </div>
-              <button className="btn-primary w-full py-5 flex items-center justify-center gap-3 !bg-forest-900 dark:!bg-gold-500 !text-white dark:!text-forest-900 font-bold">
-                Send Message <Mail size={18} />
+              <button className="group relative w-full px-10 sm:px-12 py-5 sm:py-7 rounded-full bg-forest-900 dark:bg-gold-500 text-white dark:text-forest-900 font-bold text-base sm:text-lg overflow-hidden transition-all shadow-2xl shadow-forest-900/20 active:scale-95">
+                <div className="absolute inset-0 bg-gold-600 dark:bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                <span className="relative z-10 flex items-center justify-center gap-3">Send Message <Mail size={20} /></span>
               </button>
             </form>
           </motion.div>
