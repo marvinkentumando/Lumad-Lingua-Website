@@ -16,6 +16,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Docs from "./pages/Docs";
 import Pricing from "./pages/Pricing";
+import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +37,7 @@ export default function App() {
 
   return (
     <ThemeProvider>
+      <CustomCursor />
       {/* Global Preloader */}
       <AnimatePresence>
         {isLoading && (

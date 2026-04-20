@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { Landmark, Users, Shield, Flower2, Mountain, ArrowRight, Sparkles, Heart, Globe, Mic, Map, BookOpen, Gamepad2, History, CheckCircle, Award, Layout, ShieldCheck } from "lucide-react";
+import { Landmark, Users, Shield, Flower2, Mountain, ArrowRight, Sparkles, Heart, Globe, Mic, Map, BookOpen, Gamepad2, History, CheckCircle, Award, Layout, ShieldCheck, PlayCircle } from "lucide-react";
 
 export default function Home() {
   return (
@@ -55,9 +55,10 @@ export default function Home() {
               </Link>
               <Link 
                 to="/about" 
-                className="px-8 lg:px-10 py-4 lg:py-5 rounded-full bg-cream-bg dark:bg-white/5 border-2 border-hero-heading dark:border-white/20 text-hero-heading dark:text-white font-bold text-base lg:text-lg hover:bg-forest-700 hover:text-white dark:hover:bg-white dark:hover:text-forest-900 transition-all text-center"
+                className="px-8 lg:px-10 py-4 lg:py-5 rounded-full flex flex-row gap-3 items-center justify-center bg-cream-bg dark:bg-white/5 border-2 border-hero-heading dark:border-white/20 text-hero-heading dark:text-white font-bold text-base lg:text-lg hover:bg-forest-700 hover:text-white dark:hover:bg-white dark:hover:text-forest-900 transition-all text-center"
               >
-                Learn More
+                <PlayCircle size={24} />
+                Watch Demo
               </Link>
             </div>
           </motion.div>
