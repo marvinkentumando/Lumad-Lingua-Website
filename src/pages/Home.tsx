@@ -41,7 +41,7 @@ export default function Home() {
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gold-700 dark:text-gold-500">Reviving Indigenous Voices</span>
             </div>
             <h1 className="font-display text-5xl sm:text-7xl lg:text-[96px] font-black mb-6 lg:mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading dark:text-white">
-              The Ancestral Ascent
+              The Ancestral <span className="text-gold-600 italic">Ascent</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-hero-body dark:text-white/60 font-medium leading-relaxed mb-10 lg:mb-12 max-w-xl mx-auto lg:mx-0">
               Learning a language is not just acquiring words; it is an ascent up a mist-shrouded mountain of heritage. Every step reveals a story, every breath a connection to those who walked before us.
@@ -97,9 +97,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             <div className="lg:col-span-5 text-center lg:text-left">
               <span className="micro-label mb-4 block">Live Statistics</span>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-[72px] font-bold mb-8 text-forest-900 dark:text-white leading-[1.1] tracking-tight">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold mb-8 text-forest-900 dark:text-white leading-[1.1] tracking-tight">
                 Measuring the <br />
-                <span className="text-gold-600">Resurgence</span>
+                <span className="text-gold-600 italic">Resurgence</span>
               </h2>
               <p className="text-lg md:text-xl text-cream-text2 dark:text-white/60 font-medium mb-12 leading-relaxed">
                 Our documentation efforts are synchronized with tribal leaders across three provinces, ensuring every audio byte is a verified cultural asset.
@@ -184,7 +184,7 @@ export default function Home() {
           <div className="text-center mb-16 lg:mb-24">
             <span className="micro-label mb-6 block text-forest-700 dark:text-gold-500">How it Works</span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold mb-6 text-forest-900 dark:text-white leading-tight">
-              The Path of <span className="text-gold-600">Preservation</span>
+              The Path of <span className="text-gold-600 italic">Preservation</span>
             </h2>
             <p className="text-cream-text2 dark:text-white/60 text-lg md:text-xl font-medium max-w-2xl mx-auto">
               How we transform endangered oral traditions into a living digital heritage.
@@ -338,7 +338,7 @@ export default function Home() {
           className="max-w-7xl mx-auto text-center"
         >
           <span className="micro-label mb-6 block text-forest-700 dark:text-gold-500">Our Guardians</span>
-          <h2 className="font-display text-4xl md:text-6xl font-bold mb-8 text-forest-900 dark:text-white tracking-tight">Institutional & Tribal Guardianship</h2>
+          <h2 className="font-display text-4xl md:text-6xl font-bold mb-8 text-forest-900 dark:text-white tracking-tight">Institutional & <span className="text-gold-600 italic">Tribal Guardianship</span></h2>
           <p className="text-cream-text2 dark:text-white/60 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-20 leading-relaxed">
             Working directly with government bodies and indigenous councils to ensure absolute cultural accuracy.
           </p>
