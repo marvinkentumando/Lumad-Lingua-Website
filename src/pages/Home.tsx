@@ -38,7 +38,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 mb-8 mx-auto lg:mx-0">
               <Mountain size={14} className="text-gold-700 dark:text-gold-500" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gold-700 dark:text-gold-500">Level 1: The Foothills</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gold-700 dark:text-gold-500">Reviving Indigenous Voices</span>
             </div>
             <h1 className="font-display text-5xl sm:text-7xl lg:text-[96px] font-black mb-6 lg:mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading dark:text-white">
               The Ancestral Ascent

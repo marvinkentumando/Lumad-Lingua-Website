@@ -49,14 +49,14 @@ export default function App() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="text-gold-500 mb-6 relative"
+              className="text-gold-500 mb-6"
             >
-              <Map size={64} className="opacity-20" />
               <motion.div
-                className="absolute inset-0 border-t-2 border-gold-500 rounded-full"
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-              />
+                animate={{ opacity: [0.4, 1, 0.4] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              >
+                <Map size={64} />
+              </motion.div>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 10 }}

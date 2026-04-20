@@ -20,7 +20,7 @@ export default function Pricing() {
     },
     {
       name: "Root",
-      price: "$19",
+      price: "₱299",
       period: "/month",
       description: "For enthusiasts committed to deep linguistic immersion.",
       icon: <Heart className="text-gold-600" size={32} />,
@@ -37,7 +37,7 @@ export default function Pricing() {
     },
     {
       name: "Tree",
-      price: "$99",
+      price: "₱2999",
       period: "/month",
       description: "For researchers, educators, and institutional partners.",
       icon: <Landmark className="text-brand-green" size={32} />,

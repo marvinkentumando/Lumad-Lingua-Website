@@ -307,8 +307,8 @@ export default function About() {
               className="text-center mb-12 lg:mb-20"
             >
               <span className="micro-label mb-4 block">The Architects</span>
-              <h3 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-forest-900 dark:text-white flex items-center justify-start gap-4 lg:gap-8 leading-[0.85] lg:leading-[75px] tracking-tighter">
-                The Research <span className="text-gold-600 italic text-left">Team</span>
+              <h3 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-forest-900 dark:text-white leading-[0.85] lg:leading-[75px] tracking-tighter">
+                The Research <span className="text-gold-600 italic">Team</span>
               </h3>
               <p className="text-cream-text2 dark:text-white/60 text-lg md:text-xl font-medium max-w-2xl mx-auto mt-8">
                 An interdisciplinary group of digital architects dedicated to the preservation of ancestral voices.
