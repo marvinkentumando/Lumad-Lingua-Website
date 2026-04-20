@@ -49,9 +49,10 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link 
                 to="/contact" 
-                className="px-8 lg:px-10 py-4 lg:py-5 rounded-full bg-forest-700 dark:bg-gold-600 text-white dark:text-forest-900 font-bold text-base lg:text-lg hover:bg-black dark:hover:bg-white transition-all shadow-lg shadow-forest-900/10 text-center"
+                className="group relative px-8 lg:px-10 py-4 lg:py-5 rounded-full bg-forest-700 dark:bg-gold-600 text-white dark:text-forest-900 font-bold text-base lg:text-lg overflow-hidden transition-all shadow-lg shadow-forest-900/10 text-center flex items-center justify-center active:scale-95"
               >
-                Start Learning Now
+                <div className="absolute inset-0 bg-gold-600 dark:bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                <span className="relative z-10 flex items-center gap-2">Start Learning Now</span>
               </Link>
               <Link 
                 to="/about" 
