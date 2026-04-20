@@ -18,7 +18,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8 text-[10px] font-extrabold text-white/40 tracking-widest uppercase">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-8 text-[10px] font-extrabold text-white/40 tracking-widest uppercase text-center">
           <Link to="/about" onClick={scrollToTop} className="hover:text-gold-500 transition-colors">About</Link>
           <Link to="#" onClick={scrollToTop} className="hover:text-gold-500 transition-colors">Privacy Policy</Link>
           <Link to="#" onClick={scrollToTop} className="hover:text-gold-500 transition-colors">Terms of Service</Link>
