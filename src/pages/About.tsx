@@ -21,7 +21,7 @@ export default function About() {
                <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse" />
                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-forest-700 dark:text-gold-500">Rooted in Capstone Research</span>
             </div>
-            <h1 className="font-display text-5xl sm:text-7xl lg:text-[110px] font-black mb-10 leading-[0.9] tracking-tighter text-forest-900 dark:text-white">
+            <h1 className="font-display text-5xl sm:text-7xl lg:text-[110px] font-black mb-10 leading-[0.85] tracking-tighter text-forest-900 dark:text-white">
               The <span className="text-gold-600 block">Living</span> Genealogy
             </h1>
             <p className="text-lg sm:text-xl text-cream-text2 dark:text-white/60 font-medium leading-relaxed mb-12 max-w-xl mx-auto lg:mx-0">
@@ -48,53 +48,63 @@ export default function About() {
             transition={{ duration: 1.2, delay: 0.4 }}
             className="relative order-1 lg:order-2"
           >
-            {/* Thematic Visual - Square & Balanced Video */}
-            <div className="relative w-full aspect-square overflow-hidden rounded-[40px] sm:rounded-[80px] shadow-2xl shadow-forest-900/10 border-[8px] sm:border-[16px] border-white dark:border-forest-800">
+            {/* Thematic Visual - No background, border, or shadows as requested */}
+            <div className="relative w-full aspect-square overflow-hidden">
               <iframe 
                 id="js_video_iframe" 
                 src="https://jumpshare.com/embed/595wOvVRFzNEpShu6NTr" 
                 frameBorder="0" 
                 allowFullScreen
-                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "#f8f6f2" }}
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "transparent" }}
                 title="About Us Story Showcase"
               ></iframe>
             </div>
-            {/* Floating Badge */}
-            <div className="absolute -bottom-10 -left-10 bg-forest-900 dark:bg-gold-500 p-8 rounded-[40px] text-white dark:text-forest-900 shadow-2xl z-20 hidden lg:block border border-white/10 dark:border-forest-900/10 capitalize font-display italic text-2xl">
+            {/* Floating Badge - Refined */}
+            <div className="absolute -bottom-10 lg:-bottom-6 -left-10 lg:-left-6 bg-forest-900 dark:bg-gold-500 p-8 rounded-full text-white dark:text-forest-900 shadow-2xl z-20 hidden lg:flex items-center justify-center w-40 h-40 border border-white/10 dark:border-forest-900/10 capitalize font-display italic text-2xl text-center leading-tight">
                "For the Ancestors"
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white/40 dark:bg-white/5 border-y border-cream-brd/30 dark:border-white/10 overflow-hidden transition-colors duration-500">
+      {/* Mission Section - Refined Visuals */}
+      <section className="py-24 lg:py-32 px-4 sm:px-8 lg:px-12 bg-white/40 dark:bg-white/5 border-y border-cream-brd/30 dark:border-white/10 overflow-hidden transition-colors duration-500">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center"
+          className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center"
         >
-          <div className="space-y-6 lg:space-y-10 text-center lg:text-left">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-cream-text dark:text-white leading-tight">
-              The <span className="text-brand-green dark:text-green-400">Mission</span>
-            </h2>
-            <p className="text-base md:text-lg text-cream-text2 dark:text-white/60 font-medium leading-relaxed border-l-4 border-brand-green/30 dark:border-green-400/30 pl-6 lg:pl-8">
-              To preserve and revitalize endangered Lumad languages through technology — 
+          <div className="space-y-8 lg:space-y-12 text-center lg:text-left">
+            <div>
+               <span className="micro-label mb-4 block text-forest-700 dark:text-gold-500">The Mission</span>
+               <h2 className="font-display text-4xl md:text-5xl lg:text-[72px] font-bold text-forest-900 dark:text-white leading-tight">
+                 To Breath Life Into <span className="text-brand-green italic">Silent</span> Echoes
+               </h2>
+            </div>
+            <p className="text-lg md:text-xl text-cream-text2 dark:text-white/60 font-medium leading-relaxed border-l-4 border-brand-green/30 dark:border-green-400/30 pl-6 lg:pl-10">
+              Preserving and revitalizing endangered Lumad languages through technology — 
               combining geo-tagged documentation with gamified learning built in 
               partnership with indigenous communities.
             </p>
-            <div className="p-10 rounded-[40px] bg-cream-bg dark:bg-white/5 border border-cream-brd/50 dark:border-white/10 italic text-cream-text2 dark:text-white/60 font-semibold leading-relaxed shadow-sm">
+            <div className="relative p-10 rounded-[48px] bg-cream-bg dark:bg-white/5 border border-cream-brd/50 dark:border-white/10 italic text-cream-text2 dark:text-white/60 font-semibold leading-relaxed shadow-sm overflow-hidden group">
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                 <Flower2 size={120} />
+              </div>
               "Every visual and linguistic decision is held against one question: 
               <span className="text-gold-700 dark:text-gold-500 not-italic font-bold ml-2">Would this make a Lumad elder proud?</span>"
             </div>
           </div>
-          <div className="relative aspect-square group">
-             <div className="absolute inset-0 bg-radial-[circle_at_center] from-gold-500/20 to-transparent blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
-             <div className="relative h-full w-full bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 rounded-[40px] sm:rounded-[60px] flex items-center justify-center text-[8rem] sm:text-[12rem] grayscale opacity-20 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-1000 cursor-default shadow-xl">
-              🌿
-            </div>
+          <div className="relative aspect-square">
+             <div className="absolute inset-0 bg-radial-[circle_at_center] from-gold-500/20 to-transparent blur-3xl opacity-50" />
+             <motion.div 
+               whileHover={{ scale: 1.02 }}
+               className="relative h-full w-full bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 rounded-[60px] lg:rounded-[100px] flex items-center justify-center text-[10rem] sm:text-[14rem] transition-all duration-700 shadow-2xl shadow-forest-900/5 group overflow-hidden"
+             >
+               <span className="grayscale opacity-20 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-1000">🌿</span>
+               <div className="absolute inset-0 border-[24px] border-white/50 dark:border-forest-900/50 pointer-events-none rounded-[60px] lg:rounded-[100px]" />
+            </motion.div>
           </div>
         </motion.div>
       </section>
@@ -111,12 +121,12 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div className="text-center lg:text-left">
               <span className="micro-label mb-6 block text-forest-700 dark:text-gold-500">Our Philosophy</span>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold mb-8 text-forest-700 dark:text-white/90 leading-tight">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[72px] font-bold mb-8 text-forest-900 dark:text-white leading-tight">
                 A Space That Feels <br />
-                <span className="text-forest-900 dark:text-white">Woven</span> Rather Than Coded
+                <span className="text-gold-600 italic">Woven</span> Rather Than Coded
               </h2>
-              <p className="text-cream-text2 dark:text-white/60 text-lg md:text-xl font-semibold leading-relaxed mb-10">
-                Lumad Lingua was born from a digital earthwork philosophy—rejecting the sterile, boxy constraints of modern tech in favor of cultural texture.
+              <p className="text-xl text-cream-text2 dark:text-white/60 font-medium leading-relaxed mb-12">
+                Lumad Lingua was born from a digital earthwork philosophy—rejecting the sterile, boxy constraints of modern tech in favor of cultural texture and ancestral rhythm.
               </p>
               <div className="flex items-center justify-center lg:justify-start gap-6 text-cream-text3 dark:text-white/40">
                 <div className="flex -space-x-4">
@@ -168,13 +178,13 @@ export default function About() {
       {/* Core Values Section - Bento Editorial */}
       <section className="py-24 lg:py-32 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900 transition-colors duration-500 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-20 text-center lg:text-left">
-            <div className="max-w-xl mx-auto lg:mx-0">
+          <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-24 text-center lg:text-left">
+            <div className="max-w-2xl mx-auto lg:mx-0">
               <span className="micro-label mb-6 block text-forest-700 dark:text-gold-500">Our Ethos</span>
-              <h2 className="font-display text-4xl md:text-6xl font-bold text-forest-900 dark:text-white leading-tight tracking-tight">The Values That <br /> <span className="text-gold-600">Root</span> Our Work</h2>
+              <h2 className="font-display text-5xl md:text-7xl font-bold text-forest-900 dark:text-white leading-[0.9] tracking-tighter">The Values That <br /> <span className="text-gold-600 italic">Root</span> Our Work</h2>
             </div>
-            <p className="text-cream-text2 dark:text-white/60 text-lg font-medium lg:max-w-sm border-t lg:border-t-0 lg:border-l-2 border-gold-200 dark:border-gold-500 pt-6 lg:pt-0 lg:pl-8">
-              We operate under a strict code of cultural dignity, ensuring the platform remains a community-owned asset.
+            <p className="text-lg md:text-xl text-cream-text2 dark:text-white/60 font-medium lg:max-w-md border-t lg:border-t-0 lg:border-l-4 border-gold-500 pt-8 lg:pt-0 lg:pl-10">
+              We operate under a strict code of cultural dignity, ensuring the platform remains a community-owned asset and a sacred trust.
             </p>
           </div>
 
@@ -241,9 +251,9 @@ export default function About() {
         </div>
       </section>
 
-      {/* Partners Integrated Section - Refined Editorial */}
-      <section className="py-24 lg:py-32 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900 transition-colors duration-500 relative overflow-hidden">
-        <div className="absolute inset-0 bg-radial-[circle_at_100%_0%] from-gold-500/5 to-transparent pointer-events-none" />
+      {/* Partners Section - Synchronized Polish */}
+      <section className="py-24 lg:py-32 px-4 sm:px-8 lg:px-12 bg-cream-bg dark:bg-forest-950 transition-colors duration-500 relative overflow-hidden">
+         <div className="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -252,16 +262,16 @@ export default function About() {
           className="max-w-7xl mx-auto relative z-10"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-            <div className="lg:col-span-12 text-center lg:text-left mb-12">
+            <div className="lg:col-span-12 text-center lg:text-left mb-16">
                <span className="micro-label mb-6 block text-forest-700 dark:text-gold-500">Our Guardians</span>
-               <h2 className="font-display text-4xl md:text-6xl font-bold text-forest-900 dark:text-white leading-tight">Built with the Stewardship of <span className="text-gold-600 block sm:inline">Indigenous Nations</span></h2>
+               <h2 className="font-display text-4xl md:text-6xl lg:text-[80px] font-bold text-forest-900 dark:text-white leading-[0.9] tracking-tighter">Stewardship of <br /> <span className="text-gold-600 italic">Indigenous Nations</span></h2>
             </div>
             
-            <div className="lg:col-span-12 lg:grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-12 lg:grid lg:grid-cols-12 gap-16 items-center">
                <div className="lg:col-span-5 text-center lg:text-left">
-                  <p className="text-xl text-cream-text2 dark:text-white/60 font-medium leading-relaxed border-t lg:border-t-0 lg:border-l-4 border-gold-500 pt-6 lg:pt-0 lg:pl-8 mb-12">
-                  Content is strictly co-created with NCIP-recognized tribal leaders and validated by 
-                  the Council of Elders from the Mansaka and Mandaya peoples. Every record is a sacred trust.
+                  <p className="text-xl md:text-2xl text-cream-text2 dark:text-white/60 font-medium leading-relaxed border-t lg:border-t-0 lg:border-l-4 border-gold-500 pt-10 lg:pt-0 lg:pl-10 mb-12">
+                  Content is co-created with NCIP-recognized tribal leaders and validated by 
+                  the Council of Elders from the Mansaka and Mandaya peoples.
                   </p>
                   
                   <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12 lg:mb-0">
@@ -322,11 +332,11 @@ export default function About() {
               className="text-center mb-12 lg:mb-20"
             >
               <span className="micro-label mb-4 block">The Architects</span>
-              <h3 className="font-display text-4xl md:text-5xl lg:text-[60px] font-bold text-hero-heading flex items-center justify-center gap-4 lg:gap-8 leading-tight">
+              <h3 className="font-display text-4xl md:text-5xl lg:text-[80px] font-bold text-forest-900 dark:text-white flex items-center justify-center gap-4 lg:gap-8 leading-[0.85] tracking-tighter">
                 The Research <span className="text-gold-600 italic">Team</span>
               </h3>
-              <p className="text-hero-body/60 text-sm md:text-base font-medium max-w-xl mx-auto mt-4">
-                A interdisciplinary group of students and scholars dedicated to the digital preservation of ancestral voices.
+              <p className="text-cream-text2 dark:text-white/60 text-lg md:text-xl font-medium max-w-2xl mx-auto mt-8">
+                An interdisciplinary group of digital architects dedicated to the preservation of ancestral voices.
               </p>
             </motion.div>
 
