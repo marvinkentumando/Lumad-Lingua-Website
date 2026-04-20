@@ -1,7 +1,9 @@
-import { motion } from "motion/react";
-import { Search, Rocket, GraduationCap, HeartHandshake, ShieldCheck, Wrench, BookOpen, HelpCircle, Mail, ExternalLink, Phone } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { Search, Rocket, GraduationCap, HeartHandshake, ShieldCheck, Wrench, BookOpen, HelpCircle, Mail, ExternalLink, Phone, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 export default function Contact() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const categories = [
     {
       title: "Getting Started",
@@ -178,17 +180,37 @@ export default function Contact() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-forest-900 p-8 rounded-[20px] shadow-sm border border-cream-brd/20 dark:border-white/10 transition-colors duration-500"
+              className="bg-white dark:bg-forest-900 rounded-[20px] shadow-sm border border-cream-brd/20 dark:border-white/10 transition-colors duration-500 overflow-hidden"
             >
-              <div className="flex text-left gap-4 mb-4">
-                <div className="w-6 h-6 rounded-full bg-gold-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                  <HelpCircle size={14} className="text-gold-700 dark:text-gold-500" />
+              <button 
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                className="w-full p-8 flex items-center justify-between text-left focus:outline-none"
+              >
+                <div className="flex gap-4">
+                  <div className="w-6 h-6 rounded-full bg-gold-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                    <HelpCircle size={14} className="text-gold-700 dark:text-gold-500" />
+                  </div>
+                  <h4 className="font-display text-xl font-bold text-cream-text dark:text-white">{faq.q}</h4>
                 </div>
-                <h4 className="font-display text-xl font-bold text-cream-text dark:text-white">{faq.q}</h4>
-              </div>
-              <p className="text-cream-text2 dark:text-white/60 text-base font-medium leading-relaxed pl-10 text-left">
-                {faq.a}
-              </p>
+                <ChevronDown 
+                  size={20} 
+                  className={`text-cream-text2 dark:text-white/60 transition-transform duration-300 ${openFaq === i ? "rotate-180" : ""}`} 
+                />
+              </button>
+              <AnimatePresence>
+                {openFaq === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="text-cream-text2 dark:text-white/60 text-base font-medium leading-relaxed pl-18 pr-8 pb-8 text-left">
+                      {faq.a}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </div>

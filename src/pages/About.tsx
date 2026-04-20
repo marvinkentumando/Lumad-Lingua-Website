@@ -93,7 +93,7 @@ export default function About() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="col-span-8 row-span-10 row-start-2 col-start-1 rounded-[40px] overflow-hidden border border-cream-brd/50 dark:border-white/10 shadow-xl relative group"
                 >
-                  <img src="https://picsum.photos/seed/lumadjungle/800/1000" alt="Ancestral Territory" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                  <img src="https://i.pinimg.com/1200x/58/46/ae/5846ae914cb7ac123017a160c8ccf54a.jpg" alt="Ancestral Territory" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent opacity-60" />
                 </motion.div>
                 
@@ -105,7 +105,7 @@ export default function About() {
                   transition={{ duration: 0.8, delay: 0.4 }}
                   className="col-span-6 row-span-6 row-start-6 col-start-7 rounded-[30px] overflow-hidden border border-cream-brd/50 dark:border-white/10 shadow-2xl shadow-forest-900/20 relative group z-10"
                 >
-                  <img src="https://picsum.photos/seed/lumadweave/600/600" alt="Cultural Textures" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
+                  <img src="https://i.pinimg.com/1200x/c3/d5/8b/c3d58b21d5681d9f8d38a89aa8c625e3.jpg" alt="Cultural Textures" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" referrerPolicy="no-referrer" />
                 </motion.div>
                 
                 {/* Decorative Element */}

@@ -66,7 +66,7 @@ export default function Pricing() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10 max-w-2xl text-center lg:text-left"
+            className="relative z-10 max-w-2xl text-center lg:text-left order-2 lg:order-1"
           >
             <span className="micro-label mb-6 block text-forest-700 dark:text-gold-500 underline decoration-gold-500/30 underline-offset-4">Investment Tiers</span>
             <h1 className="font-display text-5xl sm:text-7xl lg:text-[80px] font-black mb-8 leading-[1.1] lg:leading-[80px] tracking-tight text-hero-heading dark:text-white">
@@ -81,7 +81,7 @@ export default function Pricing() {
             initial={{ opacity: 0, scale: 0.95, rotate: 2 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative flex justify-center lg:justify-end w-full"
+            className="relative flex justify-center lg:justify-end w-full order-1 lg:order-2"
           >
              {/* Thematic Visual - Pricing Hero */}
              <div className="relative w-full aspect-square overflow-hidden mt-4 sm:mt-8 lg:mt-0">
