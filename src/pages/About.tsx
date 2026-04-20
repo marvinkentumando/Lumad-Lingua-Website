@@ -210,17 +210,17 @@ export default function About() {
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               className="relative lg:col-span-7 bg-cream-bg dark:bg-white/5 p-10 sm:p-14 rounded-[40px] sm:rounded-[60px] flex flex-col justify-between group min-h-[350px] lg:h-[420px] overflow-hidden hover:shadow-2xl hover:shadow-forest-900/10 dark:hover:shadow-black/30 transition-all duration-700"
+               className="relative lg:col-span-7 bg-cream-bg dark:bg-white/5 p-8 sm:p-10 rounded-[30px] sm:rounded-[40px] flex flex-col justify-between group flex-1 lg:h-[320px] overflow-hidden hover:shadow-2xl hover:shadow-forest-900/10 dark:hover:shadow-black/30 transition-all duration-700"
             >
                <div className="absolute -right-8 -top-8 text-gold-500/10 group-hover:scale-110 transition-transform duration-700 pointer-events-none">
-                  <Users size={240} className="stroke-[0.5]" />
+                  <Users size={180} className="stroke-[0.5]" />
                </div>
-               <div className="relative z-10 w-16 h-16 rounded-3xl bg-white dark:bg-forest-800 flex items-center justify-center mb-8 shadow-sm border border-cream-brd/30 dark:border-white/10 group-hover:bg-gold-500 transition-colors duration-500">
-                   <Users className="text-forest-900 dark:text-gold-500 group-hover:text-white transition-colors duration-500" strokeWidth={1.5} size={28} />
+               <div className="relative z-10 w-12 h-12 rounded-2xl bg-white dark:bg-forest-800 flex items-center justify-center mb-6 shadow-sm border border-cream-brd/30 dark:border-white/10 group-hover:bg-gold-500 transition-colors duration-500">
+                   <Users className="text-forest-900 dark:text-gold-500 group-hover:text-white transition-colors duration-500" strokeWidth={1.5} size={24} />
                </div>
                <div className="relative z-10">
-                  <h3 className="font-display text-3xl sm:text-4xl font-bold mb-4 text-forest-900 dark:text-white">Community Ownership</h3>
-                  <p className="text-lg sm:text-xl text-cream-text2 dark:text-white/70 font-medium leading-relaxed max-w-lg">The platform belongs to the community. We build with, not for, indigenous partners, ensuring intellectual property remains tribal.</p>
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold mb-3 text-forest-900 dark:text-white">Community Ownership</h3>
+                  <p className="text-base sm:text-lg text-cream-text2 dark:text-white/70 font-medium leading-relaxed max-w-lg">The platform belongs to the community. We build with, not for, indigenous partners, ensuring intellectual property remains tribal.</p>
                </div>
             </motion.div>
 
@@ -230,15 +230,15 @@ export default function About() {
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: 0.1 }}
-               className="relative lg:col-span-5 bg-forest-900 dark:bg-forest-800 p-10 sm:p-14 rounded-[40px] sm:rounded-[60px] text-white flex flex-col justify-between group min-h-[350px] lg:h-[420px] overflow-hidden shadow-xl hover:-translate-y-1 transition-transform duration-700"
+               className="relative lg:col-span-5 bg-forest-900 dark:bg-forest-800 p-8 sm:p-10 rounded-[30px] sm:rounded-[40px] text-white flex flex-col justify-between group flex-1 lg:h-[320px] overflow-hidden shadow-xl hover:-translate-y-1 transition-transform duration-700"
             >
                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-               <div className="relative z-10 w-16 h-16 rounded-3xl bg-white/10 flex items-center justify-center mb-8 shadow-sm group-hover:bg-brand-green transition-colors duration-500">
-                   <Heart className="text-white" strokeWidth={1.5} size={28} />
+               <div className="relative z-10 w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6 shadow-sm group-hover:bg-brand-green transition-colors duration-500">
+                   <Heart className="text-white" strokeWidth={1.5} size={24} />
                </div>
                <div className="relative z-10">
-                  <h3 className="font-display text-3xl sm:text-4xl font-bold mb-4 text-white">Deep Rootedness</h3>
-                  <p className="text-lg sm:text-xl text-white/70 font-medium leading-relaxed">Grounded in authentic indigenous knowledge, validated by community elders.</p>
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold mb-3 text-white">Deep Rootedness</h3>
+                  <p className="text-base sm:text-lg text-white/70 font-medium leading-relaxed">Grounded in authentic indigenous knowledge, validated by community elders.</p>
                </div>
             </motion.div>
 
@@ -248,15 +248,15 @@ export default function About() {
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: 0.2 }}
-               className="relative lg:col-span-5 bg-gold-500 dark:bg-gold-600 p-10 sm:p-14 rounded-[40px] sm:rounded-[60px] text-forest-900 flex flex-col justify-between group min-h-[350px] lg:h-[420px] shadow-2xl shadow-gold-500/20 overflow-hidden hover:-translate-y-1 transition-transform duration-700"
+               className="relative lg:col-span-5 bg-gold-500 dark:bg-gold-600 p-8 sm:p-10 rounded-[30px] sm:rounded-[40px] text-forest-900 flex flex-col justify-between group flex-1 lg:h-[320px] shadow-2xl shadow-gold-500/20 overflow-hidden hover:-translate-y-1 transition-transform duration-700"
             >
                <div className="absolute inset-0 bg-gradient-to-tl from-forest-900/10 to-transparent pointer-events-none" />
-               <div className="relative z-10 w-16 h-16 rounded-3xl bg-white flex items-center justify-center mb-8 shadow-sm group-hover:bg-forest-900 transition-colors duration-500">
-                   <Shield className="text-gold-600 dark:text-gold-700 group-hover:text-white transition-colors duration-500" strokeWidth={1.5} size={28} />
+               <div className="relative z-10 w-12 h-12 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm group-hover:bg-forest-900 transition-colors duration-500">
+                   <Shield className="text-gold-600 dark:text-gold-700 group-hover:text-white transition-colors duration-500" strokeWidth={1.5} size={24} />
                </div>
                <div className="relative z-10">
-                  <h3 className="font-display text-3xl sm:text-4xl font-bold mb-4 text-forest-900">Integrity & Dignity</h3>
-                  <p className="text-lg sm:text-xl text-forest-900/80 font-medium leading-relaxed">We do not romanticize or exoticize. We document and amplify with technical precision.</p>
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold mb-3 text-forest-900">Integrity & Dignity</h3>
+                  <p className="text-base sm:text-lg text-forest-900/80 font-medium leading-relaxed">We do not romanticize or exoticize. We document and amplify with technical precision.</p>
                </div>
             </motion.div>
 
@@ -266,18 +266,18 @@ export default function About() {
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: 0.3 }}
-               className="relative lg:col-span-7 bg-white dark:bg-forest-900 border border-cream-brd/50 dark:border-white/10 p-10 sm:p-14 rounded-[40px] sm:rounded-[60px] flex flex-col justify-between group min-h-[350px] lg:h-[420px] overflow-hidden hover:shadow-2xl hover:shadow-forest-900/10 transition-all duration-700"
+               className="relative lg:col-span-7 bg-white dark:bg-forest-900 border border-cream-brd/50 dark:border-white/10 p-8 sm:p-10 rounded-[30px] sm:rounded-[40px] flex flex-col justify-between group flex-1 lg:h-[320px] overflow-hidden hover:shadow-2xl hover:shadow-forest-900/10 transition-all duration-700"
             >
                <div className="absolute -left-8 -bottom-8 text-forest-900/5 dark:text-white/5 group-hover:scale-110 transition-transform duration-700 pointer-events-none">
-                  <Mountain size={280} className="stroke-[0.5]" />
+                  <Mountain size={200} className="stroke-[0.5]" />
                </div>
-               <div className="relative z-10 w-16 h-16 rounded-3xl bg-cream-bg dark:bg-white/5 flex items-center justify-center mb-8 shadow-sm border border-cream-brd/30 dark:border-white/10 group-hover:border-gold-500 group-hover:bg-gold-500 transition-colors duration-500 self-end">
-                   <Mountain className="text-forest-900 dark:text-white group-hover:text-forest-900 transition-colors duration-500" strokeWidth={1.5} size={28} />
+               <div className="relative z-10 w-12 h-12 rounded-2xl bg-cream-bg dark:bg-white/5 flex items-center justify-center mb-6 shadow-sm border border-cream-brd/30 dark:border-white/10 group-hover:border-gold-500 group-hover:bg-gold-500 transition-colors duration-500 self-end">
+                   <Mountain className="text-forest-900 dark:text-white group-hover:text-forest-900 transition-colors duration-500" strokeWidth={1.5} size={24} />
                </div>
                <div className="relative z-10 flex flex-col items-end text-right">
                   <div className="w-full">
-                     <h3 className="font-display text-3xl sm:text-4xl font-bold mb-4 text-forest-900 dark:text-white">Cultural Ascent</h3>
-                     <p className="text-lg sm:text-xl text-cream-text2 dark:text-white/70 font-medium leading-relaxed ml-auto max-w-lg">Reflecting the truth: language learning is an act of returning to the ancestral summit of one's identity.</p>
+                     <h3 className="font-display text-2xl sm:text-3xl font-bold mb-3 text-forest-900 dark:text-white">Cultural Ascent</h3>
+                     <p className="text-base sm:text-lg text-cream-text2 dark:text-white/70 font-medium leading-relaxed ml-auto max-w-lg">Reflecting the truth: language learning is an act of returning to the ancestral summit of one's identity.</p>
                   </div>
                </div>
             </motion.div>

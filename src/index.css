@@ -70,10 +70,15 @@
 @layer base {
   body {
     @apply bg-cream-bg text-cream-text font-sans transition-all duration-500 ease-in-out;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ffc200" stroke="%231a0e05" stroke-width="1.5"><path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.42a.5.5 0 0 0 .35-.85L5.5 3.21Z"/></svg>') 5 3, auto !important;
   }
   
   * {
     @apply transition-colors duration-300;
+  }
+
+  a, button, [role="button"], input[type="submit"], input[type="reset"], input[type="button"], label, select, .cursor-pointer {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%233daf5c" stroke="%231a0e05" stroke-width="1.5"><path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.42a.5.5 0 0 0 .35-.85L5.5 3.21Z"/></svg>') 5 3, pointer !important;
   }
 }
 
