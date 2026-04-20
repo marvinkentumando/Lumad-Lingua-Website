@@ -22,7 +22,7 @@ export default function About() {
                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-forest-700 dark:text-gold-500">Rooted in Capstone Research</span>
             </div>
             <h1 className="font-display text-5xl sm:text-7xl lg:text-[96px] font-black mb-10 leading-[0.9] lg:leading-[90px] tracking-tighter text-forest-900 dark:text-white">
-              The Living <br /> <span className="text-gold-600">Genealogy</span>
+              The Living <br /> <span className="text-gold-600 italic">Genealogy</span>
             </h1>
             <p className="text-lg sm:text-xl text-cream-text2 dark:text-white/60 font-medium leading-relaxed mb-12 max-w-xl mx-auto lg:mx-0">
               Lumad Lingua is more than a platform—it is a digital earthwork. Born as a BSIT Capstone at DNSC, it has grown into a cross-generational bridge for the indigenous voices of Mindanao.
