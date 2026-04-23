@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 import { Heart, Check, Sparkles, Sprout, Landmark } from "lucide-react";
 
 export default function Pricing() {
@@ -15,7 +16,7 @@ export default function Pricing() {
         "Basic cultural context guides",
         "Learning streak rewards"
       ],
-      cta: "Start Learning",
+      cta: "Join Waitlist",
       highlight: false
     },
     {
@@ -32,7 +33,7 @@ export default function Pricing() {
         "Exclusive 'Guardian' profile badge",
         "Ad-free immersion experience"
       ],
-      cta: "Join the Ascent",
+      cta: "Join Waitlist",
       highlight: true
     },
     {
@@ -49,7 +50,7 @@ export default function Pricing() {
         "Dedicated elder council liaison",
         "Custom institutional analytics"
       ],
-      cta: "Partner with Us",
+      cta: "Join Waitlist",
       highlight: false
     }
   ];
@@ -143,13 +144,15 @@ export default function Pricing() {
                 ))}
               </div>
 
-              <button className={`w-full py-5 rounded-2xl font-bold tracking-tight transition-all text-lg ${
+              <Link 
+                to="/waitlist"
+                className={`w-full py-5 rounded-2xl font-bold tracking-tight transition-all text-lg text-center flex items-center justify-center ${
                 tier.highlight 
                   ? "bg-gold-500 dark:bg-forest-900 text-forest-900 dark:text-white hover:scale-[1.02]" 
                   : "bg-forest-900 dark:bg-gold-500 text-white dark:text-forest-900 hover:bg-forest-800 dark:hover:bg-gold-400"
               }`}>
                 {tier.cta}
-              </button>
+              </Link>
             </motion.div>
           ))}
         </div>

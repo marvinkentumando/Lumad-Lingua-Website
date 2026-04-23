@@ -16,8 +16,6 @@ export default function Navbar() {
   const links = [
     { name: "HOME", path: "/" },
     { name: "ABOUT", path: "/about" },
-    { name: "PRICING", path: "/pricing" },
-    { name: "CONTACT", path: "/contact" },
   ];
 
   return (
@@ -65,8 +63,8 @@ export default function Navbar() {
                 {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
               </motion.div>
             </button>
-            <Link to="/contact" onClick={scrollToTop} className="btn-sm">
-              Get Started
+            <Link to="/waitlist" onClick={scrollToTop} className="btn-sm">
+              Join Waitlist
             </Link>
           </div>
 
@@ -105,11 +103,11 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            to="/contact"
+            to="/waitlist"
             onClick={() => { setIsOpen(false); scrollToTop(); }}
             className="bg-gold-500 text-black px-6 py-3 rounded-full text-xs font-extrabold text-center"
           >
-            Get Started
+            Join Waitlist
           </Link>
         </div>
       )}
