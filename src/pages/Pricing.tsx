@@ -122,7 +122,7 @@ export default function Pricing() {
               )}
               
               <div className="mb-8">
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${tier.highlight ? "bg-white/10 dark:bg-black/10" : "bg-forest-50 dark:bg-white/5"}`}>
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${tier.highlight ? "bg-white/10 dark:bg-forest-950/20" : "bg-forest-50 dark:bg-white/5"}`}>
                   {tier.icon}
                 </div>
                 <h3 className="font-display text-3xl font-bold mb-2">{tier.name}</h3>

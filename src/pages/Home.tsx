@@ -159,7 +159,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + (i * 0.1) }}
-                  className={`${stat.color} p-10 rounded-[40px] flex flex-col justify-between group hover:scale-[1.02] transition-all duration-500 shadow-xl shadow-black/5`}
+                  className={`${stat.color} p-10 rounded-[40px] flex flex-col justify-between group hover:scale-[1.02] transition-all duration-500 shadow-xl shadow-forest-950/10`}
                 >
                   <div>
                     <div className="text-4xl md:text-5xl font-black mb-2 tracking-tight group-hover:scale-105 transition-transform origin-left">{stat.value}</div>
@@ -239,7 +239,7 @@ export default function Home() {
                 transition={{ delay: i * 0.15 }}
                 className="relative z-10 group"
               >
-                <div className={`w-24 h-24 rounded-[32px] ${item.bg} border-2 border-white dark:border-white/10 flex items-center justify-center mb-8 mx-auto lg:mx-0 group-hover:scale-110 transition-all duration-500 shadow-lg shadow-black/5 ring-4 ring-transparent group-hover:ring-gold-100 dark:group-hover:ring-white/10`}>
+                <div className={`w-24 h-24 rounded-[32px] ${item.bg} border-2 border-white dark:border-white/10 flex items-center justify-center mb-8 mx-auto lg:mx-0 group-hover:scale-110 transition-all duration-500 shadow-lg shadow-forest-950/10 ring-4 ring-transparent group-hover:ring-gold-100 dark:group-hover:ring-white/10`}>
                   <div className={`${item.color}`}>
                     {item.icon}
                   </div>
@@ -359,7 +359,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group flex flex-col items-center bg-white dark:bg-forest-800 p-8 sm:p-12 rounded-[40px] sm:rounded-[60px] border border-cream-brd/30 dark:border-white/10 shadow-xl shadow-black/5 hover:shadow-gold-500/10 transition-all duration-700"
+                className="group flex flex-col items-center bg-white dark:bg-forest-800 p-8 sm:p-12 rounded-[40px] sm:rounded-[60px] border border-cream-brd/30 dark:border-white/10 shadow-xl shadow-forest-950/10 hover:shadow-gold-500/10 transition-all duration-700"
               >
                 <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl sm:rounded-[40px] bg-cream-bg dark:bg-white/5 text-gold-600 flex items-center justify-center mb-6 sm:mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                   {partner.icon}

@@ -84,7 +84,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-forest-800 border-b border-black/5 dark:border-white/10 px-4 py-6 flex flex-col gap-4">
+        <div className="md:hidden bg-white dark:bg-forest-800 border-b border-forest-900/10 dark:border-white/10 px-4 py-6 flex flex-col gap-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] font-extrabold tracking-widest text-cream-text3 uppercase">Menu</span>
             <button
@@ -107,7 +107,7 @@ export default function Navbar() {
           <Link
             to="/waitlist"
             onClick={() => { setIsOpen(false); scrollToTop(); }}
-            className="bg-gold-500 text-black px-6 py-3 rounded-full text-xs font-extrabold text-center"
+            className="bg-gold-500 text-forest-900 px-6 py-3 rounded-full text-xs font-extrabold text-center"
           >
             Join Waitlist
           </Link>
