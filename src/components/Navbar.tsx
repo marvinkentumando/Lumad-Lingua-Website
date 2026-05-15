@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Sun, Moon, Map } from "lucide-react";
+import { Menu, X, Sun, Moon, Quote } from "lucide-react";
 import { motion } from "motion/react";
 import { useTheme } from "../context/ThemeContext";
 
@@ -25,8 +25,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" onClick={scrollToTop} className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gold-400 dark:bg-gold-500/20 text-forest-900 dark:text-gold-400 flex items-center justify-center transform group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
-              <Map size={24} />
+            <div className="w-10 h-10 rounded-xl bg-gold-400 dark:bg-gold-500/20 text-forest-900 dark:text-gold-400 flex items-center justify-center transform group-hover:scale-105 transition-all duration-300">
+              <Quote size={22} className="rotate-180" />
             </div>
             <span className="font-display text-2xl font-bold text-cream-text dark:text-white tracking-tight">
               Lumad Lingua
