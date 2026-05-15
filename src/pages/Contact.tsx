@@ -214,20 +214,19 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="bg-forest-900 dark:bg-forest-800 rounded-[20px] p-10 flex flex-col text-white relative overflow-hidden group transition-colors duration-500"
+            className="card-cream dark:bg-forest-900 dark:border-white/10 !p-10 flex flex-col group transition-colors duration-500"
           >
-            <div className="absolute top-[-20%] right-[-20%] w-40 h-40 bg-gold-500/10 rounded-full blur-3xl group-hover:bg-gold-500/20 transition-all" />
-            <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-8">
-              <BookOpen size={24} className="text-gold-500" />
+            <div className="w-14 h-14 bg-gold-100 dark:bg-white/10 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+              <BookOpen size={24} className="text-gold-700" />
             </div>
-            <h3 className="font-display text-2xl font-bold mb-6">Cultural Protocols</h3>
-            <p className="text-white/50 dark:text-white/40 text-sm font-medium leading-relaxed mb-10 flex-grow text-left">
+            <h3 className="font-display text-2xl font-bold mb-6 text-cream-text dark:text-white group-hover:text-gold-700 dark:group-hover:text-gold-500 transition-colors">Cultural Protocols</h3>
+            <p className="text-cream-text2 dark:text-white/60 text-sm font-medium leading-relaxed mb-10 flex-grow text-left">
               Learn about the sacred nature of the languages we preserve and the respectful ways to engage with the material.
             </p>
             <Link 
               to="/docs#cultural-handbook"
               onClick={scrollToTop}
-              className="btn-primary !bg-gold-500 !text-forest-900 !py-3 !text-xs w-fit flex items-center gap-2"
+              className="text-gold-700 dark:text-gold-500 font-extrabold text-[11px] uppercase tracking-[0.2em] hover:text-gold-800 dark:hover:text-white transition-colors text-left flex items-center gap-2"
             >
               Read Handbook <ExternalLink size={14} />
             </Link>
