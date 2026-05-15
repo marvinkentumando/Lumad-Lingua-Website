@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 import { motion, AnimatePresence } from "motion/react";
 import { Map } from "lucide-react";
+import { Toaster } from "sonner";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -38,6 +39,7 @@ export default function App() {
 
   return (
     <ThemeProvider>
+      <Toaster position="top-center" richColors closeButton />
       {/* Global Preloader */}
       <AnimatePresence>
         {isLoading && (

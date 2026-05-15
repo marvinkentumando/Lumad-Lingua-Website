@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Shield, FileText, Users, Heart, X, ChevronRight } from "lucide-react";
+import { Shield, FileText, Users, Heart, X, ChevronRight, Download } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { toast } from "sonner";
 
 interface LegalSection {
   id: string;
@@ -16,6 +17,19 @@ interface LegalSection {
 export default function Legal() {
   const location = useLocation();
   const [activeSection, setActiveSection] = useState<string>("privacy");
+
+  const handleDownload = () => {
+    toast.promise(
+      new Promise((resolve) => setTimeout(resolve, 1500)),
+      {
+        loading: 'Preparing PDF document...',
+        success: () => {
+          return `${activeData.title} downloaded successfully.`;
+        },
+        error: 'Failed to download PDF.',
+      }
+    );
+  };
 
   const sections: LegalSection[] = [
     {
@@ -175,7 +189,11 @@ export default function Legal() {
 
                 <div className="pt-12 mt-12 border-t border-cream-brd/20 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
                   <p className="text-xs font-bold text-cream-text3">Need clarification? Contact our legal steward team.</p>
-                  <button className="btn-secondary !py-3 !px-6 text-xs font-black uppercase tracking-widest bg-cream-bg dark:bg-white/5">
+                  <button 
+                    onClick={handleDownload}
+                    className="btn-secondary !py-3 !px-6 text-xs font-black uppercase tracking-widest bg-cream-bg dark:bg-white/5 flex items-center gap-2 group"
+                  >
+                    <Download size={14} className="group-hover:translate-y-0.5 transition-transform" />
                     Download PDF
                   </button>
                 </div>
