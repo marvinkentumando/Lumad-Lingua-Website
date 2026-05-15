@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { Landmark, Users, Shield, Flower2, Mountain, ArrowRight, Sparkles, Heart, Globe, Mic, Map, BookOpen, Gamepad2, History, CheckCircle, Award, Layout, ShieldCheck, PlayCircle } from "lucide-react";
+import { Landmark, Users, Shield, Flower2, Mountain, ArrowRight, Sparkles, Heart, Globe, Mic, Map, BookOpen, Gamepad2, History, CheckCircle, Award, Layout, ShieldCheck, PlayCircle, Compass } from "lucide-react";
 
 export default function Home() {
   return (
@@ -54,13 +54,13 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gold-600 dark:bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                 <span className="relative z-10 flex items-center gap-2">Join Waitlist</span>
               </Link>
-              <Link 
-                to="/about" 
-                className="px-8 lg:px-10 py-4 lg:py-5 rounded-full flex flex-row gap-3 items-center justify-center bg-cream-bg dark:bg-white/5 border-2 border-hero-heading dark:border-white/20 text-hero-heading dark:text-white font-bold text-base lg:text-lg hover:bg-forest-700 hover:text-white dark:hover:bg-white dark:hover:text-forest-900 transition-all text-center"
+              <button 
+                onClick={() => document.getElementById('live-statistics')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 lg:px-10 py-4 lg:py-5 rounded-full flex flex-row gap-3 items-center justify-center bg-cream-bg dark:bg-white/5 border-2 border-hero-heading dark:border-white/20 text-hero-heading dark:text-white font-bold text-base lg:text-lg hover:bg-forest-700 hover:text-white dark:hover:bg-white dark:hover:text-forest-900 transition-all text-center cursor-pointer"
               >
-                <PlayCircle size={24} />
-                Watch Demo
-              </Link>
+                <Compass size={24} />
+                Explore
+              </button>
             </div>
           </motion.div>
 
@@ -87,7 +87,7 @@ export default function Home() {
       
 
       {/* Community Progress Section - Bento Polish */}
-      <section className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900 transition-colors duration-500 relative overflow-hidden">
+      <section id="live-statistics" className="py-16 lg:py-24 px-4 sm:px-8 lg:px-12 bg-white dark:bg-forest-900 transition-colors duration-500 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
