@@ -1,30 +1,16 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore, doc, getDocFromCache, getDocFromServer } from 'firebase/firestore';
+import { initializeFirestore, doc, getDocFromServer } from 'firebase/firestore';
 import firebaseConfig from '../../firebase-applet-config.json';
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+
+// Initialize Firestore with long polling enabled to bypass potential WebSocket blocks
+export const db = initializeFirestore(app, {
+  experimentalAutoDetectLongPolling: true,
+}, firebaseConfig.firestoreDatabaseId);
+
 export const auth = getAuth();
-
-/**
- * Validates connection to Firestore on initialization
- */
-async function testConnection() {
-  try {
-    // Try to get a non-existent doc to test connectivity
-    await getDocFromServer(doc(db, 'system', 'connection_test'));
-    console.log("Firestore connected successfully");
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('the client is offline')) {
-      console.error("Firestore is offline. Please check your Firebase configuration or internet connection.");
-    } else {
-      console.warn("Firestore connection check produced an expected error (or doc doesn't exist), which confirms the path is reachable.");
-    }
-  }
-}
-
-testConnection();
 
 export enum OperationType {
   CREATE = 'create',

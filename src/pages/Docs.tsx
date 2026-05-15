@@ -112,13 +112,13 @@ export default function Docs() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div className="max-w-4xl mx-auto px-4 pb-24">
         
         {/* Main Content Area */}
-        <div className="lg:col-span-8 space-y-12">
+        <section className="space-y-12">
           
           {/* Featured Articles / Help Search Results */}
-          <section>
+          <div>
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-cream-brd/20 dark:border-white/5">
               <h2 className="font-display text-3xl font-bold text-cream-text dark:text-white">Help Guides</h2>
               <div className="text-[10px] font-extrabold text-cream-text3 dark:text-white/40 uppercase tracking-widest leading-loose text-right">
@@ -129,7 +129,7 @@ export default function Docs() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {articles.filter(a => a.title.toLowerCase().includes(searchQuery.toLowerCase())).map((article, i) => (
                 <motion.button
-                  key={article.id}
+                  key={`${article.id}-${i}`}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -149,90 +149,8 @@ export default function Docs() {
                 </motion.button>
               ))}
             </div>
-          </section>
-
-          {/* Recent Recordings - Existing Section */}
-          <section className="space-y-6">
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-cream-brd/20 dark:border-white/5">
-              <h2 className="font-display text-3xl font-bold text-cream-text dark:text-white">Audio Archive</h2>
-              <button className="text-[10px] font-black text-gold-700 dark:text-gold-500 uppercase tracking-widest hover:underline">Download Corpus (PDF)</button>
-            </div>
-
-            {recordings.map((rec, i) => (
-              <motion.div
-                key={rec.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group p-8 rounded-[32px] bg-white dark:bg-white/5 border border-cream-brd/20 dark:border-white/5 hover:bg-gold-50 dark:hover:bg-white/10 transition-all cursor-pointer relative overflow-hidden shadow-sm"
-              >
-                <div className="flex flex-col md:flex-row justify-between gap-8 text-left">
-                  <div className="flex gap-6">
-                    <div className="w-16 h-16 rounded-2xl bg-forest-500/10 flex items-center justify-center text-forest-700 shadow-inner group-hover:scale-110 transition-transform duration-300">
-                      <Mic size={28} />
-                    </div>
-                    <div>
-                      <h3 className="font-display text-2xl font-semibold mb-2 text-cream-text dark:text-white group-hover:text-gold-700 transition-colors">{rec.title}</h3>
-                      <div className="flex flex-wrap gap-4">
-                        <span className="px-3 py-1 rounded-lg bg-forest-500/10 text-forest-700 text-[10px] font-extrabold uppercase tracking-widest">{rec.lang}</span>
-                        <span className="text-xs font-bold text-cream-text2 flex items-center gap-1.5">
-                          <MapPin size={14} className="text-cream-text3" /> {rec.location}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <button className="bg-forest-900 text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-all self-center md:self-auto">
-                    <Play size={20} fill="currentColor" />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </section>
-
-        </div>
-
-        {/* Sidebar Info Panels */}
-        <div className="lg:col-span-4 space-y-8">
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="card-cream p-8 overflow-hidden relative group dark:bg-forest-900 dark:border-white/10"
-          >
-            <div className="absolute top-[-20%] right-[-20%] p-4 opacity-5 group-hover:opacity-100 transition-opacity duration-500 text-cream-text transform rotate-12">
-              <Map size={200} />
-            </div>
-            <h2 className="font-display text-2xl font-bold mb-4 text-cream-text dark:text-white">Cultural Map</h2>
-            <p className="text-cream-text2 dark:text-white/60 text-sm font-semibold mb-8 leading-relaxed text-left">
-              Visualize the distribution of ancestors across Mindanao with our ethnographic heatmap.
-            </p>
-            <button className="btn-primary w-full py-4 bg-forest-900 text-white shadow-[0_5px_0_#1a3a2a]">
-              Launch Map
-            </button>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="card-cream p-8 relative overflow-hidden dark:bg-forest-900 dark:border-white/10 transition-colors duration-500"
-          >
-            <div className="absolute top-[-20%] right-[-20%] w-40 h-40 bg-gold-500/5 rounded-full blur-3xl" />
-            <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6 border border-cream-brd/30 dark:border-white/10">
-              <Info size={24} className="text-gold-500" />
-            </div>
-            <h2 className="font-display text-2xl font-bold mb-4 text-cream-text dark:text-white">Verify Status</h2>
-            <p className="text-cream-text2 dark:text-white/60 text-sm font-semibold mb-8 leading-relaxed text-left">
-              Become a verified linguistic steward by completing our cultural baseline assessment.
-            </p>
-            <button className="btn-secondary w-full py-4 text-xs font-black uppercase tracking-widest">
-              Start Assessment
-            </button>
-          </motion.div>
-        </div>
-
+          </div>
+        </section>
       </div>
 
       {/* Article Detail Modal */}
@@ -279,9 +197,6 @@ export default function Docs() {
                 
                 <div className="mt-16 pt-8 border-t border-cream-brd/20 dark:border-white/10 flex items-center justify-between">
                   <span className="text-[10px] font-bold text-cream-text3 uppercase tracking-widest">Article ID: {selectedArticle.id}</span>
-                  <button className="flex items-center gap-2 text-gold-700 dark:text-gold-500 font-bold hover:underline group">
-                    Next Guide <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
                 </div>
               </div>
             </motion.div>

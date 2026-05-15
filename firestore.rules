@@ -11,6 +11,11 @@ service cloud.firestore {
     function incoming() { return request.resource.data; }
     function isSignedIn() { return request.auth != null; }
 
+    // --- Connectivity Test ---
+    match /system/connection_test {
+      allow read: if true; // Publicly readable for heartbeat test
+    }
+
     // --- Waitlist Rules ---
     match /waitlist/{entryId} {
       allow create: if (

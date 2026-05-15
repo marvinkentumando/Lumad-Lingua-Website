@@ -186,8 +186,8 @@ export default function Contact() {
               </div>
               <h3 className="font-display text-2xl font-bold mb-6 text-cream-text dark:text-white group-hover:text-gold-700 dark:group-hover:text-gold-500 transition-colors">{cat.title}</h3>
               <ul className="space-y-4 mb-10 flex-grow text-left">
-                {cat.links.map(link => (
-                  <li key={link.id}>
+                {cat.links.map((link, j) => (
+                  <li key={`${cat.title}-${link.id}-${j}`}>
                     <Link 
                       to={`/docs#${link.id}`}
                       onClick={scrollToTop}
