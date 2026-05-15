@@ -2,17 +2,78 @@ import { motion, AnimatePresence } from "motion/react";
 import { Handshake, Flower2, Users, Heart, Shield, Mountain, Download, Map as MapIcon, X, Globe, Microscope, BookOpen } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { jsPDF } from "jspdf";
 
 export default function About() {
   const [showMap, setShowMap] = useState(false);
 
   const handleDownloadResearch = () => {
     toast.promise(
-      new Promise((resolve) => setTimeout(resolve, 2000)),
+      async () => {
+        const doc = new jsPDF();
+        const margin = 20;
+        let cursorY = 20;
+
+        // Cover Page
+        doc.setFontSize(28);
+        doc.setTextColor(26, 58, 42); // Forest 900
+        doc.text("Lumad Lingua", margin, cursorY + 40);
+        
+        doc.setFontSize(18);
+        doc.setTextColor(184, 134, 11); // Gold
+        doc.text("Linguistic Research Corpus & Ethnographic Study", margin, cursorY + 55);
+
+        doc.setFontSize(12);
+        doc.setTextColor(100);
+        doc.text("A BSIT Capstone Research Paper @ DNSC", margin, cursorY + 70);
+
+        doc.setDrawColor(26, 58, 42);
+        doc.setLineWidth(0.5);
+        doc.line(margin, cursorY + 80, 190, cursorY + 80);
+
+        // Abstract
+        cursorY = 110;
+        doc.setFontSize(14);
+        doc.setTextColor(0);
+        doc.text("Research Abstract", margin, cursorY);
+        cursorY += 10;
+
+        doc.setFontSize(10);
+        doc.setTextColor(60);
+        const abstract = "This research explores the intersection of computational linguistics and indigenous heritage preservation within the Mindanao archipelago. By leveraging geo-tagged audio documentation and recursive community verification, Lumad Lingua establishes a digital sanctuary for endangered dialects, ensuring that linguistic nuances are captured with ethnographic precision.";
+        const abstractLines = doc.splitTextToSize(abstract, 170);
+        doc.text(abstractLines, margin, cursorY);
+        cursorY += (abstractLines.length * 6) + 20;
+
+        // Team
+        doc.setFontSize(14);
+        doc.setTextColor(0);
+        doc.text("Lead Research Team", margin, cursorY);
+        cursorY += 10;
+
+        doc.setFontSize(10);
+        doc.text("• Giverola (Chief Operating Officer)", margin, cursorY);
+        cursorY += 6;
+        doc.text("• Laureto (Chief Technology Officer)", margin, cursorY);
+        cursorY += 6;
+        doc.text("• Tumando (Chief Marketing Officer)", margin, cursorY);
+        cursorY += 6;
+
+        // Footer on all pages
+        const pageCount = doc.getNumberOfPages();
+        for(let i = 1; i <= pageCount; i++) {
+          doc.setPage(i);
+          doc.setFontSize(8);
+          doc.setTextColor(200);
+          doc.text("Lumad Lingua Research Foundation v1.0", margin, 285);
+        }
+
+        doc.save("LumadLingua_Research_Corpus.pdf");
+      },
       {
         loading: 'Generating Research Corpus PDF...',
         success: 'Capstone Research PDF downloaded successfully.',
-        error: 'Failed to download PDF.',
+        error: 'Failed to generate PDF.',
       }
     );
   };

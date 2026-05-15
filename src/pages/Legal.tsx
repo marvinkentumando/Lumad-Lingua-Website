@@ -3,6 +3,7 @@ import { Shield, FileText, Users, Heart, X, ChevronRight, Download } from "lucid
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { toast } from "sonner";
+import { jsPDF } from "jspdf";
 
 interface LegalSection {
   id: string;
@@ -20,13 +21,67 @@ export default function Legal() {
 
   const handleDownload = () => {
     toast.promise(
-      new Promise((resolve) => setTimeout(resolve, 1500)),
+      async () => {
+        const doc = new jsPDF();
+        const margin = 20;
+        let cursorY = 20;
+
+        // Title
+        doc.setFontSize(22);
+        doc.setTextColor(26, 58, 42); // Forest 900
+        doc.text("Lumad Lingua", margin, cursorY);
+        cursorY += 10;
+
+        doc.setFontSize(10);
+        doc.setTextColor(150);
+        doc.text("Cultural Governance Framework", margin, cursorY);
+        cursorY += 15;
+
+        // Section Title
+        doc.setFontSize(18);
+        doc.setTextColor(0);
+        doc.text(activeData.title, margin, cursorY);
+        cursorY += 10;
+
+        doc.setFontSize(8);
+        doc.setTextColor(184, 134, 11); // Gold
+        doc.text("Last Updated: May 2026", margin, cursorY);
+        cursorY += 15;
+
+        // Content
+        activeData.content.forEach((item) => {
+          doc.setFontSize(14);
+          doc.setTextColor(26, 58, 42);
+          doc.text(item.subtitle, margin, cursorY);
+          cursorY += 8;
+
+          doc.setFontSize(11);
+          doc.setTextColor(60);
+          
+          item.paragraphs.forEach((p) => {
+            const lines = doc.splitTextToSize(p, 170);
+            doc.text(lines, margin, cursorY);
+            cursorY += (lines.length * 6) + 6;
+
+            if (cursorY > 270) {
+              doc.addPage();
+              cursorY = 20;
+            }
+          });
+          cursorY += 4;
+        });
+
+        // Footer
+        doc.setFontSize(8);
+        doc.setTextColor(200);
+        doc.text("© 2026 Lumad Lingua - Preserving Mindanao's Heritage", margin, 285);
+
+        doc.save(`LumadLingua_${activeData.id}.pdf`);
+      },
       {
-        loading: 'Preparing PDF document...',
-        success: () => {
-          return `${activeData.title} downloaded successfully.`;
-        },
-        error: 'Failed to download PDF.',
+        loading: 'Generating cultural legal document...',
+        success: `${activeData.title} downloaded successfully.`,
+        error: 'Failed to generate PDF.',
       }
     );
   };
