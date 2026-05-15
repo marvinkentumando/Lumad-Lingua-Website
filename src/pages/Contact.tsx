@@ -1,43 +1,104 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Search, Rocket, GraduationCap, HeartHandshake, ShieldCheck, Wrench, BookOpen, HelpCircle, Mail, ExternalLink, Phone, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { Search, Rocket, GraduationCap, HeartHandshake, ShieldCheck, Wrench, BookOpen, HelpCircle, Mail, ExternalLink, Phone, ChevronDown, Loader2, CheckCircle2 } from "lucide-react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 
 export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const messagesCollection = 'contactMessages';
+      await addDoc(collection(db, messagesCollection), {
+        ...formData,
+        createdAt: serverTimestamp()
+      });
+      setSubmitted(true);
+      setFormData({ fullName: '', email: '', message: '' });
+    } catch (error) {
+      handleFirestoreError(error, OperationType.CREATE, 'contactMessages');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   const categories = [
     {
       title: "Getting Started",
       icon: <Rocket size={24} className="text-gold-700" />,
       iconBg: "bg-gold-100",
-      links: ["How do I record a word?", "Setting up your cultural profile", "Understanding the Ascent levels"],
+      links: [
+        { text: "How do I record a word?", id: "how-do-i-record-a-word" },
+        { text: "Setting up your cultural profile", id: "understanding-the-ascent" },
+        { text: "Understanding the Ascent levels", id: "understanding-the-ascent" }
+      ],
       count: 12
     },
     {
       title: "For Learners",
       icon: <GraduationCap size={24} className="text-forest-500" />,
       iconBg: "bg-forest-50",
-      links: ["How to use the IPA field notes", "Practicing offline mode", "Earning community badges"],
+      links: [
+        { text: "How to use the IPA field notes", id: "how-do-i-record-a-word" },
+        { text: "Practicing offline mode", id: "how-do-i-record-a-word" },
+        { text: "Earning community badges", id: "understanding-the-ascent" }
+      ],
       count: 8
     },
     {
       title: "For Contributors",
       icon: <HeartHandshake size={24} className="text-brand-red" />,
       iconBg: "bg-brand-red/10",
-      links: ["Who validates my submissions?", "Recording environmental guidelines", "Language preservation ethics"],
+      links: [
+        { text: "Who validates my submissions?", id: "who-validates-my-submissions" },
+        { text: "Recording environmental guidelines", id: "how-do-i-record-a-word" },
+        { text: "Language preservation ethics", id: "cultural-handbook" }
+      ],
       count: 15
     },
     {
       title: "Validation Protocol",
       icon: <ShieldCheck size={24} className="text-brand-blue" />,
       iconBg: "bg-brand-blue/10",
-      links: ["The 3-tier verification process", "Elder council oversight", "Reporting inaccuracy"],
+      links: [
+        { text: "The 3-tier verification process", id: "who-validates-my-submissions" },
+        { text: "Elder council oversight", id: "who-validates-my-submissions" },
+        { text: "Reporting inaccuracy", id: "who-validates-my-submissions" }
+      ],
       count: 6
     },
     {
       title: "Technical Support",
       icon: <Wrench size={24} className="text-gold-700" />,
       iconBg: "bg-gold-100",
-      links: ["Mic permissions troubleshoot", "Exporting your learning data", "Account recovery steps"],
+      links: [
+        { text: "Mic permissions troubleshoot", id: "how-do-i-record-a-word" },
+        { text: "Exporting your learning data", id: "how-do-i-record-a-word" },
+        { text: "Account recovery steps", id: "how-do-i-record-a-word" }
+      ],
       count: 21
     }
   ];
@@ -126,16 +187,24 @@ export default function Contact() {
               <h3 className="font-display text-2xl font-bold mb-6 text-cream-text dark:text-white group-hover:text-gold-700 dark:group-hover:text-gold-500 transition-colors">{cat.title}</h3>
               <ul className="space-y-4 mb-10 flex-grow text-left">
                 {cat.links.map(link => (
-                  <li key={link}>
-                    <button className="text-cream-text2 dark:text-white/60 hover:text-gold-700 dark:hover:text-gold-500 font-semibold text-sm transition-colors text-left">
-                      {link}
-                    </button>
+                  <li key={link.id}>
+                    <Link 
+                      to={`/docs#${link.id}`}
+                      onClick={scrollToTop}
+                      className="text-cream-text2 dark:text-white/60 hover:text-gold-700 dark:hover:text-gold-500 font-semibold text-sm transition-colors text-left"
+                    >
+                      {link.text}
+                    </Link>
                   </li>
                 ))}
               </ul>
-              <button className="text-gold-700 dark:text-gold-500 font-extrabold text-[11px] uppercase tracking-[0.2em] hover:text-gold-800 dark:hover:text-white transition-colors text-left">
+              <Link 
+                to="/docs"
+                onClick={scrollToTop}
+                className="text-gold-700 dark:text-gold-500 font-extrabold text-[11px] uppercase tracking-[0.2em] hover:text-gold-800 dark:hover:text-white transition-colors text-left"
+              >
                 View All {cat.count} Articles
-              </button>
+              </Link>
             </motion.div>
           ))}
 
@@ -155,9 +224,13 @@ export default function Contact() {
             <p className="text-white/50 dark:text-white/40 text-sm font-medium leading-relaxed mb-10 flex-grow text-left">
               Learn about the sacred nature of the languages we preserve and the respectful ways to engage with the material.
             </p>
-            <button className="btn-primary !bg-gold-500 !text-cream-text !py-3 !text-xs w-fit">
-              Read Handbook <ExternalLink size={14} className="ml-1" />
-            </button>
+            <Link 
+              to="/docs#cultural-handbook"
+              onClick={scrollToTop}
+              className="btn-primary !bg-gold-500 !text-forest-900 !py-3 !text-xs w-fit flex items-center gap-2"
+            >
+              Read Handbook <ExternalLink size={14} />
+            </Link>
           </motion.div>
         </motion.div>
       </section>
@@ -237,26 +310,81 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="card-cream dark:bg-forest-900 dark:border-white/10 p-8 md:p-12 shadow-xl"
           >
-            <form className="space-y-6 text-left" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Full Name</label>
-                  <input type="text" placeholder="Juan Dela Cruz" className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white" />
+            {submitted ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-12"
+              >
+                <div className="w-16 h-16 bg-gold-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle2 size={32} className="text-gold-600 dark:text-gold-500" />
+                </div>
+                <h3 className="font-display text-2xl font-bold mb-4 text-forest-900 dark:text-white">Message Sent!</h3>
+                <p className="text-cream-text2 dark:text-white/60 font-medium mb-8">
+                  Thank you for reaching out. A steward from our team will connect with you soon.
+                </p>
+                <button 
+                  onClick={() => setSubmitted(false)}
+                  className="text-gold-700 dark:text-gold-500 font-bold text-sm uppercase tracking-widest hover:underline"
+                >
+                  Send another message
+                </button>
+              </motion.div>
+            ) : (
+              <form className="space-y-6 text-left" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Full Name</label>
+                    <input 
+                      required
+                      type="text" 
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      placeholder="Juan Dela Cruz" 
+                      className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Email Address</label>
+                    <input 
+                      required
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="juan@example.com" 
+                      className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white" 
+                    />
+                  </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Email Address</label>
-                  <input type="email" placeholder="juan@example.com" className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white" />
+                  <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Message</label>
+                  <textarea 
+                    required
+                    rows={4} 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can we help you?" 
+                    className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white resize-none"
+                  ></textarea>
                 </div>
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Message</label>
-                <textarea rows={4} placeholder="How can we help you?" className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-forest-800 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white resize-none"></textarea>
-              </div>
-              <button className="group relative w-full px-10 sm:px-12 py-5 sm:py-7 rounded-full bg-forest-900 dark:bg-gold-500 text-white dark:text-forest-900 font-bold text-base sm:text-lg overflow-hidden transition-all shadow-2xl shadow-forest-900/20 active:scale-95">
-                <div className="absolute inset-0 bg-gold-600 dark:bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
-                <span className="relative z-10 flex items-center justify-center gap-3">Send Message <Mail size={20} /></span>
-              </button>
-            </form>
+                <button 
+                  disabled={loading}
+                  className="group relative w-full px-10 sm:px-12 py-5 sm:py-7 rounded-full bg-forest-900 dark:bg-gold-500 text-white dark:text-forest-900 font-bold text-base sm:text-lg overflow-hidden transition-all shadow-2xl shadow-forest-900/20 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  <div className="absolute inset-0 bg-gold-600 dark:bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                  <span className="relative z-10 flex items-center justify-center gap-3">
+                    {loading ? (
+                      <>Sending... <Loader2 size={20} className="animate-spin" /></>
+                    ) : (
+                      <>Send Message <Mail size={20} /></>
+                    )}
+                  </span>
+                </button>
+              </form>
+            )}
           </motion.div>
 
           <motion.div

@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "WaitlistEntry": {
+      "title": "Waitlist Entry",
+      "description": "User information for platform waitlist",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string", "description": "Full name of the user" },
+        "email": { "type": "string", "description": "Email address of the user", "format": "email" },
+        "interest": { "type": "string", "description": "Category of interest chosen by the user" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Submission timestamp" }
+      },
+      "required": ["fullName", "email", "interest", "createdAt"]
+    },
+    "ContactMessage": {
+      "title": "Contact Message",
+      "description": "Messages sent from the contact form",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string", "description": "Name of the sender" },
+        "email": { "type": "string", "description": "Email of the sender", "format": "email" },
+        "message": { "type": "string", "description": "Message content" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Submission timestamp" }
+      },
+      "required": ["fullName", "email", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/waitlist/{entryId}": {
+      "schema": "WaitlistEntry",
+      "description": "Collection of waitlist registrations"
+    },
+    "/contactMessages/{messageId}": {
+      "schema": "ContactMessage",
+      "description": "Collection of messages from the contact form"
+    }
+  }
+}

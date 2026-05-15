@@ -1,13 +1,41 @@
 import { motion } from "motion/react";
-import { useState, FormEvent } from "react";
-import { Mail, User, Send, CheckCircle2 } from "lucide-react";
+import React, { useState, FormEvent } from "react";
+import { Mail, User, Send, CheckCircle2, Loader2 } from "lucide-react";
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 
 export default function Waitlist() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    interest: 'Language Learner'
+  });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      const waitlistCollection = 'waitlist';
+      await addDoc(collection(db, waitlistCollection), {
+        ...formData,
+        createdAt: serverTimestamp()
+      });
+      setSubmitted(true);
+    } catch (error) {
+      handleFirestoreError(error, OperationType.CREATE, 'waitlist');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
   };
 
   if (submitted) {
@@ -76,6 +104,9 @@ export default function Waitlist() {
                     <input 
                       required
                       type="text" 
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleChange}
                       placeholder="Juan Dela Cruz" 
                       className="w-full pl-14 pr-6 py-5 rounded-2xl bg-white dark:bg-forest-900 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white transition-all" 
                     />
@@ -89,6 +120,9 @@ export default function Waitlist() {
                     <input 
                       required
                       type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="juan@example.com" 
                       className="w-full pl-14 pr-6 py-5 rounded-2xl bg-white dark:bg-forest-900 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white transition-all" 
                     />
@@ -98,6 +132,9 @@ export default function Waitlist() {
                 <div className="space-y-3">
                   <label className="text-[10px] font-extrabold uppercase tracking-widest text-cream-text3 ml-4 dark:text-gold-500">Your Interest</label>
                   <select 
+                    name="interest"
+                    value={formData.interest}
+                    onChange={handleChange}
                     className="w-full px-6 py-5 rounded-2xl bg-white dark:bg-forest-900 border border-cream-brd/50 dark:border-white/10 focus:ring-2 focus:ring-gold-500 outline-none text-cream-text dark:text-white transition-all appearance-none"
                   >
                     <option>Language Learner</option>
@@ -109,10 +146,17 @@ export default function Waitlist() {
 
                 <button 
                   type="submit"
-                  className="group relative w-full h-20 rounded-full bg-forest-900 dark:bg-gold-500 text-white dark:text-forest-900 font-bold text-lg overflow-hidden transition-all shadow-2xl shadow-forest-900/20 active:scale-95"
+                  disabled={loading}
+                  className="group relative w-full h-20 rounded-full bg-forest-900 dark:bg-gold-500 text-white dark:text-forest-900 font-bold text-lg overflow-hidden transition-all shadow-2xl shadow-forest-900/20 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   <div className="absolute inset-0 bg-gold-600 dark:bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
-                  <span className="relative z-10 flex items-center justify-center gap-3">Join Waitlist <Send size={20} /></span>
+                  <span className="relative z-10 flex items-center justify-center gap-3">
+                    {loading ? (
+                      <>Processing... <Loader2 size={20} className="animate-spin" /></>
+                    ) : (
+                      <>Join Waitlist <Send size={20} /></>
+                    )}
+                  </span>
                 </button>
                 
                 <p className="text-[10px] text-center font-bold text-cream-text3 dark:text-white/30 tracking-widest uppercase px-8">
